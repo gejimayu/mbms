@@ -6,7 +6,10 @@
 	"scripts": {
 		"start": "nodemon --exec babel-node src/server.js",
 		"build": "babel src --out-dir dist",
-		"serve": "node dist/server.js"
+		"serve": "node dist/server.js",
+    "lint": "eslint ./src --ext .js",
+    "fix-lint": "eslint ./src --ext .js --fix"
+
 	},
 	"author": [
 		{
@@ -40,6 +43,8 @@
 		"@babel/core": "^7.4.3",
 		"@babel/node": "^7.2.2",
 		"@babel/preset-env": "^7.4.3",
+		"eslint": "^5.16.0",
+		"eslint-config-google": "^0.12.0",
 		"express-winston": "^3.1.0",
 		"winston": "^3.2.1"
 	},
@@ -47,5 +52,48 @@
 		"presets": [
 			"@babel/preset-env"
 		]
-	}
+	},
+	"eslintConfig": {
+    "env": {
+      "node": true,
+      "es6": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "google"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "rules": {
+      "camelcase": [
+        0,
+        {
+          "properties": "never"
+        }
+      ],
+      "max-len": [
+        2,
+        130,
+        2
+      ],
+      "no-console": 0,
+      "object-curly-spacing": [
+        2,
+        "always"
+      ],
+      "new-cap": [
+        2,
+        {
+          "capIsNewExceptions": [
+            "ARRAY"
+          ]
+        }
+      ],
+      "no-tabs": 0,
+      "indent": ["error", 2],
+      "arrow-parens": 0
+    }
+  }
 }
