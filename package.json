@@ -9,7 +9,6 @@
 		"serve": "node dist/server.js",
     "lint": "eslint ./src --ext .js",
     "fix-lint": "eslint ./src --ext .js --fix"
-
 	},
 	"author": [
 		{
