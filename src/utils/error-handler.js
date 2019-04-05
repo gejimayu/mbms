@@ -42,6 +42,11 @@ export default (err, req, res, next) => {
       status: 'error',
       message: errorCode.MethodChunkAlreadyExists,
     });
+  } else if (err.name === errorCode.NotAuthorized) {
+    res.status(401).send({
+      status: 'error',
+      message: errorCode.NotAuthorized,
+    });
   }
   logger.error(err.stack);
   res.status(500).send({

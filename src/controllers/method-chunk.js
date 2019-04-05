@@ -56,3 +56,21 @@ exports.getAll = async (req, res, next) => {
     next(err);
   }
 };
+
+exports.delete = async (req, res, next) => {
+  try {
+    const { name_id } = req.params;
+    const { username } = req.user;
+    const methodChunk = await MethodChunk.findOne({ nameId: name_id });
+    if (!methodChunk) throw new Error(errorCode.MethodChunkNotFound);
+    if (username !== methodChunk['creator']) {
+      throw new Error(errorCode.NotAuthorized);
+    }
+    await MethodChunk.deleteOne({ nameId: name_id });
+    res.json({
+      status: 'success',
+    });
+  } catch (err) {
+    next(err);
+  }
+};

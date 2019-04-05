@@ -7,4 +7,5 @@ export const errorCode = {
   InvalidMethodChunk: 'Method Chunk is invalid',
   MethodChunkNotFound: 'Method Chunk with provided ID is not found',
   MethodChunkAlreadyExists: 'Method Chunk already exists',
+  NotAuthorized: 'Not authorized to complete action',
 };
