@@ -1,5 +1,5 @@
-import { errorCode } from '../../constants';
-import logger from '../logger';
+import { errorCode } from '../constants';
+import logger from './logger';
 
 export default (err, req, res, next) => {
   if (err.name === errorCode.UnauthorizedError) {

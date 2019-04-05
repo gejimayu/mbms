@@ -1,98 +1,102 @@
 {
-	"name": "api",
-	"version": "1.0.0",
-	"description": "https://getstream.io/",
-	"main": "src/server.js",
-	"scripts": {
-		"start": "nodemon --exec babel-node src/server.js",
-		"build": "babel src --out-dir dist",
-		"serve": "node dist/server.js",
-    "lint": "eslint ./src --ext .js",
-    "fix-lint": "eslint ./src --ext .js --fix"
-	},
-	"author": [
-		{
-			"name": "Nick Parsons",
-			"email": "nick@getstream.io"
+		"name": "api",
+		"version": "1.0.0",
+		"description": "https://getstream.io/",
+		"main": "src/server.js",
+		"scripts": {
+				"start": "nodemon --exec babel-node src/server.js",
+				"build": "babel src --out-dir dist",
+				"serve": "node dist/server.js",
+				"lint": "eslint ./src --ext .js",
+				"fix-lint": "eslint ./src --ext .js --fix"
+		},
+		"author": [
+				{
+					"name": "Nick Parsons",
+					"email": "nick@getstream.io"
+				}
+		],
+		"license": "BSD-3-Clause",
+		"keywords": [
+				"API",
+				"Express",
+				"REST",
+				"Mongoose",
+				"MongoDB"
+		],
+		"dependencies": {
+				"@hapi/joi": "^15.0.0",
+				"body-parser": "^1.18.3",
+				"compression": "^1.7.4",
+				"cors": "^2.8.5",
+				"dotenv": "^7.0.0",
+				"express": "^4.16.4",
+				"express-jwt": "^5.3.1",
+				"jsonwebtoken": "^8.5.1",
+				"mongoose": "^5.4.21",
+				"mongoose-bcrypt": "^1.6.0",
+				"mongoose-timestamp": "^0.6.0",
+				"validator": "^10.11.0"
+		},
+		"devDependencies": {
+				"@babel/cli": "^7.4.3",
+				"@babel/core": "^7.4.3",
+				"@babel/node": "^7.2.2",
+				"@babel/preset-env": "^7.4.3",
+				"eslint": "^5.16.0",
+				"eslint-config-google": "^0.12.0",
+				"express-winston": "^3.1.0",
+				"winston": "^3.2.1"
+		},
+		"babel": {
+				"presets": [
+						"@babel/preset-env"
+				]
+		},
+		"eslintConfig": {
+				"env": {
+						"node": true,
+						"es6": true
+				},
+				"extends": [
+						"eslint:recommended",
+						"google"
+				],
+				"parserOptions": {
+						"ecmaVersion": 2018,
+						"sourceType": "module"
+				},
+				"rules": {
+						"camelcase": [
+								0,
+								{
+										"properties": "never"
+								}
+						],
+						"max-len": [
+								2,
+								130,
+								2
+						],
+						"no-console": 0,
+						"object-curly-spacing": [
+								2,
+								"always"
+						],
+						"new-cap": [
+								2,
+								{
+										"capIsNewExceptions": [
+												"ARRAY"
+										]
+								}
+						],
+						"no-tabs": 0,
+						"indent": [
+								"error",
+								2
+						],
+						"arrow-parens": 0
+				}
 		}
-	],
-	"license": "BSD-3-Clause",
-	"keywords": [
-		"API",
-		"Express",
-		"REST",
-		"Mongoose",
-		"MongoDB"
-	],
-	"dependencies": {
-		"body-parser": "^1.18.3",
-		"compression": "^1.7.4",
-		"cors": "^2.8.5",
-		"dotenv": "^7.0.0",
-		"express": "^4.16.4",
-		"express-jwt": "^5.3.1",
-		"jsonwebtoken": "^8.5.1",
-		"mongoose": "^5.4.21",
-		"mongoose-bcrypt": "^1.6.0",
-		"mongoose-timestamp": "^0.6.0",
-		"validator": "^10.11.0"
-	},
-	"devDependencies": {
-		"@babel/cli": "^7.4.3",
-		"@babel/core": "^7.4.3",
-		"@babel/node": "^7.2.2",
-		"@babel/preset-env": "^7.4.3",
-		"eslint": "^5.16.0",
-		"eslint-config-google": "^0.12.0",
-		"express-winston": "^3.1.0",
-		"winston": "^3.2.1"
-	},
-	"babel": {
-		"presets": [
-			"@babel/preset-env"
-		]
-	},
-	"eslintConfig": {
-    "env": {
-      "node": true,
-      "es6": true
-    },
-    "extends": [
-      "eslint:recommended",
-      "google"
-    ],
-    "parserOptions": {
-      "ecmaVersion": 2018,
-      "sourceType": "module"
-    },
-    "rules": {
-      "camelcase": [
-        0,
-        {
-          "properties": "never"
-        }
-      ],
-      "max-len": [
-        2,
-        130,
-        2
-      ],
-      "no-console": 0,
-      "object-curly-spacing": [
-        2,
-        "always"
-      ],
-      "new-cap": [
-        2,
-        {
-          "capIsNewExceptions": [
-            "ARRAY"
-          ]
-        }
-      ],
-      "no-tabs": 0,
-      "indent": ["error", 2],
-      "arrow-parens": 0
-    }
-  }
 }

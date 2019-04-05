@@ -25,7 +25,7 @@ exports.login = async (req, res, next) => {
       const token = jwt.sign(
         { username: data.username },
         config.jwt.secret,
-        { expiresIn: 60 * 2 },
+        { expiresIn: '7d' },
       );
       res.json({
         status: 'success',
@@ -61,7 +61,7 @@ exports.register = async (req, res, next) => {
         const token = jwt.sign(
           { username: data.username },
           config.jwt.secret,
-          { expiresIn: 60 * 2 },
+          { expiresIn: '7d' },
         );
         res.json({
           status: 'success',
