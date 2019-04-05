@@ -1,101 +1,78 @@
-import async from 'async';
 import validator from 'validator';
+import jwt from 'jsonwebtoken';
 
+import config from '../config';
 import User from '../models/user';
-import Follow from '../models/follow';
-
 import logger from '../utils/logger';
+import { errorCode } from '../constants';
 
-exports.list = (req, res) => {
-	const params = req.params || {};
-	const query = req.query || {};
+exports.login = async (req, res, next) => {
+  try {
+    const data = req.body || {};
 
-	const page = parseInt(query.page, 10) || 0;
-	const perPage = parseInt(query.per_page, 10) || 10;
+    if (!data.username || !data.password) {
+      throw new Error(errorCode.MustHaveUsernamePassword);
+    }
 
-	User.apiQuery(req.query)
-		.select('name email username bio url twitter background')
-		.then(users => {
-			res.json(users);
-		})
-		.catch(err => {
-			logger.error(err);
-			res.status(422).send(err.errors);
-		});
+    const user = await User.findOne({ username: data.username });
+    if (!user) {
+      throw new Error(errorCode.WrongUsernamePassword);
+    }
+
+    const valid = await user.verifyPassword(data.password);
+
+    if (valid) {
+      const token = jwt.sign(
+        { username: data.username },
+        config.jwt.secret,
+        { expiresIn: 60 * 2 },
+      );
+      res.json({
+        status: 'success',
+        data: { token },
+      });
+    } else {
+      throw new Error(errorCode.WrongUsernamePassword);
+    }
+  } catch (err) {
+    next(err);
+  }
 };
 
-exports.get = (req, res) => {
-	User.findById(req.params.userId)
-		.then(user => {
-			user.password = undefined;
-			user.recoveryCode = undefined;
+exports.register = async (req, res, next) => {
+  try {
+    const data = req.body || {};
 
-			res.json(user);
-		})
-		.catch(err => {
-			logger.error(err);
-			res.status(422).send(err.errors);
-		});
-};
+    if (!data.username || !data.password) {
+      throw new Error(errorCode.MustHaveUsernamePassword);
+    }
 
-exports.put = (req, res) => {
-	const data = req.body || {};
+    if (data.password && !validator.isAlphanumeric(data.username)) {
+      throw new Error(errorCode.UsernameNotAlphanumeric);
+    }
 
-	if (data.email && !validator.isEmail(data.email)) {
-		return res.status(422).send('Invalid email address.');
-	}
+    const user = await User.findOne({ username: data.username });
+    if (user) {
+      throw new Error(errorCode.AlreadyRegistered);
+    }
 
-	if (data.username && !validator.isAlphanumeric(data.username)) {
-		return res.status(422).send('Usernames must be alphanumeric.');
-	}
-
-	User.findByIdAndUpdate({ _id: req.params.userId }, data, { new: true })
-		.then(user => {
-			if (!user) {
-				return res.sendStatus(404);
-			}
-
-			user.password = undefined;
-			user.recoveryCode = undefined;
-
-			res.json(user);
-		})
-		.catch(err => {
-			logger.error(err);
-			res.status(422).send(err.errors);
-		});
-};
-
-exports.post = (req, res) => {
-	const data = Object.assign({}, req.body, { user: req.user.sub }) || {};
-
-	User.create(data)
-		.then(user => {
-			res.json(user);
-		})
-		.catch(err => {
-			logger.error(err);
-			res.status(500).send(err);
-		});
-};
-
-exports.delete = (req, res) => {
-	User.findByIdAndUpdate(
-		{ _id: req.params.user },
-		{ active: false },
-		{
-			new: true
-		}
-	)
-		.then(user => {
-			if (!user) {
-				return res.sendStatus(404);
-			}
-
-			res.sendStatus(204);
-		})
-		.catch(err => {
-			logger.error(err);
-			res.status(422).send(err.errors);
-		});
+    User.create(data)
+      .then(user => {
+        const token = jwt.sign(
+          { username: data.username },
+          config.jwt.secret,
+          { expiresIn: 60 * 2 },
+        );
+        res.json({
+          status: 'success',
+          data: { token },
+        });
+      })
+      .catch(err => {
+        logger.error(err);
+        throw err;
+      });
+  } catch (err) {
+    next(err);
+  }
 };
