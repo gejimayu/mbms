@@ -27,6 +27,11 @@ export default (err, req, res, next) => {
       status: 'error',
       message: errorCode.AlreadyRegistered,
     });
+  } else if (err.name === errorCode.InvalidMethodChunk) {
+    res.status(400).send({
+      status: 'error',
+      message: errorCode.InvalidMethodChunk,
+    });
   }
   logger.error(err.stack);
   res.status(500).send({
