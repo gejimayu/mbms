@@ -5,5 +5,5 @@ export const errorCode = {
   WrongUsernamePassword: 'Wrong Username or Password',
   AlreadyRegistered: 'Username is already used',
   InvalidMethodChunk: 'Method Chunk is invalid',
-  MethodChunkNotFound: 'Method Chunk with provided ID is not found'
+  MethodChunkNotFound: 'Method Chunk with provided ID is not found',
 };

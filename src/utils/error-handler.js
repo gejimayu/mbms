@@ -32,6 +32,11 @@ export default (err, req, res, next) => {
       status: 'error',
       message: errorCode.InvalidMethodChunk,
     });
+  } else if (err.name === errorCode.MethodChunkNotFound) {
+    res.status(404).send({
+      status: 'error',
+      message: errorCode.MethodChunkNotFound,
+    });
   }
   logger.error(err.stack);
   res.status(500).send({

@@ -21,3 +21,16 @@ exports.insert = async (req, res, next) => {
   }
 };
 
+exports.getOne = async (req, res, next) => {
+  try {
+    const { name_id } = req.params;
+    const methodChunk = await MethodChunk.findOne({ nameId: name_id });
+    if (!methodChunk) throw new Error(errorCode.MethodChunkNotFound);
+    res.json({
+      status: 'success',
+      data: methodChunk,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
