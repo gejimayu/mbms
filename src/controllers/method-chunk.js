@@ -74,3 +74,27 @@ exports.delete = async (req, res, next) => {
     next(err);
   }
 };
+
+exports.edit = async (req, res, next) => {
+  try {
+    const { name_id } = req.params;
+    const { username } = req.user;
+    const data = req.body || {};
+
+    const methodChunk = await MethodChunk.findOne({ nameId: name_id });
+    if (!methodChunk) throw new Error(errorCode.MethodChunkNotFound);
+
+    if (username !== methodChunk['creator']) {
+      throw new Error(errorCode.NotAuthorized);
+    }
+
+    if (!isMethodChunkValid(data)) throw new Error(errorCode.InvalidMethodChunk);
+
+    await MethodChunk.updateOne({ nameId: name_id }, data);
+    res.json({
+      status: 'success',
+    });
+  } catch (err) {
+    next(err);
+  }
+};
