@@ -34,3 +34,23 @@ exports.getOne = async (req, res, next) => {
     next(err);
   }
 };
+
+exports.getAll = async (req, res, next) => {
+  try {
+    const methodChunk = await MethodChunk.find();
+    const methodChunkHeader = [];
+    methodChunk.forEach((m) => {
+      methodChunkHeader.push({
+        'nameId': m['nameId'],
+        'name': m['name'],
+        'description': m['description'],
+      });
+    });
+    res.json({
+      status: 'success',
+      data: methodChunkHeader,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
