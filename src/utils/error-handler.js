@@ -37,6 +37,11 @@ export default (err, req, res, next) => {
       status: 'error',
       message: errorCode.MethodChunkNotFound,
     });
+  } else if (err.name === errorCode.MethodChunkAlreadyExists) {
+    res.status(400).send({
+      status: 'error',
+      message: errorCode.MethodChunkAlreadyExists,
+    });
   }
   logger.error(err.stack);
   res.status(500).send({

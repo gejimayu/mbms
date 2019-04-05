@@ -11,6 +11,8 @@ exports.insert = async (req, res, next) => {
   try {
     const data = req.body || {};
     if (!isMethodChunkValid(data)) throw new Error(errorCode.InvalidMethodChunk);
+    const possibleDuplicate = await MethodChunk.findOne({ ['nameId']: data['nameId'] });
+    if (possibleDuplicate) throw new Error(errorCode.MethodChunkAlreadyExists);
     data.creator = req.user.username;
     await MethodChunk.create(data);
     res.json({

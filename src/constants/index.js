@@ -6,4 +6,5 @@ export const errorCode = {
   AlreadyRegistered: 'Username is already used',
   InvalidMethodChunk: 'Method Chunk is invalid',
   MethodChunkNotFound: 'Method Chunk with provided ID is not found',
+  MethodChunkAlreadyExists: 'Method Chunk already exists',
 };
