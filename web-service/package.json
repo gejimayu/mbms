@@ -1,7 +1,7 @@
 {
-		"name": "api",
+		"name": "Method Base Management System",
 		"version": "1.0.0",
-		"description": "https://getstream.io/",
+		"description": "MBMS is a repository that provides method chunk for method engineering",
 		"main": "src/server.js",
 		"scripts": {
 				"start": "nodemon --exec babel-node src/server.js",
@@ -12,8 +12,8 @@
 		},
 		"author": [
 				{
-					"name": "Nick Parsons",
-					"email": "nick@getstream.io"
+					"name": "Gianfranco",
+					"email": "gianffh@gmail.com"
 				}
 		],
 		"license": "BSD-3-Clause",
