@@ -1,5 +1,5 @@
 {
-		"name": "Method Base Management System",
+		"name": "method-base-management-system",
 		"version": "1.0.0",
 		"description": "MBMS is a repository that provides method chunk for method engineering",
 		"main": "src/server.js",

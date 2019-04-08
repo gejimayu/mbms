@@ -10,32 +10,44 @@ import { truncateString } from '../utils/string';
 
 export default (props) => {
   const [methodChunks, setMethodChunks] = useState([]);
+  const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
     fetch(process.env.REACT_APP_API)
       .then(response => response.json())
       .then(data => data.data)
-      .then(methodChunks => setMethodChunks(methodChunks))
+      .then(methodChunks => { setMethodChunks(methodChunks) })
       .catch(err => alert(err))
   }, [])
+  
+  let methodChunksToRender = methodChunks;
+  if (searchText) {
+    methodChunksToRender = methodChunks.filter(m => m.name.toLowerCase().includes(searchText.toLowerCase()))
+  }
 
   return (
     <Styles>
       <Header />
-      <Form className='search-bar'>
-        <Form.Control placeholder='Method Chunk ID' />
+      <Form className='search-bar' onSubmit={e => setSearchText(e.target.value)}>
+        <Form.Control
+          placeholder='Method Chunk Name'
+          value={searchText}
+          onChange={e => setSearchText(e.target.value)}
+        />
         <Button variant='primary' type='submit'>Search</Button>
       </Form>
       <CardDeck>
-        {methodChunks.map((m, index) => (
-          <Card bg="light" key={index}>
-            <Card.Body>
-              <Card.Title>{m.name}</Card.Title>
-              <Card.Text>{truncateString(m.description)}</Card.Text>
-              <Button variant="primary">Browse</Button>
-            </Card.Body>
-          </Card>
-        ))}
+        {methodChunksToRender
+          .map((m, index) => (
+            <Card bg="light" key={index}>
+              <Card.Body>
+                <Card.Title>{m.name}</Card.Title>
+                <Card.Text>{truncateString(m.description)}</Card.Text>
+                <Button variant="primary">Browse</Button>
+              </Card.Body>
+            </Card>
+          ))
+        }
       </CardDeck>
     </Styles>
   )
