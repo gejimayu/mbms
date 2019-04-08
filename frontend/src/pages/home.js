@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import styled from 'styled-components';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -9,28 +9,16 @@ import Header from '../components/header';
 import { truncateString } from '../utils/string';
 
 export default (props) => {
-  const methodChunks = [
-    {
-      title: 'Chunk1',
-      desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo neque debitis corrupti corporis voluptas, alias, placeat, quam facere pariatur, ullam libero perferendis cum mollitia praesentium eaque. Nisi ullam quisquam consequuntur?'
-    },
-    {
-      title: 'Chunk2',
-      desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo neque debitis corrupti corporis voluptas, alias, placeat, quam facere pariatur, ullam libero perferendis cum mollitia praesentium eaque. Nisi ullam quisquam consequuntur?'
-    },
-    {
-      title: 'Chunk2',
-      desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo neque debitis corrupti corporis voluptas, alias, placeat, quam facere pariatur, ullam libero perferendis cum mollitia praesentium eaque. Nisi ullam quisquam consequuntur?'
-    },
-    {
-      title: 'Chunk2',
-      desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo neque debitis corrupti corporis voluptas, alias, placeat, quam facere pariatur, ullam libero perferendis cum mollitia praesentium eaque. Nisi ullam quisquam consequuntur?'
-    },
-    {
-      title: 'Chunk2',
-      desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo neque debitis corrupti corporis voluptas, alias, placeat, quam facere pariatur, ullam libero perferendis cum mollitia praesentium eaque. Nisi ullam quisquam consequuntur?'
-    },
-  ]
+  const [methodChunks, setMethodChunks] = useState([]);
+
+  useEffect(() => {
+    fetch(process.env.REACT_APP_API)
+      .then(response => response.json())
+      .then(data => data.data)
+      .then(methodChunks => setMethodChunks(methodChunks))
+      .catch(err => alert(err))
+  }, [])
+
   return (
     <Styles>
       <Header />
@@ -39,11 +27,11 @@ export default (props) => {
         <Button variant='primary' type='submit'>Search</Button>
       </Form>
       <CardDeck>
-        {methodChunks.map(m => (
-          <Card bg="light">
+        {methodChunks.map((m, index) => (
+          <Card bg="light" key={index}>
             <Card.Body>
-              <Card.Title>{m.title}</Card.Title>
-              <Card.Text>{truncateString(m.desc)}</Card.Text>
+              <Card.Title>{m.name}</Card.Title>
+              <Card.Text>{truncateString(m.description)}</Card.Text>
               <Button variant="primary">Browse</Button>
             </Card.Body>
           </Card>
@@ -85,8 +73,7 @@ const Styles = styled.div`
           font-size: 0.85em;
         }
         & .card-text {
-          font-size: 0.8em;
-          text-align: justify;  
+          font-size: 0.8em; 
         }
       }
     }
