@@ -1,9 +1,9 @@
-import React, { useEffect,useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import CardDeck from 'react-bootstrap/CardDeck'
+import CardDeck from 'react-bootstrap/CardDeck';
 
 import Header from '../components/header';
 import { truncateString } from '../utils/string';
@@ -17,7 +17,7 @@ export default (props) => {
     fetch(process.env.REACT_APP_API)
       .then(response => response.json())
       .then(data => data.data)
-      .then(methodChunks => { setMethodChunks(methodChunks) })
+      .then(methodChunks => setMethodChunks(methodChunks))
       .catch(err => alert(err))
   }, [])
   
