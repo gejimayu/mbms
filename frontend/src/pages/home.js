@@ -9,6 +9,7 @@ import Header from '../components/header';
 import { truncateString } from '../utils/string';
 
 export default (props) => {
+  const { history } = props;
   const [methodChunks, setMethodChunks] = useState([]);
   const [searchText, setSearchText] = useState('');
 
@@ -43,7 +44,12 @@ export default (props) => {
               <Card.Body>
                 <Card.Title>{m.name}</Card.Title>
                 <Card.Text>{truncateString(m.description)}</Card.Text>
-                <Button variant="primary">Browse</Button>
+                <Button
+                  variant="primary"
+                  onClick={e => history.push('/method-chunk/' + m.nameId)}
+                >
+                  Browse
+                </Button>
               </Card.Body>
             </Card>
           ))
