@@ -27,7 +27,7 @@ export default (props) => {
 }
 
 const Styles = styled.div`
-  height: 170px;
+  height: 25vh;
   .jumbo {
     background-color: #ffffff;
     display: flex;
