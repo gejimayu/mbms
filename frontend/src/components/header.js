@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import styled from 'styled-components';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 
@@ -8,7 +9,9 @@ export default (props) => {
   return (
     <Styles>
       <Jumbotron className='jumbo'>
-        <img src={logo} alt='Logo' />
+        <Link to="/">
+          <img src={logo} alt='Logo' />
+        </Link>
         <div className='header-desc'>
           <h1>Method Base Management System</h1>
           <p>
