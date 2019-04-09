@@ -27,7 +27,7 @@ export default (props) => {
           <Switch>
             <Route
               path={`${match.path}/alpha/:name_id`}
-              render={props => <Alpha {...props} alphas={methodChunk.alphas} />}
+              render={props => <Alpha {...props} methodChunk={methodChunk} />}
             />
             <Route
               path={`${match.path}`}

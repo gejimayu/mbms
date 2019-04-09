@@ -25,7 +25,7 @@ export default (props) => {
           <p>Alphas</p>
           <CardDeck>
             {methodChunk.alphas && methodChunk.alphas.map(alpha => (
-              <Link to={`${match.url}/alpha/${alpha.nameId}`}>
+              <Link key={alpha.nameId} to={`${match.url}/alpha/${alpha.nameId}`}>
                 <Card>
                   <Card.Img variant="top" src={alphaImg} />
                   <Card.Text>{alpha.name}</Card.Text>
@@ -40,7 +40,7 @@ export default (props) => {
             {methodChunk.activitySpaces &&
               methodChunk.activitySpaces.map(activitySpace => (
                 activitySpace.activities && activitySpace.activities.map(activity => (
-                  <Link to={`${match.url}/activity/${activity.nameId}`}>
+                  <Link key={activity.nameId} to={`${match.url}/activity/${activity.nameId}`}>
                     <Card>
                       <Card.Img variant="top" src={activityImg} />
                       <Card.Text>{activity.name}</Card.Text>
@@ -55,7 +55,7 @@ export default (props) => {
           <p>Competencies</p>
           <CardDeck>
             {methodChunk.competencies && methodChunk.competencies.map(competency => (
-              <Link to={`${match.url}/competency/${competency.nameId}`}>
+              <Link key={competency.nameId} to={`${match.url}/competency/${competency.nameId}`}>
                 <Card>
                   <Card.Img variant="top" src={competencyImg} />
                   <Card.Text>{competency.name}</Card.Text>
@@ -68,7 +68,7 @@ export default (props) => {
           <p>Patterns</p>
           <CardDeck>
             {methodChunk.patterns && methodChunk.patterns.map(pattern => (
-              <Link to={`${match.url}/pattern/${pattern.nameId}`}>
+              <Link key={pattern.nameId} to={`${match.url}/pattern/${pattern.nameId}`}>
                 <Card>
                   <Card.Img variant="top" src={patternImg} />
                   <Card.Text>{pattern.name}</Card.Text>
@@ -87,6 +87,7 @@ const Styles = styled.div`
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
+  width: 100%;
   & > .header {
     background-color: #cecece;
     text-align: center;
