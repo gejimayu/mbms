@@ -119,17 +119,16 @@ const Styles = styled.div`
             margin: 4px;
             padding: 10px;
             flex: 0 0 20%;
-            height: 110px;
             display: flex;
             flex-direction: column;
             & .card-img-top {
-              width: 100px;
-              height: 60%;
+              max-width: 100px;
+              max-height: 60%;
               margin: auto;
             }
             & .card-text {
               text-align: center;
-              height: 40%;
+              min-height: 40%;
               margin: 0;
               font-size: 0.9em;
             }
