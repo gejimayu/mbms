@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Home from './pages/home';
-import MethodChunk from './pages/method-chunk';
-import Alpha from './pages/alpha';
+import Essence from './pages/essence';
 import Header from './components/header';
 
 const App = () => (
@@ -14,8 +13,7 @@ const App = () => (
         <Header />
         <Switch>
           <Route exact path='/' component={Home} />
-          <Route path='/method-chunk/:name_id' component={MethodChunk} />
-          <Route path='/method-chunk/:name_id/alpha/:alpha_id' component={Alpha} />
+          <Route path='/method-chunk/:name_id' component={Essence} />
         </Switch>
       </Styles>
     </Router>

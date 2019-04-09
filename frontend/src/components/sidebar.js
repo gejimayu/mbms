@@ -55,6 +55,7 @@ export default (props) => {
 
 const Styles = styled.div`
   height: 80vh;
+  width: 30vw;
   font-size: 0.8em;
   padding: 0 16px;
   border-right: 1px solid black;
