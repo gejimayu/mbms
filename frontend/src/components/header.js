@@ -27,20 +27,22 @@ export default (props) => {
 }
 
 const Styles = styled.div`
+  height: 170px;
   .jumbo {
     background-color: #ffffff;
-    height: 17.5%;
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid black;
-    padding: 2% 8%;
+    padding: 2% 10%;
+    margin-bottom: 0;
+    height: 100%;
     & img {
       width: 150px;
-      height: 15%; 
     }
     & .header-desc {
       width: 80%;
       & h1 {
+        height: auto;
         font-size: 1.7em;
       }
       & p {

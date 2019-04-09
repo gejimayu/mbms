@@ -67,7 +67,7 @@ const Styles = styled.div`
     height: 17.5%;
     width: 40%;
     height: 100px;
-    margin: auto;
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -83,15 +83,22 @@ const Styles = styled.div`
       flex: 0 0 22%;
       margin-bottom: 20px;
       & .card-body {
+        height: 250px;
         display: flex;
         flex-direction: column;
         align-items: center;
         & button {
+          height: 20%;
           width: 40%;
           font-size: 0.85em;
         }
         & .card-text {
+          height: 50%;
           font-size: 0.8em; 
+          margin-bottom: 0;
+        }
+        & .card-title {
+          height: 30%;
         }
       }
     }
