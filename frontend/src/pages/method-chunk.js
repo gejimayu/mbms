@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import TreeView from '../components/treeview';
-import Header from '../components/header';
 
 export default (props) => {
   const { match } = props;
@@ -23,7 +22,6 @@ export default (props) => {
   const patternsLabel = <span className="node">Patterns</span>;
   return (
     <Styles>
-      <Header />
       <div className='content'>
         {
           methodChunk && (
@@ -70,9 +68,6 @@ export default (props) => {
 }
 
 const Styles = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
   .content {
     display: flex;
     flex-direction: row;

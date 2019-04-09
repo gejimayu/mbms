@@ -5,7 +5,6 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 
-import Header from '../components/header';
 import { truncateString } from '../utils/string';
 
 export default (props) => {
@@ -28,7 +27,6 @@ export default (props) => {
 
   return (
     <Styles>
-      <Header />
       <Form className='search-bar' onSubmit={e => setSearchText(e.target.value)}>
         <Form.Control
           placeholder='Method Chunk Name'
@@ -60,9 +58,6 @@ export default (props) => {
 }
 
 const Styles = styled.div`
-  display: flex;
-  flex-direction: column;
-
   .search-bar {
     height: 17.5%;
     width: 40%;
