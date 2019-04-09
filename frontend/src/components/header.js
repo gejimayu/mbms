@@ -30,29 +30,29 @@ export default (props) => {
 }
 
 const Styles = styled.div`
-  height: 25vh;
+  height: 20vh;
   .jumbo {
     background-color: #ffffff;
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid black;
-    padding: 2% 10%;
+    padding: 1% 8%;
     margin-bottom: 0;
     height: 100%;
     & img {
-      width: 150px;
+      width: 120px;
     }
     & .header-desc {
       width: 80%;
       & h1 {
         height: auto;
-        font-size: 1.7em;
+        font-size: 1.5em;
       }
       & p {
-        font-size: 0.9em;
+        font-size: 0.85em;
       }
       & a {
-        font-size: 0.9em;
+        font-size: 0.85em;
       }
     }
     & a {

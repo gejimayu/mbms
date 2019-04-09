@@ -54,13 +54,12 @@ export default (props) => {
 }
 
 const Styles = styled.div`
-  height: 75vh;
+  width: 25%;
+  height: 80vh;
   font-size: 0.8em;
   padding: 0 16px;
   border-right: 1px solid black;
-  position: fixed;
   overflow-y: scroll;
-  z-index: 1;
   ::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 10px;
