@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
@@ -38,10 +39,12 @@ export default (props) => {
               <p>Alphas</p>
               <CardDeck>
                 {methodChunk.alphas && methodChunk.alphas.map(alpha => (
-                   <Card>
-                    <Card.Img variant="top" src={alphaImg} />
-                    <Card.Text>{alpha.name}</Card.Text>
-                  </Card>
+                  <Link to={`${match.url}/alpha/${alpha.nameId}`}>
+                    <Card>
+                      <Card.Img variant="top" src={alphaImg} />
+                      <Card.Text>{alpha.name}</Card.Text>
+                    </Card>
+                  </Link>
                 ))}
               </CardDeck>
             </div>
@@ -51,10 +54,12 @@ export default (props) => {
                 {methodChunk.activitySpaces &&
                   methodChunk.activitySpaces.map(activitySpace => (
                     activitySpace.activities && activitySpace.activities.map(activity => (
-                      <Card>
-                        <Card.Img variant="top" src={activityImg} />
-                        <Card.Text>{activity.name}</Card.Text>
-                      </Card>
+                      <Link to={`${match.url}/activity/${activity.nameId}`}>
+                        <Card>
+                          <Card.Img variant="top" src={activityImg} />
+                          <Card.Text>{activity.name}</Card.Text>
+                        </Card>
+                      </Link>
                     )) 
                   )
                 )}
@@ -64,10 +69,12 @@ export default (props) => {
               <p>Competencies</p>
               <CardDeck>
                 {methodChunk.competencies && methodChunk.competencies.map(competency => (
-                   <Card>
-                    <Card.Img variant="top" src={competencyImg} />
-                    <Card.Text>{competency.name}</Card.Text>
-                  </Card>
+                  <Link to={`${match.url}/competency/${competency.nameId}`}>
+                    <Card>
+                      <Card.Img variant="top" src={competencyImg} />
+                      <Card.Text>{competency.name}</Card.Text>
+                    </Card>
+                  </Link>
                 ))}
               </CardDeck>
             </div>
@@ -75,10 +82,12 @@ export default (props) => {
               <p>Patterns</p>
               <CardDeck>
                 {methodChunk.patterns && methodChunk.patterns.map(pattern => (
-                   <Card>
-                    <Card.Img variant="top" src={patternImg} />
-                    <Card.Text>{pattern.name}</Card.Text>
-                  </Card>
+                  <Link to={`${match.url}/pattern/${pattern.nameId}`}>
+                    <Card>
+                      <Card.Img variant="top" src={patternImg} />
+                      <Card.Text>{pattern.name}</Card.Text>
+                    </Card>
+                  </Link>
                 ))}
               </CardDeck>
             </div>
@@ -96,7 +105,7 @@ const Styles = styled.div`
     display: flex;
     flex-direction: row;
     & > .content {
-      width: 75%;
+      width: 80%;
       overflow-y: scroll;
       display: flex;
       flex-direction: column;
@@ -115,22 +124,24 @@ const Styles = styled.div`
         padding: 20px 30px 0 30px;
         & .card-deck {
           padding: 0 75px;
-          & .card {
-            margin: 4px;
-            padding: 10px;
+          & a {
             flex: 0 0 20%;
-            display: flex;
-            flex-direction: column;
-            & .card-img-top {
-              max-width: 100px;
-              max-height: 60%;
-              margin: auto;
-            }
-            & .card-text {
-              text-align: center;
-              min-height: 40%;
-              margin: 0;
-              font-size: 0.9em;
+            & .card {
+              min-height: 90%;
+              margin: 4px;
+              padding: 10px;
+              display: flex;
+              flex-direction: column;
+              & .card-img-top {
+                width: 100px;
+                height: 60%;
+                margin: 5px auto;
+              }
+              & .card-text {
+                text-align: center;
+                height: 40%;
+                font-size: 0.9em;
+              }
             }
           }
         }

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import Home from './pages/home';
 import MethodChunk from './pages/method-chunk';
+import Alpha from './pages/alpha';
 import Header from './components/header';
 
 const App = () => (
@@ -14,6 +15,7 @@ const App = () => (
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/method-chunk/:name_id' component={MethodChunk} />
+          <Route path='/method-chunk/:name_id/alpha/:alpha_id' component={Alpha} />
         </Switch>
       </Styles>
     </Router>
