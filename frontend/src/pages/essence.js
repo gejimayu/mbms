@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Sidebar from '../components/sidebar';
 import MethodChunk from './methodchunk';
 import Alpha from './alpha';
+import Activity from './activity';
 
 export default (props) => {
   const { match } = props;
@@ -28,6 +29,10 @@ export default (props) => {
             <Route
               path={`${match.path}/alpha/:name_id`}
               render={props => <Alpha {...props} methodChunk={methodChunk} />}
+            />
+            <Route
+              path={`${match.path}/activity/:name_id`}
+              render={props => <Activity {...props} methodChunk={methodChunk} />}
             />
             <Route
               path={`${match.path}`}
