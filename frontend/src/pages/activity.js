@@ -7,7 +7,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import alphaImg from '../assets/alpha.png';
+import activitySpaceImg from '../assets/activityspace.png';
 import workProductImg from '../assets/workproduct.png';
+import competencyImg from '../assets/competency.png';
+import patternImg from '../assets/pattern.png';
 import { truncateString } from '../utils/string';
 
 export default (props) => {
@@ -16,14 +19,16 @@ export default (props) => {
   const { params: { name_id: activityId } } = match;
   if (!methodChunk || !activityId || !activitySpaces) return null;
   let activity = {};
-  activitySpaces.forEach(activitySpace => {
-    activitySpace.activities.forEach(activityToFind => {
+  let activitySpace = {};
+  activitySpaces.forEach(activitySpaceToFind => {
+    activitySpaceToFind.activities.forEach(activityToFind => {
       if (activityToFind.nameId === activityId) {
         activity = activityToFind;
+        activitySpace = activitySpaceToFind;
       }
     })
   });
-  if (!activity) return null;
+  if (!activitySpace || !activity) return null;
 
   let relatedPatterns = []
   methodChunk.patterns.forEach(pattern => {
@@ -122,6 +127,31 @@ export default (props) => {
           </div>
         </Col>
         <Col sm={4} className='states'>
+          <div className='activity-space'>
+            <img src={activitySpaceImg} alt="activity space logo"/>
+            <h5>{activitySpace.name}</h5>
+            <p>{activitySpace.description}</p>
+          </div>
+          <div>
+            <div>
+              <h5>Required</h5>
+              {activity.competencies.map(competency => (
+                <div>
+                  <img src={competencyImg} alt="competency logo"/>
+                  <h6>{competency.split('.')[0]} level {competency.split('.')[1]}</h6>
+                </div>
+              ))}
+            </div>
+            <div>
+              <h5>Related</h5>
+              {relatedPatterns.map(pattern => (
+                <div>
+                  <img src={patternImg} alt="pattern logo"/>
+                  <h6>{pattern.name}</h6>
+                </div>
+              ))}
+            </div>
+          </div>
         </Col>
       </Row>
     </Styles>
@@ -158,7 +188,7 @@ const Styles = styled.div`
         & .card-deck {
           padding: 0 50px;
           & .card {
-            flex: 0 0 30%;
+            flex: 0 0 31%;
             height: 300px;
             margin: 4px;
             padding: 10px;
