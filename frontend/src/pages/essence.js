@@ -6,6 +6,7 @@ import Sidebar from '../components/sidebar';
 import MethodChunk from './methodchunk';
 import Alpha from './alpha';
 import Activity from './activity';
+import Competency from './competency';
 
 export default (props) => {
   const { match } = props;
@@ -33,6 +34,10 @@ export default (props) => {
             <Route
               path={`${match.path}/activity/:name_id`}
               render={props => <Activity {...props} methodChunk={methodChunk} />}
+            />
+            <Route
+              path={`${match.path}/competency/:name_id`}
+              render={props => <Competency {...props} methodChunk={methodChunk} />}
             />
             <Route
               path={`${match.path}`}
