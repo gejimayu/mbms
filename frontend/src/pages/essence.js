@@ -7,6 +7,7 @@ import MethodChunk from './methodchunk';
 import Alpha from './alpha';
 import Activity from './activity';
 import Competency from './competency';
+import Pattern from './pattern';
 
 export default (props) => {
   const { match } = props;
@@ -38,6 +39,10 @@ export default (props) => {
             <Route
               path={`${match.path}/competency/:name_id`}
               render={props => <Competency {...props} methodChunk={methodChunk} />}
+            />
+            <Route
+              path={`${match.path}/pattern/:name_id`}
+              render={props => <Pattern {...props} methodChunk={methodChunk} />}
             />
             <Route
               path={`${match.path}`}
