@@ -16,6 +16,14 @@ export const MethodChunkSchema = new Schema(
     'nameId': StringAndRequired,
     'name': StringAndRequired,
     'description': StringAndRequired,
+    'published': {
+      type: Boolean,
+      required: true,
+    },
+    'characteristics': [{
+      type: Schema.Types.Mixed,
+      required: true,
+    }],
     'creator': StringAndRequired,
     'activitySpaces': [
       {

@@ -1,14 +1,26 @@
+import fetch from 'node-fetch';
+
 import MethodChunk from '../models/method-chunk';
 import { isMethodChunkValid } from '../utils/method-chunk';
 import { errorCode } from '../constants';
+import Config from '../config';
 
 exports.insert = async (req, res, next) => {
   try {
-    const data = req.body || {};
-    if (!isMethodChunkValid(data)) throw new Error(errorCode.InvalidMethodChunk);
+    let data = req.body || {};
+    const errorMsgMethodInvalid = isMethodChunkValid(data);
+    if (errorMsgMethodInvalid) {
+      throw new Error(errorMsgMethodInvalid);
+    }
     const possibleDuplicate = await MethodChunk.findOne({ ['nameId']: data['nameId'] });
     if (possibleDuplicate) throw new Error(errorCode.MethodChunkAlreadyExists);
-    data.creator = req.user.username;
+
+    data = {
+      ...data,
+      creator: req.user.username,
+      published: false,
+    };
+
     await MethodChunk.create(data);
     res.json({
       status: 'success',
@@ -41,6 +53,7 @@ exports.getAll = async (req, res, next) => {
         'nameId': m['nameId'],
         'name': m['name'],
         'description': m['description'],
+        'characteristics': m['characteristics'],
       });
     });
     res.json({
@@ -75,7 +88,10 @@ exports.edit = async (req, res, next) => {
     const { username } = req.user;
     const data = req.body || {};
 
-    if (!isMethodChunkValid(data)) throw new Error(errorCode.InvalidMethodChunk);
+    const errorMsgMethodInvalid = isMethodChunkValid(data);
+    if (errorMsgMethodInvalid) {
+      throw new Error(errorMsgMethodInvalid);
+    }
 
     const { nameId } = data;
     const methodChunk = await MethodChunk.findOne({ nameId });

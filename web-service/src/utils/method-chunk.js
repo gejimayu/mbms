@@ -8,6 +8,7 @@ const schema = Joi.object().keys({
   'nameId': joiText,
   'name': joiText,
   'description': joiLongText,
+  'characteristics': Joi.array().required().items(Joi.object()),
   'activitySpaces': Joi.array().required().items(
     Joi.object().keys({
       'nameId': joiText,
@@ -83,5 +84,6 @@ const schema = Joi.object().keys({
 
 export const isMethodChunkValid = (methodChunk) => {
   const result = Joi.validate(methodChunk, schema);
-  return !result.error;
+  const message = result.error && result.error.details[0].message;
+  return message;
 };
