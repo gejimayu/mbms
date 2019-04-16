@@ -11,4 +11,7 @@ export default {
   database: {
     uri: `mongodb://${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}`,
   },
+  serviceRegistry: {
+    url: process.env.SERVICE_REGISTRY_URL,
+  },
 };

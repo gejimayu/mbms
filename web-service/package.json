@@ -12,8 +12,8 @@
 		},
 		"author": [
 				{
-					"name": "Gianfranco",
-					"email": "gianffh@gmail.com"
+						"name": "Gianfranco",
+						"email": "gianffh@gmail.com"
 				}
 		],
 		"license": "BSD-3-Clause",
@@ -36,6 +36,7 @@
 				"mongoose": "^5.4.21",
 				"mongoose-bcrypt": "^1.6.0",
 				"mongoose-timestamp": "^0.6.0",
+				"node-fetch": "^2.3.0",
 				"validator": "^10.11.0"
 		},
 		"devDependencies": {

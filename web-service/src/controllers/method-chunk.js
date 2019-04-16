@@ -109,3 +109,35 @@ exports.edit = async (req, res, next) => {
     next(err);
   }
 };
+
+exports.publish = async (req, res, next) => {
+  try {
+    const { name_id: nameId } = req.params;
+
+    const methodChunk = await MethodChunk.findOne({ nameId });
+    if (!methodChunk) throw new Error(errorCode.MethodChunkNotFound);
+
+    const methodChunkHeader = {
+      nameId: methodChunk.nameId,
+      name: methodChunk.name,
+      description: methodChunk.description,
+      characteristics: methodChunk.characteristics,
+    };
+
+    await fetch(Config.serviceRegistry.url, {
+      method: 'POST',
+      body: JSON.stringify(methodChunkHeader),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    await MethodChunk.updateOne({ nameId }, { published: true });
+
+    res.json({
+      status: 'success',
+    });
+  } catch (err) {
+    next(err);
+  }
+};
