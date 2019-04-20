@@ -1,0 +1,48 @@
+.search-bar {
+  height: 17.5%;
+  width: 500px;
+  height: 100px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  button {
+    width: 20%;
+    margin: auto;
+  }
+}
+
+@media (max-width: 550px) {
+  .search-bar {
+    width: 250px;
+  }
+}
+
+.card-deck {
+  margin: 0 5%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 240px);
+  grid-gap: 1rem;
+  justify-content: center;
+  .card {
+    margin: 0;
+    padding: 20px;
+    height: 230px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    .group-button {
+      margin-top: auto;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      button {
+        font-size: 0.85em;
+      }
+    }
+    p {
+      font-size: 0.8em; 
+      margin-bottom: 0;
+    }
+  }
+}

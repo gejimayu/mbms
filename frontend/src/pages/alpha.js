@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+import './alpha.scss';
 import alphaImg from '../assets/alpha.png';
 
 export default (props) => {
@@ -37,7 +36,7 @@ export default (props) => {
   })
 
   return (
-    <Styles>
+    <div className='container'>
       <div className='header'>
         <h4>{alpha.name}</h4>  
       </div>
@@ -107,56 +106,6 @@ export default (props) => {
           ))}
         </Col>
       </Row>
-    </Styles>
+    </div>
   )
 }
-
-const Styles = styled.div`
-  overflow-y: scroll;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  & > .header {
-    background-color: #cecece;
-    text-align: center;
-    padding: 10px;
-  }
-  & > .desc {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    min-height: 12%;
-    padding: 10px;
-  }
-  & > .content {
-    height: 65vh;
-    overflow-y: scroll;
-    & > .states {
-      border-left: 1px solid black;
-      padding-left: 30px;
-      padding-top: 30px;
-    }
-    & > .contain {
-      & > .element {
-        padding: 20px 30px 0 30px;
-        & .card-deck {
-          padding: 0 50px;
-          & .card {
-            flex: 0 0 28%;
-            height: 100%;
-            margin: 4px;
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-            font-size: 0.9em;
-            & .card-img-top {
-              width: 100px;
-              height: 40%;
-              margin: 5px auto;
-            }
-          }
-        }
-      }
-    }
-  }
-`

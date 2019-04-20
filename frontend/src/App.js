@@ -21,8 +21,8 @@ const App = () => (
 )
 
 const Styles = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr 1fr 3fr;
   height: 100%;
 `
 

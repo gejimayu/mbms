@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 
+import './methodchunk.scss';
 import alphaImg from '../assets/alpha.png';
 import activityImg from '../assets/activity.png';
 import competencyImg from '../assets/competency.png';
@@ -14,7 +14,7 @@ export default (props) => {
   
   if (methodChunk) {
     return (
-      <Styles>
+      <div className='container'>
         <div className='header'>
           <h4>{methodChunk.name}</h4>  
         </div>
@@ -77,52 +77,8 @@ export default (props) => {
             ))}
           </CardDeck>
         </div>
-      </Styles>
+      </div>
     )
   }
   return null;
 }
-
-const Styles = styled.div`
-  overflow-y: scroll;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  & > .header {
-    background-color: #cecece;
-    text-align: center;
-    padding: 10px;
-  }
-  & > .desc {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    min-height: 12%;
-    padding: 10px;
-  }
-  & > .element {
-    padding: 20px 30px 0 30px;
-    & .card-deck {
-      padding: 0 75px;
-      & a {
-        flex: 0 0 20%;
-        & .card {
-          min-height: 90%;
-          margin: 4px;
-          padding: 10px;
-          display: flex;
-          flex-direction: column;
-          & .card-img-top {
-            width: 100px;
-            height: 60%;
-            margin: 5px auto;
-          }
-          & .card-text {
-            text-align: center;
-            height: 40%;
-            font-size: 0.9em;
-          }
-        }
-      }
-    }
-  }
-`

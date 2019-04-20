@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import CardDeck from 'react-bootstrap/CardDeck';
 
+import Card from '../components/card';
 import { truncateString } from '../utils/string';
+import './home.scss';
 
 export default (props) => {
   const { history } = props;
@@ -26,76 +25,38 @@ export default (props) => {
   }
 
   return (
-    <Styles>
-      <Form className='search-bar' onSubmit={e => setSearchText(e.target.value)}>
+    <React.Fragment>
+      <Form className='search-bar'>
         <Form.Control
           placeholder='Method Chunk Name'
           value={searchText}
           onChange={e => setSearchText(e.target.value)}
         />
-        <Button variant='primary' type='submit'>Search</Button>
       </Form>
-      <CardDeck>
+      <div className='card-deck'>
         {methodChunksToRender
           .map((m, index) => (
-            <Card bg="light" key={index}>
-              <Card.Body>
-                <Card.Title>{m.name}</Card.Title>
-                <Card.Text>{truncateString(m.description)}</Card.Text>
+            <Card key={index}>
+              <h5>{m.name}</h5>
+              <p>{truncateString(m.description)}</p>
+              <div className='group-button'>
                 <Button
                   variant="primary"
                   onClick={e => history.push('/method-chunk/' + m.nameId)}
                 >
                   Browse
                 </Button>
-              </Card.Body>
+                <Button
+                  variant="primary"
+                  onClick={e => history.push('/method-chunk/' + m.nameId)}
+                >
+                  Publish
+                </Button>
+              </div>  
             </Card>
           ))
         }
-      </CardDeck>
-    </Styles>
+      </div>
+    </React.Fragment>
   )
 }
-
-const Styles = styled.div`
-  .search-bar {
-    height: 17.5%;
-    width: 40%;
-    height: 100px;
-    margin: 20px auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    & button {
-      width: 20%;
-      margin: auto;
-    }
-  }
-  .card-deck {
-    margin: 0 auto;
-    width: 80%;
-    & .card {
-      flex: 0 0 22%;
-      margin-bottom: 20px;
-      & .card-body {
-        height: 250px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        & button {
-          height: 20%;
-          width: 40%;
-          font-size: 0.85em;
-        }
-        & .card-text {
-          height: 50%;
-          font-size: 0.8em; 
-          margin-bottom: 0;
-        }
-        & .card-title {
-          height: 30%;
-        }
-      }
-    }
-  }
-`

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
-import styled from 'styled-components';
+import { Route, Switch } from 'react-router-dom';
 
+import './essence.scss'
 import Sidebar from '../components/sidebar';
 import MethodChunk from './methodchunk';
 import Alpha from './alpha';
@@ -21,45 +21,35 @@ export default (props) => {
       .then(methodChunk => setMethodChunk(methodChunk))
       .catch(err => alert(err))
   }, [])
-
-  return (
-    <Styles>
-      { methodChunk && (
-        <div className='main'>
-          <Sidebar className='sidebar' methodChunk={methodChunk} />
-          <Switch>
-            <Route
-              path={`${match.path}/alpha/:name_id`}
-              render={props => <Alpha {...props} methodChunk={methodChunk} />}
-            />
-            <Route
-              path={`${match.path}/activity/:name_id`}
-              render={props => <Activity {...props} methodChunk={methodChunk} />}
-            />
-            <Route
-              path={`${match.path}/competency/:name_id`}
-              render={props => <Competency {...props} methodChunk={methodChunk} />}
-            />
-            <Route
-              path={`${match.path}/pattern/:name_id`}
-              render={props => <Pattern {...props} methodChunk={methodChunk} />}
-            />
-            <Route
-              path={`${match.path}`}
-              render={props => <MethodChunk {...props} methodChunk={methodChunk} />}
-            />
-          </Switch>
-        </div>
-      )}
-    </Styles>
-  )
-}
-
-const Styles = styled.div`
-  height: 80vh;
-  & > .main {
-    height: 100%;
-    display: flex;
-    flex-direction: row;
+  
+  if (methodChunk) {
+    return (
+      <div className='main'>
+        <Sidebar className='sidebar' methodChunk={methodChunk} />
+        <Switch>
+          <Route
+            path={`${match.path}/alpha/:name_id`}
+            render={props => <Alpha {...props} methodChunk={methodChunk} />}
+          />
+          <Route
+            path={`${match.path}/activity/:name_id`}
+            render={props => <Activity {...props} methodChunk={methodChunk} />}
+          />
+          <Route
+            path={`${match.path}/competency/:name_id`}
+            render={props => <Competency {...props} methodChunk={methodChunk} />}
+          />
+          <Route
+            path={`${match.path}/pattern/:name_id`}
+            render={props => <Pattern {...props} methodChunk={methodChunk} />}
+          />
+          <Route
+            path={`${match.path}`}
+            render={props => <MethodChunk {...props} methodChunk={methodChunk} />}
+          />
+        </Switch>
+      </div>
+    )
   }
-`
+  return null;
+}

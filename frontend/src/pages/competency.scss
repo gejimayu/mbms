@@ -1,0 +1,38 @@
+.container {
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  & > .header {
+    background-color: #cecece;
+    text-align: center;
+    padding: 10px;
+  }
+  & > .desc {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    min-height: 12%;
+    padding: 10px;
+  }
+  & > .content {
+    height: 65vh;
+    overflow-y: scroll;
+    padding: 20px 50px;
+    & > h5 {
+      width: 100%;
+    }
+    & > table {
+      padding-left: 25px;
+      width: 100%;
+      & td {
+        padding: 20px;
+      }
+      & td:nth-child(1) {
+        width: 15%;
+      }
+      & td:nth-child(2) {
+        width: 15%;
+      }
+    }
+  }
+}
