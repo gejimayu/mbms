@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Card from 'react-bootstrap/Card';
-import CardDeck from 'react-bootstrap/CardDeck';
 
-import './methodchunk.scss';
+import Card from '../components/card';
+import styles from './methodchunk.module.scss';
 import alphaImg from '../assets/alpha.png';
 import activityImg from '../assets/activity.png';
 import competencyImg from '../assets/competency.png';
@@ -14,68 +13,68 @@ export default (props) => {
   
   if (methodChunk) {
     return (
-      <div className='container'>
-        <div className='header'>
+      <div className={styles['container']}>
+        <div className={styles['header']}>
           <h4>{methodChunk.name}</h4>  
         </div>
-        <div className='desc'>
+        <div className={styles['desc']}>
           <p>{methodChunk.description}</p>
         </div>
-        <div className='element'>
+        <div className={styles['element']}>
           <p>Alphas</p>
-          <CardDeck>
+          <div className={styles['card-deck']}>
             {methodChunk.alphas && methodChunk.alphas.map(alpha => (
               <Link key={alpha.nameId} to={`${match.url}/alpha/${alpha.nameId}`}>
-                <Card>
-                  <Card.Img variant="top" src={alphaImg} />
-                  <Card.Text>{alpha.name}</Card.Text>
+                <Card className={styles['card']}>
+                  <img alt='alpha logo' src={alphaImg} />
+                  <p>{alpha.name}</p>
                 </Card>
               </Link>
             ))}
-          </CardDeck>
+          </div>
         </div>
-        <div className='element'>
+        <div className={styles['element']}>
           <p>Activities</p>
-          <CardDeck>
+          <div className={styles['card-deck']}>
             {methodChunk.activitySpaces &&
               methodChunk.activitySpaces.map(activitySpace => (
                 activitySpace.activities && activitySpace.activities.map(activity => (
                   <Link key={activity.nameId} to={`${match.url}/activity/${activity.nameId}`}>
-                    <Card>
-                      <Card.Img variant="top" src={activityImg} />
-                      <Card.Text>{activity.name}</Card.Text>
+                    <Card className={styles['card']}>
+                      <img alt='activity logo' src={activityImg} />
+                      <p>{activity.name}</p>
                     </Card>
                   </Link>
                 )) 
               )
             )}
-          </CardDeck>
+          </div>
         </div>
-        <div className='element'>
+        <div className={styles['element']}>
           <p>Competencies</p>
-          <CardDeck>
+          <div className={styles['card-deck']}>
             {methodChunk.competencies && methodChunk.competencies.map(competency => (
               <Link key={competency.nameId} to={`${match.url}/competency/${competency.nameId}`}>
-                <Card>
-                  <Card.Img variant="top" src={competencyImg} />
-                  <Card.Text>{competency.name}</Card.Text>
+                <Card className={styles['card']}>
+                  <img alt='competency logo' src={competencyImg} />
+                  <p>{competency.name}</p>
                 </Card>
               </Link>
             ))}
-          </CardDeck>
+          </div>
         </div>
-        <div className='element'>
+        <div className={styles['element']}>
           <p>Patterns</p>
-          <CardDeck>
+          <div className={styles['card-deck']}>
             {methodChunk.patterns && methodChunk.patterns.map(pattern => (
               <Link key={pattern.nameId} to={`${match.url}/pattern/${pattern.nameId}`}>
-                <Card>
-                  <Card.Img variant="top" src={patternImg} />
-                  <Card.Text>{pattern.name}</Card.Text>
+                <Card className={styles['card']}>
+                  <img alt='pattern logo' src={patternImg} />
+                  <p>{pattern.name}</p>
                 </Card>
               </Link>
             ))}
-          </CardDeck>
+          </div>
         </div>
       </div>
     )

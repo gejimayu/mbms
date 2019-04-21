@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './competency.scss';
+import './competency.module.scss';
 
 export default (props) => {
   const { methodChunk, match } = props;

@@ -5,7 +5,7 @@ import CardDeck from 'react-bootstrap/CardDeck';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import './activity.scss';
+import './activity.module.scss';
 import alphaImg from '../assets/alpha.png';
 import activitySpaceImg from '../assets/activityspace.png';
 import workProductImg from '../assets/workproduct.png';

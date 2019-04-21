@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import './essence.scss'
+import styles from './essence.module.scss'
 import Sidebar from '../components/sidebar';
 const MethodChunk = React.lazy(() => import('./methodchunk'));
 const Alpha = React.lazy(() => import('./alpha'));
@@ -24,8 +24,8 @@ export default (props) => {
   
   if (methodChunk) {
     return (
-      <div className='main'>
-        <Sidebar className='sidebar' methodChunk={methodChunk} />
+      <div className={styles['main']}>
+        <Sidebar className={styles['sidebar']} methodChunk={methodChunk} />
         <React.Suspense fallback={<p>Please Wait</p>}>
           <Switch>
             <Route

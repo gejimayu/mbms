@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
-import Home from './pages/home';
-import Essence from './pages/essence';
 import Header from './components/header';
+const Essence = React.lazy(() => import('./pages/essence'));
+const Home = React.lazy(() => import('./pages/home'));
 
 const App = () => (
   <React.Fragment>
@@ -12,10 +12,12 @@ const App = () => (
       <Styles>
         <Header />
         <div className='main-content'>
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/method-chunk/:name_id' component={Essence} />
-          </Switch>
+          <React.Suspense fallback={<p>Loading..</p>}>
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route path='/method-chunk/:name_id' component={Essence} />
+            </Switch>
+          </React.Suspense>
         </div>
       </Styles>
     </Router>

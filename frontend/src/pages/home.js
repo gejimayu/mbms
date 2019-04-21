@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 
 import Card from '../components/card';
 import { truncateString } from '../utils/string';
-import './home.scss';
+import styles from './home.module.scss';
 
 export default (props) => {
   const { history } = props;
@@ -23,23 +23,24 @@ export default (props) => {
   if (searchText) {
     methodChunksToRender = methodChunks.filter(m => m.name.toLowerCase().includes(searchText.toLowerCase()))
   }
+  console.log(styles)
 
   return (
     <React.Fragment>
-      <Form className='search-bar'>
+      <Form className={styles['search-bar']}>
         <Form.Control
           placeholder='Method Chunk Name'
           value={searchText}
           onChange={e => setSearchText(e.target.value)}
         />
       </Form>
-      <div className='card-deck'>
+      <div className={styles['card-deck']}>
         {methodChunksToRender
           .map((m, index) => (
-            <Card key={index}>
+            <Card className={styles['card']} key={index}>
               <h5>{m.name}</h5>
               <p>{truncateString(m.description)}</p>
-              <div className='group-button'>
+              <div className={styles['group-button']}>
                 <Button
                   variant="primary"
                   onClick={e => history.push('/method-chunk/' + m.nameId)}

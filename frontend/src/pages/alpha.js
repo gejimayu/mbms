@@ -4,7 +4,7 @@ import CardDeck from 'react-bootstrap/CardDeck';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import './alpha.scss';
+import './alpha.module.scss';
 import alphaImg from '../assets/alpha.png';
 
 export default (props) => {

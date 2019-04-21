@@ -8,7 +8,7 @@ const Card = styled.div`
 `
 
 export default (props) => (
-  <Card className='card'>
+  <Card className={props.className}>
     {props.children}
   </Card>
 );

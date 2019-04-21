@@ -5,7 +5,7 @@ import CardDeck from 'react-bootstrap/CardDeck';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import './pattern.scss'
+import './pattern.module.scss'
 import alphaImg from '../assets/alpha.png';
 import activityImg from '../assets/activity.png';
 import competencyImg from '../assets/competency.png';
