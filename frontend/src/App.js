@@ -11,19 +11,21 @@ const App = () => (
     <Router>
       <Styles>
         <Header />
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route path='/method-chunk/:name_id' component={Essence} />
-        </Switch>
+        <div className='main-content'>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/method-chunk/:name_id' component={Essence} />
+          </Switch>
+        </div>
       </Styles>
     </Router>
   </React.Fragment>
 )
 
 const Styles = styled.div`
-  display: grid;
-  grid-template-rows: 1fr 1fr 3fr;
-  height: 100%;
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
 `
 
 export default App;

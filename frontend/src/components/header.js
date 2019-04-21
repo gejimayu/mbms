@@ -12,7 +12,6 @@ const Jumbo = styled(Jumbotron)`
   border-bottom: 1px solid black;
   padding: 1% 8%;
   margin-bottom: 0;
-  height: 100%;
   & img {
     width: 120px;
   }
