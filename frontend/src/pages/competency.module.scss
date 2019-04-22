@@ -1,8 +1,10 @@
 .container {
   overflow-y: scroll;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding: 0;
   & > .header {
     background-color: #cecece;
     text-align: center;
@@ -14,8 +16,6 @@
     padding: 10px;
   }
   & > .content {
-    height: 65vh;
-    overflow-y: scroll;
     padding: 20px 50px;
     & > h5 {
       width: 100%;

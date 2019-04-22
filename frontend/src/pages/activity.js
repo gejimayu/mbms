@@ -1,17 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Card from 'react-bootstrap/Card';
-import CardDeck from 'react-bootstrap/CardDeck';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
-import './activity.module.scss';
+import Card from '../components/card';
+import styles from './activity.module.scss';
 import alphaImg from '../assets/alpha.png';
 import activitySpaceImg from '../assets/activityspace.png';
 import workProductImg from '../assets/workproduct.png';
 import competencyImg from '../assets/competency.png';
 import patternImg from '../assets/pattern.png';
-import { truncateString } from '../utils/string';
+import { truncateString, camelPad } from '../utils/string';
 
 export default (props) => {
   const { methodChunk, match } = props;
@@ -40,27 +37,27 @@ export default (props) => {
   })
 
   return (
-    <div className='container'>
-      <div className='header'>
+    <div className={styles['container']}>
+      <div className={styles['header']}>
         <h4>{activity.name}</h4>  
       </div>
-      <div className='desc'>
+      <div className={styles['desc']}>
         <p>{activity.description}</p>
       </div>
-      <Row className='content'>
-        <Col sm={8} className='contain'>
-          <div key={1} className='element'>
+      <div className={styles['content']}>
+        <div className={styles['contain']}>
+          <div key={1} className={styles['element']}>
             <h5>Entry Criterions</h5>
-            <CardDeck>
+            <div className={styles['card-deck']}>
               {activity.entryCriterions.alphas.map((alphaToFind, i) => {
                 const relatedAlpha = methodChunk.alphas.find(a => alphaToFind.includes(a.nameId));
                 return (
-                  <Card key={i}>
-                    <Card.Img variant="top" src={alphaImg} />
-                    <Card.Title>{relatedAlpha.name}</Card.Title>
-                    <Card.Text>{truncateString(relatedAlpha.description, 65)}</Card.Text>
+                  <Card className={styles['card']} key={i}>
+                    <img alt='alpha logo' src={alphaImg} />
+                    <h6>{relatedAlpha.name}</h6>
+                    <p>{truncateString(relatedAlpha.description, 65)}</p>
                     <ul>
-                      <li>{alphaToFind.split('.')[1]}</li>
+                      <li>{camelPad(alphaToFind.split('.')[1])}</li>
                     </ul>
                   </Card>
                 )
@@ -75,30 +72,30 @@ export default (props) => {
                   })
                 })
                 return (
-                  <Card key={i}>
-                    <Card.Img variant="top" src={workProductImg} />
-                    <Card.Title>{relatedWP.name}</Card.Title>
-                    <Card.Text>{truncateString(relatedWP.description, 65)}</Card.Text>
+                  <Card className={styles['card']} key={i}>
+                    <img alt='workproduct logo' src={workProductImg} />
+                    <h6>{relatedWP.name}</h6>
+                    <p>{truncateString(relatedWP.description, 65)}</p>
                     <ul>
-                      <li>{workProductToFind.split('.')[1]}</li>
+                      <li>{camelPad(workProductToFind.split('.')[1])}</li>
                     </ul>
                   </Card>
                 )
               })}
-            </CardDeck>
+            </div>
           </div>
-          <div key={2} className='element'>
+          <div key={2} className={styles['element']}>
             <h5>Completion Criterions</h5>
-            <CardDeck>
+            <div className={styles['card-deck']}>
               {activity.completionCriterions.alphas.map((alphaToFind, i) => {
                 const relatedAlpha = methodChunk.alphas.find(a => alphaToFind.includes(a.nameId));
                 return (
-                  <Card key={i}>
-                    <Card.Img variant="top" src={alphaImg} />
-                    <Card.Title>{relatedAlpha.name}</Card.Title>
-                    <Card.Text>{truncateString(relatedAlpha.description, 65)}</Card.Text>
+                  <Card className={styles['card']} key={i}>
+                    <img alt='alpha logo' src={alphaImg} />
+                    <h6>{relatedAlpha.name}</h6>
+                    <p>{truncateString(relatedAlpha.description, 65)}</p>
                     <ul>
-                      <li>{alphaToFind.split('.')[1]}</li>
+                      <li>{camelPad(alphaToFind.split('.')[1])}</li>
                     </ul>
                   </Card>
                 )
@@ -113,37 +110,38 @@ export default (props) => {
                   })
                 })
                 return (
-                  <Card key={i}>
-                    <Card.Img variant="top" src={workProductImg} />
-                    <Card.Title>{relatedWP.name}</Card.Title>
-                    <Card.Text>{truncateString(relatedWP.description, 65)}</Card.Text>
+                  <Card className={styles['card']} key={i}>
+                    <img alt='workproduct logo' src={workProductImg} />
+                    <h6>{relatedWP.name}</h6>
+                    <p>{truncateString(relatedWP.description, 65)}</p>
                     <ul>
-                      <li>{workProductToFind.split('.')[1]}</li>
+                      <li>{camelPad(workProductToFind.split('.')[1])}</li>
                     </ul>
                   </Card>
                 )
               })}
-            </CardDeck>
+            </div>
           </div>
-        </Col>
-        <Col sm={4} className='states'>
-          <div className='activity-space'>
+        </div>
+        <div className={styles['states']}>
+          <div className={styles['activity-space']}>
+            <h5>Activity Space</h5>
             <img src={activitySpaceImg} alt="activity space logo"/>
-            <h5>{activitySpace.name}</h5>
+            <h6>{activitySpace.name}</h6>
             <p>{activitySpace.description}</p>
           </div>
-          <div>
-            <div>
-              <h5>Required</h5>
+          <div className={styles['relations']}>
+            <h5>Required</h5>
+            <div className={styles['required']}>
               {activity.competencies.map(competency => (
                 <div>
                   <img src={competencyImg} alt="competency logo"/>
-                  <h6>{competency.split('.')[0]} level {competency.split('.')[1]}</h6>
+                  <h6>{camelPad(competency.split('.')[0])} level {competency.split('.')[1]}</h6>
                 </div>
               ))}
             </div>
-            <div>
-              <h5>Related</h5>
+            <h5>Related</h5>
+            <div className={styles['related']}>
               {relatedPatterns.map(pattern => (
                 <div>
                   <img src={patternImg} alt="pattern logo"/>
@@ -152,8 +150,8 @@ export default (props) => {
               ))}
             </div>
           </div>
-        </Col>
-      </Row>
+        </div>
+      </div>
     </div>
   )
 }

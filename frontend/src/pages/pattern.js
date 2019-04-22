@@ -1,15 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Card from 'react-bootstrap/Card';
-import CardDeck from 'react-bootstrap/CardDeck';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
-import './pattern.module.scss'
+import Card from '../components/card';
+import styles from './pattern.module.scss'
 import alphaImg from '../assets/alpha.png';
 import activityImg from '../assets/activity.png';
 import competencyImg from '../assets/competency.png';
 import patternImg from '../assets/pattern.png';
+import { truncateString } from '../utils/string';
 
 export default (props) => {
   const { methodChunk, match } = props;
@@ -51,58 +49,88 @@ export default (props) => {
   })
 
   return (
-    <div className='container'>
-      <div className='header'>
+    <div className={styles['container']}>
+      <div className={styles['header']}>
         <h4>{pattern.name}</h4>  
       </div>
-      <div className='desc'>
+      <div className={styles['desc']}>
         <p>{pattern.description}</p>
       </div>
-      <Row className='content'>
-        <Col sm={8} className='contain'>
-          <div key={1} className='element'>
+      <div className={styles['content']}>
+        <div className={styles['contain']}>
+          <div key={1} className={styles['element']}>
             <h5>Related To</h5>
-            <CardDeck>
+            <div className={styles['card-deck']}>
               {relatedAlphas.map(alpha => (
-                <Card key={alpha.nameId}>
-                  <Card.Img variant="top" src={alphaImg} />
-                  <Card.Title>{alpha.name}</Card.Title>
-                  <Card.Text>{alpha.description}</Card.Text>
+                <Card className={styles['card']} key={alpha.nameId}>
+                  <img alt='alpha logo' src={alphaImg} />
+                  <h6>{alpha.name}</h6>
+                  <p>{truncateString(alpha.description)}</p>
                 </Card>
               ))}
               {relatedActivities.map(activity => (
-                <Card key={activity.nameId}>
-                  <Card.Img variant="top" src={activityImg} />
-                  <Card.Title>{activity.name}</Card.Title>
-                  <Card.Text>{activity.description}</Card.Text>
+                <Card className={styles['card']} key={activity.nameId}>
+                  <img alt='activity lgoo' src={activityImg} />
+                  <h6>{activity.name}</h6>
+                  <p>{truncateString(activity.description)}</p>
                 </Card>
               ))}
               {relatedCompetencies.map(competency => (
-                <Card key={competency.nameId}>
-                  <Card.Img variant="top" src={competencyImg} />
-                  <Card.Title>{competency.name}</Card.Title>
-                  <Card.Text>{competency.description}</Card.Text>
+                <Card className={styles['card']} key={competency.nameId}>
+                  <img alt='competency logo' src={competencyImg} />
+                  <h6>{competency.name}</h6>
+                  <p>{truncateString(competency.description)}</p>
                 </Card>
               ))}
-            </CardDeck>
+            </div>
           </div>
-          <div key={2} className='element'>
+          <div key={2} className={styles['element']}>
             <h5>Contains</h5>
-            <CardDeck>
+            <div className={styles['card-deck']}>
               {pattern.subpatternIds.map(subpatternId => {
                 const relatedPattern = patterns.find(p => p.nameId === subpatternId);
                 return (
-                  <Card key={relatedPattern.nameId}>
-                    <Card.Img variant="top" src={patternImg} />
-                    <Card.Title>{relatedPattern.name}</Card.Title>
-                    <Card.Text>{relatedPattern.description}</Card.Text>
+                  <Card className={styles['card']} key={relatedPattern.nameId}>
+                    <img alt='pattern logo' src={patternImg} />
+                    <h6>{relatedPattern.name}</h6>
+                    <p>{truncateString(relatedPattern.description)}</p>
                   </Card>
                 );
               })}
-            </CardDeck>
+              {pattern.subpatternIds.map(subpatternId => {
+                const relatedPattern = patterns.find(p => p.nameId === subpatternId);
+                return (
+                  <Card className={styles['card']} key={relatedPattern.nameId}>
+                    <img alt='pattern logo' src={patternImg} />
+                    <h6>{relatedPattern.name}</h6>
+                    <p>{truncateString(relatedPattern.description)}</p>
+                  </Card>
+                );
+              })}
+              {pattern.subpatternIds.map(subpatternId => {
+                const relatedPattern = patterns.find(p => p.nameId === subpatternId);
+                return (
+                  <Card className={styles['card']} key={relatedPattern.nameId}>
+                    <img alt='pattern logo' src={patternImg} />
+                    <h6>{relatedPattern.name}</h6>
+                    <p>{truncateString(relatedPattern.description)}</p>
+                  </Card>
+                );
+              })}
+              {pattern.subpatternIds.map(subpatternId => {
+                const relatedPattern = patterns.find(p => p.nameId === subpatternId);
+                return (
+                  <Card className={styles['card']} key={relatedPattern.nameId}>
+                    <img alt='pattern logo' src={patternImg} />
+                    <h6>{relatedPattern.name}</h6>
+                    <p>{truncateString(relatedPattern.description)}</p>
+                  </Card>
+                );
+              })}
+            </div>
           </div>
-        </Col>
-      </Row>
+        </div>
+      </div>
     </div>
   )
 }

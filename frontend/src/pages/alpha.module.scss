@@ -1,5 +1,6 @@
 .container {
   overflow-y: scroll;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -15,18 +16,53 @@
     padding: 10px;
   }
   & > .content {
-    height: 65vh;
-    overflow-y: scroll;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
     & > .states {
       border-left: 1px solid black;
-      padding-left: 30px;
-      padding-top: 30px;
+      padding: 25px 15px;
+      width: 35%;
+      font-size: 0.85rem;
+      ol {
+        list-style: none;
+        padding: 0 1rem;
+        counter-reset: state-number;
+        & > li {
+          counter-increment: state-number;
+          margin: 1rem 0;
+          p {
+            margin-bottom: 0.4rem;
+          }
+          .checklist {
+            input[type='checkbox'] {
+              margin-right: 0.5rem;
+            }
+          }
+        }
+        & > li::before {
+          content: counter(state-number);
+          float: left;
+          font-weight: bold;
+          color: red;
+          border: 1px solid red;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          text-align: center;
+          margin-right: 40px; 
+        }
+      }
     }
     & > .contain {
-      & > .element {
+      width: 65%;
+      .element {
         padding: 20px 30px 0 30px;
         .card-deck {
-          padding: 0 50px;
+          padding: 0 35px;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, 150px);
+          grid-gap: 20px;
           .card {
             flex: 0 0 28%;
             height: 100%;
@@ -36,9 +72,10 @@
             flex-direction: column;
             text-align: center;
             font-size: 0.9em;
-            .card-img-top {
-              width: 100px;
-              height: 40%;
+            p {
+              font-size: 0.8rem;
+            }
+            .img {
               margin: 5px auto;
             }
           }

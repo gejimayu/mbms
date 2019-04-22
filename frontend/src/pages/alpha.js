@@ -1,11 +1,12 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card';
-import CardDeck from 'react-bootstrap/CardDeck';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
-import './alpha.module.scss';
+import Card from '../components/card';
+import styles from './alpha.module.scss';
 import alphaImg from '../assets/alpha.png';
+import activityImg from '../assets/activity.png';
+import workProductImg from '../assets/workproduct.png';
+import patternImg from '../assets/pattern.png';
+import { truncateString } from '../utils/string';
 
 export default (props) => {
   const { methodChunk, match } = props;
@@ -36,76 +37,80 @@ export default (props) => {
   })
 
   return (
-    <div className='container'>
-      <div className='header'>
+    <div className={styles['container']}>
+      <div className={styles['header']}>
         <h4>{alpha.name}</h4>  
       </div>
-      <div className='desc'>
+      <div className={styles['desc']}>
         <p>{alpha.description}</p>
       </div>
-      <Row className='content'>
-        <Col sm={8} className='contain'>
-          <div key={1} className='element'>
+      <div className={styles['content']}>
+        <div className={styles['contain']}>
+          <div key={1} className={styles['element']}>
             <h5>Contains</h5>
-            <CardDeck>
+            <div className={styles['card-deck']}>
               {alpha.subalphaIds && alpha.subalphaIds.map(subalphaId => {
                 const subalpha = alphas.find(a => a.nameId === subalphaId);
                 return (
-                  <Card key={subalphaId}>
-                    <Card.Img variant="top" src={alphaImg} />
-                    <Card.Title>{subalpha.name}</Card.Title>
-                    <Card.Text>{subalpha.description}</Card.Text>
+                  <Card className={styles['card']} key={subalphaId}>
+                    <img alt='alpha logo' src={alphaImg} />
+                    <h6>{subalpha.name}</h6>
+                    <p>{truncateString(subalpha.description, 65)}</p>
                   </Card>
                 )
               })}
               {alpha.workProducts && alpha.workProducts.map(workProduct => (
-                <Card key={workProduct.nameId}>
-                  <Card.Img variant="top" src={alphaImg} />
-                  <Card.Title>{workProduct.name}</Card.Title>
-                  <Card.Text>{workProduct.description}</Card.Text>
+                <Card className={styles['card']} key={workProduct.nameId}>
+                  <img alt='work product logo' src={workProductImg} />
+                  <h6>{workProduct.name}</h6>
+                  <p>{truncateString(workProduct.description, 65)}</p>
                 </Card>
               ))}
-            </CardDeck>
-          </div>
-          <div key={2} className='element'>
-            <h5>Progressed By</h5>
-            <CardDeck>
-              {progressingActivity && progressingActivity.map((activity,i) => (
-                <Card key={i}>
-                  <Card.Img variant="top" src={alphaImg} />
-                  <Card.Title>{activity.name}</Card.Title>
-                  <Card.Text>{activity.description}</Card.Text>
-                </Card>
-              ))}
-            </CardDeck>
-          </div>
-          <div key={3} className='element'>
-            <h5>Related Patterns</h5>
-            <CardDeck>
-              {relatedPatterns && relatedPatterns.map(pattern => (
-                <Card key={pattern.nameId}>
-                  <Card.Img variant="top" src={alphaImg} />
-                  <Card.Title>{pattern.name}</Card.Title>
-                  <Card.Text>{pattern.description}</Card.Text>
-                </Card>
-              ))}
-            </CardDeck>
-          </div>
-        </Col>
-        <Col sm={4} className='states'>
-          {alpha.states && alpha.states.map(state => (
-            <div key={state.nameId} className='state'>
-              <h5>{state.name}</h5>
-              <p>{state.description}</p>
-              <ul style={{ listStyleType: 'circle' }}>
-                {state.checklists.map((checklist, i) => (
-                  <li key={i}>{checklist}</li>
-                ))}
-              </ul>
             </div>
-          ))}
-        </Col>
-      </Row>
+          </div>
+          <div key={2} className={styles['element']}>
+            <h5>Progressed By</h5>
+            <div className={styles['card-deck']}>
+              {progressingActivity && progressingActivity.map((activity,i) => (
+                <Card className={styles['card']} key={i}>
+                  <img alt='activity logo' src={activityImg} />
+                  <h6>{activity.name}</h6>
+                  <p>{truncateString(activity.description, 65)}</p>
+                </Card>
+              ))}
+            </div>
+          </div>
+          <div key={3} className={styles['element']}>
+            <h5>Related Patterns</h5>
+            <div className={styles['card-deck']}>
+              {relatedPatterns && relatedPatterns.map(pattern => (
+                <Card className={styles['card']} key={pattern.nameId}>
+                  <img alt='pattern logo' src={patternImg} />
+                  <h6>{pattern.name}</h6>
+                  <p>{truncateString(pattern.description, 65)}</p>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className={styles['states']}>
+          <h5>States</h5>
+          <ol>
+            {alpha.states && alpha.states.map(state => (
+              <li key={state.nameId} className={styles['state']}>
+                <h6>{state.name}</h6>  
+                <p>{state.description}</p>
+                {state.checklists.map((checklist, i) => (
+                  <div className={styles['checklist']}>
+                    <input type="checkbox" checked/>
+                    {checklist}
+                  </div>
+                ))}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
     </div>
   )
 }

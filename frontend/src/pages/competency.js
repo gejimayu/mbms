@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './competency.module.scss';
+import styles from './competency.module.scss';
 
 export default (props) => {
   const { methodChunk, match } = props;
@@ -13,14 +13,14 @@ export default (props) => {
   if (!competency) return null;
 
   return (
-    <div className='container'>
-      <div className='header'>
+    <div className={styles['container']}>
+      <div className={styles['header']}>
         <h4>{competency.name}</h4>  
       </div>
-      <div className='desc'>
+      <div className={styles['desc']}>
         <p>{competency.description}</p>
       </div>
-      <div className='content'>
+      <div className={styles['content']}>
         <h5>Levels</h5>
         <table>
           {competency.levels.map((level, i) => (
