@@ -12,7 +12,7 @@ const Pattern = React.lazy(() => import('./pattern'));
 export default (props) => {
   const { match } = props;
   const nameId = match.params.name_id;
-  const [methodChunk, setMethodChunk] = useState({});
+  const [methodChunk, setMethodChunk] = useState(null);
 
   useEffect(() => {
     fetch(process.env.REACT_APP_API + '/' + nameId)
