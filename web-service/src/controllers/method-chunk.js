@@ -54,6 +54,7 @@ exports.getAll = async (req, res, next) => {
         'name': m['name'],
         'description': m['description'],
         'characteristics': m['characteristics'],
+        'published': m['published'],
       });
     });
     res.json({
@@ -130,6 +131,10 @@ exports.publish = async (req, res, next) => {
       headers: {
         'Content-Type': 'application/json',
       },
+    }).then(resp => {
+      if (!resp.ok) {
+        throw new Error(Config.serviceRegistry.url + ' ' + resp.statusText);
+      }
     });
 
     await MethodChunk.updateOne({ nameId }, { published: true });
