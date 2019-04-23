@@ -25,7 +25,7 @@ api.use(
       winston.format.prettyPrint(),
     ),
     expressFormat: true,
-    meta: true,
+    meta: false,
   })
 );
 
