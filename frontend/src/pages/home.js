@@ -18,12 +18,26 @@ export default (props) => {
       .then(methodChunks => setMethodChunks(methodChunks))
       .catch(err => alert(err))
   }, [])
+
+  const publishMethod = async (methodChunk) => {
+    const { nameId } = methodChunk;
+    await fetch(process.env.REACT_APP_API + '/publish/' + nameId, {
+      method: 'POST',
+    }).then(res => {
+      if (!res.ok) {
+        alert(res.statusText);
+      } else {
+        const methodChunkIdx = methodChunks.findIndex(m => m.nameId === methodChunk.nameId);
+        methodChunks[methodChunkIdx].published = true;
+        setMethodChunks([...methodChunks]);
+      }
+    })
+  }
   
   let methodChunksToRender = methodChunks;
   if (searchText) {
     methodChunksToRender = methodChunks.filter(m => m.name.toLowerCase().includes(searchText.toLowerCase()))
   }
-  console.log(styles)
 
   return (
     <React.Fragment>
@@ -47,12 +61,14 @@ export default (props) => {
                 >
                   Browse
                 </Button>
-                <Button
-                  variant="primary"
-                  onClick={e => history.push('/method-chunk/' + m.nameId)}
-                >
-                  Publish
-                </Button>
+                {!m.published && (
+                  <Button
+                    variant="primary"
+                    onClick={e => publishMethod(m)}
+                  >
+                    Publish
+                  </Button>
+                )}
               </div>  
             </Card>
           ))
