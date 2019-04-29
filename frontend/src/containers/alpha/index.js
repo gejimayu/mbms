@@ -6,7 +6,7 @@ import alphaImg from '../../assets/alpha.png';
 import activityImg from '../../assets/activity.png';
 import workProductImg from '../../assets/workproduct.png';
 import patternImg from '../../assets/pattern.png';
-import { truncateString } from '../../utils/string';
+import { truncateString, camelPad } from '../../utils/string';
 
 export default (props) => {
   const { methodChunk, match } = props;
@@ -36,6 +36,8 @@ export default (props) => {
     })
   })
 
+  const link = `/method-chunk/${methodChunk.name}`
+
   return (
     <div className={styles['container']}>
       <div className={styles['header']}>
@@ -48,22 +50,33 @@ export default (props) => {
         <div className={styles['contain']}>
           <div key={1} className={styles['element']}>
             <h5>Contains</h5>
-            <div className={styles['card-deck']}>
+            <div className={`${styles['card-deck']}`}>
               {alpha.subalphaIds && alpha.subalphaIds.map(subalphaId => {
                 const subalpha = alphas.find(a => a.nameId === subalphaId);
                 return (
-                  <Card className={styles['card']} key={subalphaId}>
+                  <Card 
+                    className={styles['card']} 
+                    key={subalphaId}
+                    link={`${link}/alpha/${alpha.nameId}`}
+                  >
                     <img alt='alpha logo' src={alphaImg} />
                     <h6>{subalpha.name}</h6>
                     <p>{truncateString(subalpha.description, 65)}</p>
                   </Card>
                 )
               })}
+            </div>
+            <div className={`${styles['card-deck']} ${styles['card-deck--bigger']}`}>
               {alpha.workProducts && alpha.workProducts.map(workProduct => (
                 <Card className={styles['card']} key={workProduct.nameId}>
                   <img alt='work product logo' src={workProductImg} />
                   <h6>{workProduct.name}</h6>
-                  <p>{truncateString(workProduct.description, 65)}</p>
+                  <p>{workProduct.description}</p>
+                  <ul>
+                    {workProduct.levelOfDetails.map(lod => (
+                      <li>{camelPad(lod)}</li>
+                    ))}
+                  </ul>
                 </Card>
               ))}
             </div>
@@ -72,7 +85,11 @@ export default (props) => {
             <h5>Progressed By</h5>
             <div className={styles['card-deck']}>
               {progressingActivity && progressingActivity.map(activity => (
-                <Card className={styles['card']} key={activity.nameId}>
+                <Card
+                  className={styles['card']}
+                  key={activity.nameId}
+                  link={`${link}/activity/${activity.nameId}`}
+                >
                   <img alt='activity logo' src={activityImg} />
                   <h6>{activity.name}</h6>
                   <p>{truncateString(activity.description, 65)}</p>
@@ -84,7 +101,11 @@ export default (props) => {
             <h5>Related Patterns</h5>
             <div className={styles['card-deck']}>
               {relatedPatterns && relatedPatterns.map(pattern => (
-                <Card className={styles['card']} key={pattern.nameId}>
+                <Card
+                  className={styles['card']}
+                  key={pattern.nameId}
+                  link={`${link}/pattern/${pattern.nameId}`}
+                >
                   <img alt='pattern logo' src={patternImg} />
                   <h6>{pattern.name}</h6>
                   <p>{truncateString(pattern.description, 65)}</p>

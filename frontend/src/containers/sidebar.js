@@ -16,8 +16,8 @@ export default (props) => {
   const renderPattern = (pattern) => {
     if (!pattern.subpatterns.length) {
       return (
-        <Link to={`${link}/pattern/${pattern.nameId}`}>
-          <div key={pattern.nameId} className="info">{pattern.name}</div>
+        <Link key={pattern.nameId} to={`${link}/pattern/${pattern.nameId}`}>
+          <div className="info">{pattern.name}</div>
         </Link>
       )
     }
@@ -33,8 +33,8 @@ export default (props) => {
   const renderAlpha = (alpha) => {
     if (!alpha.subalphas.length) {
       return (
-        <Link to={`${link}/alpha/${alpha.nameId}`}>
-          <div key={alpha.nameId}  className="info">{alpha.name}</div> 
+        <Link key={alpha.nameId} to={`${link}/alpha/${alpha.nameId}`}>
+          <div className="info">{alpha.name}</div> 
         </Link>
       )
     }
@@ -60,8 +60,8 @@ export default (props) => {
               <TreeView key={activitySpace.nameId} nodeLabel={activitySpaceLabel} >
                 {activitySpace.activities.map(activity => {
                   return (
-                    <Link to={`${link}/activity/${activity.nameId}`}>
-                      <div key={activity.nameId} className="info">{activity.name}</div>  
+                    <Link key={activity.nameId} to={`${link}/activity/${activity.nameId}`}>
+                      <div className="info">{activity.name}</div>  
                     </Link>
                   )
                 })}
@@ -71,8 +71,8 @@ export default (props) => {
         </TreeView>
         <TreeView key='competency' nodeLabel={nodeLabel('Competencies')} >
           {methodChunk.competencies.map(competency => (
-            <Link to={`${link}/competency/${competency.nameId}`}>
-              <div key={competency.nameId} className="info">{competency.name}</div>
+            <Link key={competency.nameId} to={`${link}/competency/${competency.nameId}`}>
+              <div className="info">{competency.name}</div>
             </Link>
           ))}
         </TreeView>

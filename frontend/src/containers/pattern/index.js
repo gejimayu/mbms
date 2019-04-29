@@ -46,6 +46,8 @@ export default (props) => {
     })
   })
 
+  const link = `/method-chunk/${methodChunk.name}`
+
   return (
     <div className={styles['container']}>
       <div className={styles['header']}>
@@ -60,21 +62,33 @@ export default (props) => {
             <h5>Related To</h5>
             <div className={styles['card-deck']}>
               {relatedAlphas.map(alpha => (
-                <Card className={styles['card']} key={alpha.nameId}>
+                <Card
+                  className={styles['card']}
+                  key={alpha.nameId}
+                  link={`${link}/alpha/${alpha.nameId}`}
+                >
                   <img alt='alpha logo' src={alphaImg} />
                   <h6>{alpha.name}</h6>
                   <p>{truncateString(alpha.description)}</p>
                 </Card>
               ))}
               {relatedActivities.map(activity => (
-                <Card className={styles['card']} key={activity.nameId}>
+                <Card 
+                  className={styles['card']} 
+                  key={activity.nameId}
+                  link={`${link}/activity/${activity.nameId}`}
+                >
                   <img alt='activity lgoo' src={activityImg} />
                   <h6>{activity.name}</h6>
                   <p>{truncateString(activity.description)}</p>
                 </Card>
               ))}
               {relatedCompetencies.map(competency => (
-                <Card className={styles['card']} key={competency.nameId}>
+                <Card 
+                  className={styles['card']} 
+                  key={competency.nameId}
+                  link={`${link}/competency/${competency.nameId}`}
+                >
                   <img alt='competency logo' src={competencyImg} />
                   <h6>{competency.name}</h6>
                   <p>{truncateString(competency.description)}</p>
@@ -88,37 +102,11 @@ export default (props) => {
               {pattern.subpatternIds.map(subpatternId => {
                 const relatedPattern = patterns.find(p => p.nameId === subpatternId);
                 return (
-                  <Card className={styles['card']} key={relatedPattern.nameId}>
-                    <img alt='pattern logo' src={patternImg} />
-                    <h6>{relatedPattern.name}</h6>
-                    <p>{truncateString(relatedPattern.description)}</p>
-                  </Card>
-                );
-              })}
-              {pattern.subpatternIds.map(subpatternId => {
-                const relatedPattern = patterns.find(p => p.nameId === subpatternId);
-                return (
-                  <Card className={styles['card']} key={relatedPattern.nameId}>
-                    <img alt='pattern logo' src={patternImg} />
-                    <h6>{relatedPattern.name}</h6>
-                    <p>{truncateString(relatedPattern.description)}</p>
-                  </Card>
-                );
-              })}
-              {pattern.subpatternIds.map(subpatternId => {
-                const relatedPattern = patterns.find(p => p.nameId === subpatternId);
-                return (
-                  <Card className={styles['card']} key={relatedPattern.nameId}>
-                    <img alt='pattern logo' src={patternImg} />
-                    <h6>{relatedPattern.name}</h6>
-                    <p>{truncateString(relatedPattern.description)}</p>
-                  </Card>
-                );
-              })}
-              {pattern.subpatternIds.map(subpatternId => {
-                const relatedPattern = patterns.find(p => p.nameId === subpatternId);
-                return (
-                  <Card className={styles['card']} key={relatedPattern.nameId}>
+                  <Card 
+                    className={styles['card']} 
+                    key={relatedPattern.nameId}
+                    link={`${link}/pattern/${relatedPattern.nameId}`}
+                  >
                     <img alt='pattern logo' src={patternImg} />
                     <h6>{relatedPattern.name}</h6>
                     <p>{truncateString(relatedPattern.description)}</p>

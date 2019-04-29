@@ -36,6 +36,8 @@ export default (props) => {
     })
   })
 
+  const link = `/method-chunk/${methodChunk.name}`
+
   return (
     <div className={styles['container']}>
       <div className={styles['header']}>
@@ -52,7 +54,11 @@ export default (props) => {
               {activity.entryCriterions.alphas.map((alphaToFind, i) => {
                 const relatedAlpha = methodChunk.alphas.find(a => alphaToFind.includes(a.nameId));
                 return (
-                  <Card className={styles['card']} key={i}>
+                  <Card
+                    className={styles['card']} 
+                    key={i}
+                    link={`${link}/alpha/${relatedAlpha.nameId}`}
+                  >
                     <img alt='alpha logo' src={alphaImg} />
                     <h6>{relatedAlpha.name}</h6>
                     <p>{truncateString(relatedAlpha.description, 65)}</p>
@@ -75,7 +81,7 @@ export default (props) => {
                   <Card className={styles['card']} key={i}>
                     <img alt='workproduct logo' src={workProductImg} />
                     <h6>{relatedWP.name}</h6>
-                    <p>{truncateString(relatedWP.description, 65)}</p>
+                    <p>{relatedWP.description}</p>
                     <ul>
                       <li>{camelPad(workProductToFind.split('.')[1])}</li>
                     </ul>
@@ -90,7 +96,11 @@ export default (props) => {
               {activity.completionCriterions.alphas.map((alphaToFind, i) => {
                 const relatedAlpha = methodChunk.alphas.find(a => alphaToFind.includes(a.nameId));
                 return (
-                  <Card className={styles['card']} key={i}>
+                  <Card
+                    className={styles['card']} 
+                    key={i}
+                    link={`${link}/alpha/${relatedAlpha.nameId}`}
+                  >
                     <img alt='alpha logo' src={alphaImg} />
                     <h6>{relatedAlpha.name}</h6>
                     <p>{truncateString(relatedAlpha.description, 65)}</p>
@@ -113,7 +123,7 @@ export default (props) => {
                   <Card className={styles['card']} key={i}>
                     <img alt='workproduct logo' src={workProductImg} />
                     <h6>{relatedWP.name}</h6>
-                    <p>{truncateString(relatedWP.description, 65)}</p>
+                    <p>{relatedWP.description}</p>
                     <ul>
                       <li>{camelPad(workProductToFind.split('.')[1])}</li>
                     </ul>

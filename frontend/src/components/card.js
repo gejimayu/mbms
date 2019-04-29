@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
 const Card = styled.div`
@@ -7,8 +8,21 @@ const Card = styled.div`
   border-radius: 1rem;
 `
 
-export default (props) => (
-  <Card className={props.className}>
-    {props.children}
-  </Card>
-);
+export default (props) => {
+  const { link, className, children } = props;
+  console.log(link)
+  if (link) {
+    return (
+      <Link to={link}>
+        <Card className={className}>
+          {children}
+        </Card>
+      </Link>
+    )
+  }
+  return (
+    <Card className={className}>
+      {children}
+    </Card>
+  )
+};
