@@ -1,7 +1,7 @@
 import Joi from '@hapi/joi';
 
 const joiText = Joi.string().min(3).max(50).required();
-const joiLongText = Joi.string().min(3).max(500).required();
+const joiLongText = Joi.string().min(3).max(1000).required();
 const joiArrayOfString = Joi.array().items(Joi.string());
 
 const schema = Joi.object().keys({
