@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Card from '../components/card';
+import Card from '../../components/card';
 import styles from './methodchunk.module.scss';
-import alphaImg from '../assets/alpha.png';
-import activityImg from '../assets/activity.png';
-import competencyImg from '../assets/competency.png';
-import patternImg from '../assets/pattern.png';
+import alphaImg from '../../assets/alpha.png';
+import activityImg from '../../assets/activity.png';
+import competencyImg from '../../assets/competency.png';
+import patternImg from '../../assets/pattern.png';
 
 export default (props) => {
   const { methodChunk, match } = props;

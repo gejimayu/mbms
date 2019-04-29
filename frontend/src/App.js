@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Header from './components/header';
-const Essence = React.lazy(() => import('./pages/essence'));
-const Home = React.lazy(() => import('./pages/home'));
+const Essence = React.lazy(() => import('./containers/essence'));
+const Home = React.lazy(() => import('./containers/home'));
 
 const App = () => (
   <React.Fragment>

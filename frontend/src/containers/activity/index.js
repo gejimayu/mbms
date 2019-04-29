@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Card from '../components/card';
+import Card from '../../components/card';
 import styles from './activity.module.scss';
-import alphaImg from '../assets/alpha.png';
-import activitySpaceImg from '../assets/activityspace.png';
-import workProductImg from '../assets/workproduct.png';
-import competencyImg from '../assets/competency.png';
-import patternImg from '../assets/pattern.png';
-import { truncateString, camelPad } from '../utils/string';
+import alphaImg from '../../assets/alpha.png';
+import activitySpaceImg from '../../assets/activityspace.png';
+import workProductImg from '../../assets/workproduct.png';
+import competencyImg from '../../assets/competency.png';
+import patternImg from '../../assets/pattern.png';
+import { truncateString, camelPad } from '../../utils/string';
 
 export default (props) => {
   const { methodChunk, match } = props;

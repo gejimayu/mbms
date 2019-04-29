@@ -1,6 +1,7 @@
 /* the tree node's style */
 .tree-view {
   overflow-y: hidden;
+  line-height: 1.7rem;
 }
 
 .tree-view_item {
@@ -9,7 +10,7 @@
 
 /* style for the children nodes container */
 .tree-view_children {
-  margin-left: 16px;
+  margin-left: 19px;
 }
 
 .tree-view_children-collapsed {

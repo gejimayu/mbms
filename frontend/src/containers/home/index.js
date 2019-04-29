@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-import Card from '../components/card';
-import { truncateString } from '../utils/string';
+import Card from '../../components/card';
+import { truncateString } from '../../utils/string';
 import styles from './home.module.scss';
 
 export default (props) => {

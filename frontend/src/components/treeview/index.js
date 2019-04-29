@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import './treeview.css';
@@ -40,6 +41,7 @@ class TreeView extends React.PureComponent {
       nodeLabel,
       children,
       defaultCollapsed,
+      link,
       ...rest
     } = this.props;
 
@@ -60,10 +62,20 @@ class TreeView extends React.PureComponent {
 
     return (
       <div className={'tree-view ' + treeViewClassName}>
-        <div className={'tree-view_item ' + itemClassName}>
-          {arrow}
-          {nodeLabel}
-        </div>
+        {link && (
+          <Link to={link}>
+            <div className={'tree-view_item ' + itemClassName}>
+              {arrow}
+              {nodeLabel}
+            </div>
+          </Link>
+        )}
+        {!link && (
+          <div className={'tree-view_item ' + itemClassName}>
+            {arrow}
+            {nodeLabel}
+          </div>
+        )}
         <div className={containerClassName + ' ' + childrenClassName}>
           {collapsed ? null : children}
         </div>

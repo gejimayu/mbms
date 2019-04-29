@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Card from '../components/card';
+import Card from '../../components/card';
 import styles from './pattern.module.scss'
-import alphaImg from '../assets/alpha.png';
-import activityImg from '../assets/activity.png';
-import competencyImg from '../assets/competency.png';
-import patternImg from '../assets/pattern.png';
-import { truncateString } from '../utils/string';
+import alphaImg from '../../assets/alpha.png';
+import activityImg from '../../assets/activity.png';
+import competencyImg from '../../assets/competency.png';
+import patternImg from '../../assets/pattern.png';
+import { truncateString } from '../../utils/string';
 
 export default (props) => {
   const { methodChunk, match } = props;
@@ -18,11 +18,9 @@ export default (props) => {
   if (!pattern) return null;
   
   let relatedActivities = []
-  console.log(pattern)
   pattern.activities.forEach(activityToFind => {
     methodChunk.activitySpaces.forEach(activitySpace => {
       activitySpace.activities.forEach(activity => {
-        console.log(activity.nameId, activityToFind.nameId)
         if (activity.nameId === activityToFind) {
           relatedActivities.push(activity);
         }

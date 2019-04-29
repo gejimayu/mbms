@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Card from '../components/card';
+import Card from '../../components/card';
 import styles from './alpha.module.scss';
-import alphaImg from '../assets/alpha.png';
-import activityImg from '../assets/activity.png';
-import workProductImg from '../assets/workproduct.png';
-import patternImg from '../assets/pattern.png';
-import { truncateString } from '../utils/string';
+import alphaImg from '../../assets/alpha.png';
+import activityImg from '../../assets/activity.png';
+import workProductImg from '../../assets/workproduct.png';
+import patternImg from '../../assets/pattern.png';
+import { truncateString } from '../../utils/string';
 
 export default (props) => {
   const { methodChunk, match } = props;
@@ -71,8 +71,8 @@ export default (props) => {
           <div key={2} className={styles['element']}>
             <h5>Progressed By</h5>
             <div className={styles['card-deck']}>
-              {progressingActivity && progressingActivity.map((activity,i) => (
-                <Card className={styles['card']} key={i}>
+              {progressingActivity && progressingActivity.map(activity => (
+                <Card className={styles['card']} key={activity.nameId}>
                   <img alt='activity logo' src={activityImg} />
                   <h6>{activity.name}</h6>
                   <p>{truncateString(activity.description, 65)}</p>
@@ -101,7 +101,7 @@ export default (props) => {
                 <h6>{state.name}</h6>  
                 <p>{state.description}</p>
                 {state.checklists.map((checklist, i) => (
-                  <div className={styles['checklist']}>
+                  <div key={i} className={styles['checklist']}>
                     <input type="checkbox" checked/>
                     {checklist}
                   </div>
