@@ -3,50 +3,103 @@ import styled from 'styled-components';
 
 import TreeView from './treeview';
 
+
+// populate subpatternIds of a pattern (2nd arg) with the real subpattern object
+// based on listOfPattern (like a yellow book, where to look the subpattern object).
+const patternToTree = (listOfPattern, pattern) => {
+  pattern.subpatterns = [];
+  pattern.subpatternIds.forEach(subpatternId => {
+    let subpatternIdx = listOfPattern.findIndex(p => p.nameId === subpatternId);
+    let subpattern = listOfPattern[subpatternIdx];
+    subpattern = patternToTree(listOfPattern, subpattern);
+    pattern.subpatterns.push(subpattern);
+    listOfPattern.splice(subpatternIdx, 1);
+  });
+  return pattern;
+}
+
+// same as above, only for alpha.
+const alphaToTree = (listOfAlpha, alpha) => {
+  alpha.subalphas = [];
+  alpha.subalphaIds.forEach(subalphaId => {
+    let subalphaIdx = listOfAlpha.findIndex(p => p.nameId === subalphaId);
+    let subalpha = listOfAlpha[subalphaIdx];
+    subalpha = alphaToTree(listOfAlpha, subalpha);
+    alpha.subalphas.push(subalpha);
+    listOfAlpha.splice(subalphaIdx, 1);
+  })
+  return alpha;
+}
+
 export default (props) => {
   const methodChunk = props.methodChunk;
+  if (!methodChunk) return null;
+  
+  // populate subalpha
+  methodChunk.alphas = methodChunk.alphas.map(a => (
+    alphaToTree(methodChunk.alphas, a)
+  ))
+  
+  // populate subpattern
+  methodChunk.patterns = methodChunk.patterns.map(p => (
+    patternToTree(methodChunk.patterns, p)
+  ));
 
-  const methodLabel = <span className="node">{methodChunk.name}</span>;
-  const alphasLabel = <span className="node">Alphas</span>;
-  const activitySpacesLabel = <span className="node">Activity Spaces</span>;
-  const competenciesLabel = <span className="node">Competencies</span>;
-  const patternsLabel = <span className="node">Patterns</span>;
+  const nodeLabel = (name) => (
+    <span className="node">{name}</span>
+  )
+  
+  const renderPattern = (pattern) => {
+    if (!pattern.subpatterns.length) {
+      return <div key={pattern.nameId} className="info">{pattern.name}</div>
+    }
+    return (
+      <TreeView key={pattern.nameId} nodeLabel={nodeLabel(pattern.name)} >
+        { pattern.subpatterns.map((subpattern, i) => (
+          renderPattern(subpattern)
+        ))}
+      </TreeView>
+    )
+  }
+
+  const renderAlpha = (alpha) => {
+    if (!alpha.subalphas.length) {
+      return <div key={alpha.nameId}  className="info">{alpha.name}</div> 
+    }
+    return (
+      <TreeView key={alpha.nameId} nodeLabel={nodeLabel(alpha.name)} >
+        { alpha.subalphas.map((subalpha, i) => (
+          renderAlpha(subalpha)
+        ))}
+      </TreeView>
+    )
+  }
 
   return (
     <Styles>
-      <TreeView nodeLabel={methodLabel} defaultCollapsed={false}>
-        <TreeView key='alpha' nodeLabel={alphasLabel} defaultCollapsed={false}>
-          {methodChunk.alphas && methodChunk.alphas.map(alpha => {
-            return <div key={alpha.nameId}  className="info">{alpha.name}</div>
-          })}
-          {methodChunk.alphas && methodChunk.alphas.map(alpha => {
-            return <div key={alpha.nameId}  className="info">{alpha.name}</div>
-          })}
-          {methodChunk.alphas && methodChunk.alphas.map(alpha => {
-            return <div key={alpha.nameId}  className="info">{alpha.name}</div>
-          })}
+      <TreeView nodeLabel={nodeLabel(methodChunk.name)} >
+        <TreeView key='alpha' nodeLabel={nodeLabel('Alphas')} >
+          { methodChunk.alphas.map(a => renderAlpha(a)) }
         </TreeView>
-        <TreeView key='activity-space' nodeLabel={activitySpacesLabel} defaultCollapsed={false}>
-          {methodChunk.activitySpaces && methodChunk.activitySpaces.map(activitySpace => {
+        <TreeView key='activity-space' nodeLabel={nodeLabel('Activity Spaces')} >
+          {methodChunk.activitySpaces.map(activitySpace => {
             const activitySpaceLabel = <span className="node">{activitySpace.name}</span>;
             return (
-              <TreeView key={activitySpace.nameId} nodeLabel={activitySpaceLabel} defaultCollapsed={false}>
+              <TreeView key={activitySpace.nameId} nodeLabel={activitySpaceLabel} >
                 {activitySpace.activities.map(activity => {
-                  return <div key={activity.nameId} className="info">{activity.name}</div>
+                  return <div  key={activity.nameId} className="info">{activity.name}</div>
                 })}
               </TreeView>
             );
           })}
         </TreeView>
-        <TreeView key='competency' nodeLabel={competenciesLabel} defaultCollapsed={false}>
-          {methodChunk.competencies && methodChunk.competencies.map(competency => (
+        <TreeView key='competency' nodeLabel={nodeLabel('Competencies')} >
+          {methodChunk.competencies.map(competency => (
             <div key={competency.nameId} className="info">{competency.name}</div>
           ))}
         </TreeView>
-        <TreeView key='pattern' nodeLabel={patternsLabel} defaultCollapsed={false}>
-          {methodChunk.patterns && methodChunk.patterns.map(pattern => (
-            <div key={pattern.nameId} className="info">{pattern.name}</div>
-          ))}
+        <TreeView key='pattern' nodeLabel={nodeLabel('Pattern')} >
+          { methodChunk.patterns.map(p => renderPattern(p)) }
         </TreeView>
       </TreeView>
     </Styles>
