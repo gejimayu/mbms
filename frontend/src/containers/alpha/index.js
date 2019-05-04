@@ -21,8 +21,8 @@ export default (props) => {
   methodChunk.activitySpaces.forEach(activitySpace => {
     activitySpace.activities.forEach(activity => {
       activity.completionCriterions.alphas.forEach(progressed => {
-        console.log(progressed, alpha.nameId)
-        if (progressed.includes(alpha.nameId) && !doesObjExistOnArray(progressingActivity, activity, 'nameId')) {
+        const nameIdProgressed = progressed.split('.')[0];
+        if (nameIdProgressed === alpha.nameId && !doesObjExistOnArray(progressingActivity, activity, 'nameId')) {
           progressingActivity.push(activity);
         }
       })
@@ -32,7 +32,7 @@ export default (props) => {
   let relatedPatterns = []
   methodChunk.patterns.forEach(pattern => {
     pattern.alphas.forEach(related => {
-      if (related.includes(alpha.nameId)) {
+      if (related === alpha.nameId) {
         relatedPatterns.push(pattern);
       }
     })

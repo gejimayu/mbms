@@ -29,7 +29,7 @@ export default (props) => {
   let relatedPatterns = []
   methodChunk.patterns.forEach(pattern => {
     pattern.activities.forEach(related => {
-      if (related.includes(activity.nameId)) {
+      if (related === activity.nameId) {
         relatedPatterns.push(pattern);
       }
     })
@@ -51,7 +51,8 @@ export default (props) => {
             <h5>Entry Criterions</h5>
             <div className={styles['card-deck']}>
               {activity.entryCriterions.alphas.map((alphaToFind, i) => {
-                const relatedAlpha = methodChunk.alphas.find(a => alphaToFind.includes(a.nameId));
+                const alphaToFindNameId = alphaToFind.split('.')[0];
+                const relatedAlpha = methodChunk.alphas.find(a => alphaToFindNameId === a.nameId);
                 return (
                   <Card
                     className={styles['card']} 
@@ -73,7 +74,8 @@ export default (props) => {
                 let relatedWP = {};
                 methodChunk.alphas.forEach(alpha => {
                   alpha.workProducts.forEach(workProduct => {
-                    if (workProductToFind.includes(workProduct.nameId)) {
+                    const workProductNameId = workProductToFind.split('.')[0];
+                    if (workProductNameId === workProduct.nameId) {
                       relatedWP = workProduct;
                     }
                   })
@@ -95,7 +97,8 @@ export default (props) => {
             <h5>Completion Criterions</h5>
             <div className={styles['card-deck']}>
               {activity.completionCriterions.alphas.map((alphaToFind, i) => {
-                const relatedAlpha = methodChunk.alphas.find(a => alphaToFind.includes(a.nameId));
+                const alphaToFindNameId = alphaToFind.split('.')[0];
+                const relatedAlpha = methodChunk.alphas.find(a => alphaToFindNameId === a.nameId);
                 return (
                   <Card
                     className={styles['card']} 
@@ -117,7 +120,8 @@ export default (props) => {
                 let relatedWP = {};
                 methodChunk.alphas.forEach(alpha => {
                   alpha.workProducts.forEach(workProduct => {
-                    if (workProductToFind.includes(workProduct.nameId)) {
+                    const workProductNameId = workProductToFind.split('.')[0];
+                    if (workProductNameId === workProduct.nameId) {
                       relatedWP = workProduct;
                     }
                   })
