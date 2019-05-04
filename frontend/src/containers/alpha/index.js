@@ -7,6 +7,7 @@ import activityImg from '../../assets/activity.png';
 import workProductImg from '../../assets/workproduct.png';
 import patternImg from '../../assets/pattern.png';
 import { truncateString, camelPad } from '../../utils/string';
+import { doesObjExistOnArray } from '../../utils/object';
 
 export default (props) => {
   const { methodChunk, match } = props;
@@ -21,7 +22,7 @@ export default (props) => {
     activitySpace.activities.forEach(activity => {
       activity.completionCriterions.alphas.forEach(progressed => {
         console.log(progressed, alpha.nameId)
-        if (progressed.includes(alpha.nameId)) {
+        if (progressed.includes(alpha.nameId) && !doesObjExistOnArray(progressingActivity, activity, 'nameId')) {
           progressingActivity.push(activity);
         }
       })
