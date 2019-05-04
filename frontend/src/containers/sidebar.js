@@ -7,7 +7,6 @@ import TreeView from '../components/treeview';
 export default (props) => {
   const { methodChunk } = props;
   if (!methodChunk) return null;
-  const link = `/method-chunk/${methodChunk.nameId}`;
 
   const nodeLabel = (name) => (
     <span className="node">{name}</span>
@@ -46,6 +45,8 @@ export default (props) => {
       </TreeView>
     )
   }
+
+  const link = `/method-chunk/${methodChunk.nameId}`;
 
   return (
     <Styles>

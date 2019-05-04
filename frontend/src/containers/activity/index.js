@@ -143,8 +143,8 @@ export default (props) => {
           <div className={styles['relations']}>
             <h5>Required</h5>
             <div className={styles['required']}>
-              {activity.competencies.map(competency => (
-                <div>
+              {activity.competencies.map((competency, i) => (
+                <div key={i}>
                   <img src={competencyImg} alt="competency logo"/>
                   <h6>{camelPad(competency.split('.')[0])} level {competency.split('.')[1]}</h6>
                 </div>
@@ -152,8 +152,8 @@ export default (props) => {
             </div>
             <h5>Related</h5>
             <div className={styles['related']}>
-              {relatedPatterns.map(pattern => (
-                <div>
+              {relatedPatterns.map((pattern, i) => (
+                <div key={i}>
                   <img src={patternImg} alt="pattern logo"/>
                   <h6>{pattern.name}</h6>
                 </div>

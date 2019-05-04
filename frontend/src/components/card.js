@@ -10,7 +10,6 @@ const Card = styled.div`
 
 export default (props) => {
   const { link, className, children } = props;
-  console.log(link)
   if (link) {
     return (
       <Link to={link}>

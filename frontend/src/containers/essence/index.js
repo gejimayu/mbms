@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Router } from 'react-router-dom';
 
 import styles from './essence.module.scss'
 import Sidebar from '../sidebar';
@@ -64,26 +64,31 @@ export default (props) => {
 
   return (
     <div className={styles['main']}>
-      <Sidebar className={styles['sidebar']} methodChunk={methodChunkTree} />
+      <Sidebar className={styles['sidebar']} methodChunk={methodChunkTree} match={match}/>
       <React.Suspense fallback={<p>Please Wait</p>}>
         <Switch>
           <Route
+            key={1}
             path={`${match.path}/alpha/:name_id`}
             render={props => <Alpha {...props} methodChunk={methodChunk} />}
           />
           <Route
+            key={2}
             path={`${match.path}/activity/:name_id`}
             render={props => <Activity {...props} methodChunk={methodChunk} />}
           />
           <Route
+            key={3}
             path={`${match.path}/competency/:name_id`}
             render={props => <Competency {...props} methodChunk={methodChunk} />}
           />
           <Route
+            key={4}
             path={`${match.path}/pattern/:name_id`}
             render={props => <Pattern {...props} methodChunk={methodChunk} />}
           />
           <Route
+            key={5}
             path={`${match.path}`}
             render={props => <MethodChunk {...props} methodChunk={methodChunk} />}
           />

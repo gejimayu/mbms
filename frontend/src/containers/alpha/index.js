@@ -20,6 +20,7 @@ export default (props) => {
   methodChunk.activitySpaces.forEach(activitySpace => {
     activitySpace.activities.forEach(activity => {
       activity.completionCriterions.alphas.forEach(progressed => {
+        console.log(progressed, alpha.nameId)
         if (progressed.includes(alpha.nameId)) {
           progressingActivity.push(activity);
         }
@@ -57,7 +58,7 @@ export default (props) => {
                   <Card 
                     className={styles['card']} 
                     key={subalphaId}
-                    link={`${link}/alpha/${alpha.nameId}`}
+                    link={`${link}/alpha/${subalpha.nameId}`}
                   >
                     <img alt='alpha logo' src={alphaImg} />
                     <h6>{subalpha.name}</h6>
@@ -73,8 +74,8 @@ export default (props) => {
                   <h6>{workProduct.name}</h6>
                   <p>{workProduct.description}</p>
                   <ul>
-                    {workProduct.levelOfDetails.map(lod => (
-                      <li>{camelPad(lod)}</li>
+                    {workProduct.levelOfDetails.map((lod, i) => (
+                      <li key={i}>{camelPad(lod)}</li>
                     ))}
                   </ul>
                 </Card>
