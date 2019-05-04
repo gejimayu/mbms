@@ -12,20 +12,19 @@ import { truncateString, camelPad } from '../../utils/string';
 
 export default (props) => {
   const { methodChunk, match } = props;
-  const { activitySpaces } = methodChunk;
   const { params: { name_id: activityId } } = match;
-  if (!methodChunk || !activityId || !activitySpaces) return null;
+  if (!methodChunk || !activityId) return null;
   let activity = {};
-  let activitySpace = {};
-  activitySpaces.forEach(activitySpaceToFind => {
+  let activitySpaces = [];
+  methodChunk.activitySpaces.forEach(activitySpaceToFind => {
     activitySpaceToFind.activities.forEach(activityToFind => {
       if (activityToFind.nameId === activityId) {
         activity = activityToFind;
-        activitySpace = activitySpaceToFind;
+        activitySpaces.push(activitySpaceToFind);
       }
     })
   });
-  if (!activitySpace || !activity) return null;
+  if (!activitySpaces.length || !activity) return null;
 
   let relatedPatterns = []
   methodChunk.patterns.forEach(pattern => {
@@ -136,9 +135,13 @@ export default (props) => {
         <div className={styles['states']}>
           <div className={styles['activity-space']}>
             <h5>Activity Space</h5>
-            <img src={activitySpaceImg} alt="activity space logo"/>
-            <h6>{activitySpace.name}</h6>
-            <p>{activitySpace.description}</p>
+            {activitySpaces.map(activitySpace => (
+              <div key={activitySpace.nameId}>
+                <img src={activitySpaceImg} alt="activity space logo"/>
+                <h6>{activitySpace.name}</h6>
+                <p>{activitySpace.description}</p>
+              </div>
+            ))}
           </div>
           <div className={styles['relations']}>
             <h5>Required</h5>
