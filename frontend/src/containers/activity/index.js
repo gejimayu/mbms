@@ -67,6 +67,8 @@ export default (props) => {
                   </Card>
                 )
               })}
+            </div>
+            <div className={`${styles['card-deck']} ${styles['card-deck--bigger']}`}>
               {activity.entryCriterions.workProducts.map((workProductToFind, i) => {
                 let relatedWP = {};
                 methodChunk.alphas.forEach(alpha => {
@@ -109,6 +111,8 @@ export default (props) => {
                   </Card>
                 )
               })}
+            </div>
+            <div className={`${styles['card-deck']} ${styles['card-deck--bigger']}`}>
               {activity.completionCriterions.workProducts.map((workProductToFind, i) => {
                 let relatedWP = {};
                 methodChunk.alphas.forEach(alpha => {
