@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 
-import logo from '../assets/mbms_logo_react.gif';
+import logo from '../assets/logo.svg';
 
 const Jumbo = styled(Jumbotron)`
   background-color: #ffffff;
@@ -12,8 +12,11 @@ const Jumbo = styled(Jumbotron)`
   border-bottom: 1px solid black;
   padding: 1% 8%;
   margin-bottom: 0;
-  & img {
-    width: 120px;
+  a {
+    margin-right: 20px;
+    img {
+      width: 120px;
+    }
   }
   & .header-desc {
     width: 80%;
@@ -27,9 +30,6 @@ const Jumbo = styled(Jumbotron)`
     & a {
       font-size: 0.85em;
     }
-  }
-  & a {
-    display: inline;
   }
   & p {
     display: inline;

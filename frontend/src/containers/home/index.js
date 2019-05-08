@@ -56,14 +56,14 @@ export default (props) => {
               <p>{truncateString(m.description)}</p>
               <div className={styles['group-button']}>
                 <Button
-                  variant="primary"
+                  variant="secondary"
                   onClick={e => history.push('/method-chunk/' + m.nameId)}
                 >
                   Browse
                 </Button>
                 {!m.published && (
                   <Button
-                    variant="primary"
+                    variant="dark"
                     onClick={e => publishMethod(m)}
                   >
                     Publish
