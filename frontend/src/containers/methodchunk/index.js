@@ -16,7 +16,7 @@ export default (props) => {
   return (
     <div className={styles['container']}>
       <div className={styles['header']}>
-        <h4>{methodChunk.name}</h4>  
+        <h4>{methodChunk.name}</h4>
       </div>
       <div className={styles['desc']}>
         <p>{methodChunk.description}</p>
