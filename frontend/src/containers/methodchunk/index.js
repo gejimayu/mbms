@@ -22,25 +22,6 @@ export default (props) => {
         <p>{methodChunk.description}</p>
       </div>
       <div className={styles['element']}>
-        <p>Characteristics</p>
-        <table>
-          <thead>
-            <tr>
-              <th>Characteristic</th>
-              <th>Value</th>
-            </tr>
-          </thead>
-          <tbody>
-            {methodChunk.characteristics.map(c => (
-              <tr key={c.characteristic}>
-                <td>{c.characteristic}</td>
-                <td>{c.value}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <div className={styles['element']}>
         <p>Alphas</p>
         <div className={styles['card-deck']}>
           {methodChunk.alphas.map(alpha => (
@@ -93,6 +74,25 @@ export default (props) => {
             </Link>
           ))}
         </div>
+      </div>
+      <div className={styles['element']}>
+        <p>Characteristics</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Characteristic</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            {methodChunk.characteristics.map(c => (
+              <tr key={c.characteristic}>
+                <td>{c.characteristic}</td>
+                <td>{c.value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   )
