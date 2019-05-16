@@ -20,6 +20,7 @@ const Jumbo = styled(Jumbotron)`
   }
   & .header-desc {
     width: 80%;
+    padding-top: 12px;
     & h1 {
       height: auto;
       font-size: 1.5em;
@@ -50,11 +51,7 @@ export default (props) => {
           This is a repository of method chunks. You can find various kind of method chunks that's gathered
           from public. With all these method chunks, you can start to create your own method to accomodate
           the needs of your teem. This is a tool to help method engineering.&nbsp;
-        </p> 
-        <a href='https://en.wikipedia.org/wiki/Method_engineering'>
-          Click here for more information about
-          method engineering
-        </a>
+        </p>
       </div>
     </Jumbo>
   )
