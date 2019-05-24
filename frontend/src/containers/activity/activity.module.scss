@@ -21,16 +21,11 @@
     width: 100%;
     & > .states {
       border-left: 1px solid black;
-      //padding: 25px 15px;
       width: 35%;
       font-size: 0.85rem;
       .activity-space {
         padding: 20px 15px;
         border-bottom: 1px solid black;
-        img {
-          width: 80px;
-          margin: 10px 0;
-        }
       }
       .relations {
         padding: 20px 15px;

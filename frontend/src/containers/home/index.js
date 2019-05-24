@@ -53,7 +53,7 @@ export default (props) => {
           .map((m, index) => (
             <Card className={styles['card']} key={index}>
               <h5>{m.name}</h5>
-              <p>{truncateString(m.description)}</p>
+              <p>{truncateString(m.description, 80)}</p>
               <div className={styles['group-button']}>
                 <Button
                   variant="secondary"

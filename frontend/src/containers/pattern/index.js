@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 import Card from '../../components/card';
 import styles from './pattern.module.scss'
-import alphaImg from '../../assets/alpha.png';
-import activityImg from '../../assets/activity.png';
-import competencyImg from '../../assets/competency.png';
-import patternImg from '../../assets/pattern.png';
+import alphaImg from '../../assets/alpha.svg';
+import activityImg from '../../assets/activity.svg';
+import competencyImg from '../../assets/competency.svg';
+import patternImg from '../../assets/pattern.svg';
 import { truncateString } from '../../utils/string';
 
 export default (props) => {

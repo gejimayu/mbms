@@ -2,10 +2,10 @@ import React from 'react';
 
 import Card from '../../components/card';
 import styles from './alpha.module.scss';
-import alphaImg from '../../assets/alpha.png';
-import activityImg from '../../assets/activity.png';
-import workProductImg from '../../assets/workproduct.png';
-import patternImg from '../../assets/pattern.png';
+import alphaImg from '../../assets/alpha.svg';
+import activityImg from '../../assets/activity.svg';
+import workProductImg from '../../assets/workproduct.svg';
+import patternImg from '../../assets/pattern.svg';
 import { truncateString, camelPad } from '../../utils/string';
 import { doesObjExistOnArray } from '../../utils/object';
 
