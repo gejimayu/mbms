@@ -6,7 +6,6 @@ import TreeView from '../components/treeview';
 
 export default (props) => {
   const { methodChunk, type, nameId: elementNameId } = props;
-  console.log(type, elementNameId)
   if (!methodChunk) return null;
 
   // return leaf node in treee view.
@@ -114,6 +113,7 @@ const Styles = styled.div`
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
   }
   .chosen {
-    color: red;
+    font-weight: 600;
+    text-shadow: 0px 3px 1px #cecece;
   }
 `
