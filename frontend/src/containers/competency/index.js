@@ -22,13 +22,15 @@ export default (props) => {
       <div className={styles['content']}>
         <h4>Levels</h4>
         <table>
-          {competency.levels.map((level, i) => (
-              <tr>
+          <tbody>
+            {competency.levels.map((level, i) => (
+              <tr key={i}>
                 <td>{`Level ${i}`}</td>
                 <td>{level.name}</td>
                 <td>{level.description}</td>
               </tr>
-          ))}
+            ))}
+          </tbody>
         </table>
       </div>
     </div>

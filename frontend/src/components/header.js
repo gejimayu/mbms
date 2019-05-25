@@ -70,7 +70,7 @@ export default (props) => {
   return (
     <Jumbo>
       <Link to="/">
-        <svg class="lds-gears" width="80px"  height="80px"  xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+        <svg width="80px"  height="80px"  xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
           <g transform="translate(50 50)">
             <g transform="translate(-19 -19) scale(0.6)">
               <g transform="rotate(90)">

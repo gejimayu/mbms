@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch, Router } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import styles from './essence.module.scss'
 import Sidebar from '../sidebar';
