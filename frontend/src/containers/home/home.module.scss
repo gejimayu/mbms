@@ -31,13 +31,36 @@
     display: flex;
     flex-flow: column;
     align-items: center;
+    position: relative;
+    transition: background-color 0.3s ease; /* darken on hover */
     .group-button {
-      margin-top: auto;
-      width: 100%;
       display: flex;
-      justify-content: space-around;
+      flex-direction: column;
+      z-index: 1;
+      width: 100%;
+      opacity: 0; /* hide group buttons */ 
+      transition: all 0.3s ease;
       button {
         font-size: 0.85em;
+        height: 35px;
+        width: 160px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        &:nth-child(1) {
+          bottom: -30px;
+          top: 30%;
+        }
+        &:nth-child(2) {
+          bottom: -10px;
+          top: 60%;
+        }
+      }
+    }
+    &:hover { /* darken on hover */
+      background-color: rgba(0, 0, 0, 0.4);
+      .group-button { /* show group-buttons */ 
+        opacity: 1;
       }
     }
     p {
