@@ -86,7 +86,7 @@ export default (props) => {
         </svg>
       </Link>
       <div className='header-desc'>
-        <h1>Method Base Management System</h1>
+        <h2>Method Base Management System</h2>
         <p>
           This is a repository of method chunks. You can find various kind of method chunks that's gathered
           from public. With all these method chunks, you can start to create your own method to accomodate

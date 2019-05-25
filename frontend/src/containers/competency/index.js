@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import styles from './competency.module.scss';
 
@@ -15,13 +14,13 @@ export default (props) => {
   return (
     <div className={styles['container']}>
       <div className={styles['header']}>
-        <h4>{competency.name}</h4>  
+        <h3>{competency.name}</h3>  
       </div>
       <div className={styles['desc']}>
         <p>{competency.description}</p>
       </div>
       <div className={styles['content']}>
-        <h5>Levels</h5>
+        <h4>Levels</h4>
         <table>
           {competency.levels.map((level, i) => (
               <tr>

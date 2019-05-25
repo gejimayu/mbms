@@ -43,7 +43,7 @@ export default (props) => {
   return (
     <div className={styles['container']}>
       <div className={styles['header']}>
-        <h4>{alpha.name}</h4>  
+        <h3>{alpha.name}</h3>  
       </div>
       <div className={styles['desc']}>
         <p>{alpha.description}</p>
@@ -51,7 +51,7 @@ export default (props) => {
       <div className={styles['content']}>
         <div className={styles['contain']}>
           <div key={1} className={styles['element']}>
-            <h5>Contains</h5>
+            <h4>Contains</h4>
             <div className={`${styles['card-deck']}`}>
               {alpha.subalphaIds && alpha.subalphaIds.map(subalphaId => {
                 const subalpha = alphas.find(a => a.nameId === subalphaId);
@@ -84,7 +84,7 @@ export default (props) => {
             </div>
           </div>
           <div key={2} className={styles['element']}>
-            <h5>Progressed By</h5>
+            <h4>Progressed By</h4>
             <div className={styles['card-deck']}>
               {progressingActivity && progressingActivity.map(activity => (
                 <Card
@@ -100,7 +100,7 @@ export default (props) => {
             </div>
           </div>
           <div key={3} className={styles['element']}>
-            <h5>Related Patterns</h5>
+            <h4>Related Patterns</h4>
             <div className={styles['card-deck']}>
               {relatedPatterns && relatedPatterns.map(pattern => (
                 <Card
@@ -117,7 +117,7 @@ export default (props) => {
           </div>
         </div>
         <div className={styles['states']}>
-          <h5>States</h5>
+          <h4>States</h4>
           <ol>
             {alpha.states && alpha.states.map(state => (
               <li key={state.nameId} className={styles['state']}>
@@ -126,7 +126,7 @@ export default (props) => {
                 {state.checklists.map((checklist, i) => (
                   <div key={i} className={styles['checklist']}>
                     <input type="checkbox" checked/>
-                    {checklist}
+                    <p>{checklist}</p>
                   </div>
                 ))}
               </li>

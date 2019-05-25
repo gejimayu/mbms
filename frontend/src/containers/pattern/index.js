@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import Card from '../../components/card';
 import styles from './pattern.module.scss'
@@ -51,7 +50,7 @@ export default (props) => {
   return (
     <div className={styles['container']}>
       <div className={styles['header']}>
-        <h4>{pattern.name}</h4>  
+        <h3>{pattern.name}</h3>  
       </div>
       <div className={styles['desc']}>
         <p>{pattern.description}</p>
@@ -59,7 +58,7 @@ export default (props) => {
       <div className={styles['content']}>
         <div className={styles['contain']}>
           <div key={1} className={styles['element']}>
-            <h5>Related To</h5>
+            <h4>Related To</h4>
             <div className={styles['card-deck']}>
               {relatedAlphas.map(alpha => (
                 <Card
@@ -97,7 +96,7 @@ export default (props) => {
             </div>
           </div>
           <div key={2} className={styles['element']}>
-            <h5>Contains</h5>
+            <h4>Contains</h4>
             <div className={styles['card-deck']}>
               {pattern.subpatternIds.map(subpatternId => {
                 const relatedPattern = patterns.find(p => p.nameId === subpatternId);

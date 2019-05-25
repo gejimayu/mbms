@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import Card from '../../components/card';
 import styles from './activity.module.scss';
@@ -40,7 +39,7 @@ export default (props) => {
   return (
     <div className={styles['container']}>
       <div className={styles['header']}>
-        <h4>{activity.name}</h4>  
+        <h3>{activity.name}</h3>  
       </div>
       <div className={styles['desc']}>
         <p>{activity.description}</p>
@@ -48,7 +47,7 @@ export default (props) => {
       <div className={styles['content']}>
         <div className={styles['contain']}>
           <div key={1} className={styles['element']}>
-            <h5>Entry Criterions</h5>
+            <h4>Entry Criterions</h4>
             <div className={styles['card-deck']}>
               {activity.entryCriterions.alphas.map((alphaToFind, i) => {
                 const alphaToFindNameId = alphaToFind.split('.')[0];
@@ -94,7 +93,7 @@ export default (props) => {
             </div>
           </div>
           <div key={2} className={styles['element']}>
-            <h5>Completion Criterions</h5>
+            <h4>Completion Criterions</h4>
             <div className={styles['card-deck']}>
               {activity.completionCriterions.alphas.map((alphaToFind, i) => {
                 const alphaToFindNameId = alphaToFind.split('.')[0];
@@ -142,7 +141,7 @@ export default (props) => {
         </div>
         <div className={styles['states']}>
           <div className={styles['activity-space']}>
-            <h5>Activity Space</h5>
+            <h4>Activity Space</h4>
             {activitySpaces.map(activitySpace => (
               <div key={activitySpace.nameId}>
                 <img src={activitySpaceImg} alt="activity space logo"/>
@@ -152,7 +151,7 @@ export default (props) => {
             ))}
           </div>
           <div className={styles['relations']}>
-            <h5>Required</h5>
+            <h4>Required</h4>
             <div className={styles['required']}>
               {activity.competencies.map((competency, i) => (
                 <div key={i}>
@@ -161,7 +160,7 @@ export default (props) => {
                 </div>
               ))}
             </div>
-            <h5>Related</h5>
+            <h4>Related</h4>
             <div className={styles['related']}>
               {relatedPatterns.map((pattern, i) => (
                 <div key={i}>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import Card from '../../components/card';
 import styles from './methodchunk.module.scss';
@@ -16,13 +15,13 @@ export default (props) => {
   return (
     <div className={styles['container']}>
       <div className={styles['header']}>
-        <h4>{methodChunk.name}</h4>
+        <h3>{methodChunk.name}</h3>
       </div>
       <div className={styles['desc']}>
         <p>{methodChunk.description}</p>
       </div>
       <div className={styles['element']}>
-        <p>Alphas</p>
+        <h4>Alphas</h4>
         <div className={styles['card-deck']}>
           {methodChunk.alphas.map(alpha => (
             <Card className={styles['card']} key={alpha.nameId} link={`${match.url}/alpha/${alpha.nameId}`}>
@@ -33,7 +32,7 @@ export default (props) => {
         </div>
       </div>
       <div className={styles['element']}>
-        <p>Activities</p>
+        <h4>Activities</h4>
         <div className={styles['card-deck']}>
           {methodChunk.activitySpaces.map(activitySpace => (
             activitySpace.activities && activitySpace.activities.map(activity => (
@@ -46,7 +45,7 @@ export default (props) => {
         </div>
       </div>
       <div className={styles['element']}>
-        <p>Competencies</p>
+        <h4>Competencies</h4>
         <div className={styles['card-deck']}>
           {methodChunk.competencies && methodChunk.competencies.map(competency => (
             <Card className={styles['card']} key={competency.nameId} link={`${match.url}/competency/${competency.nameId}`}>
@@ -57,7 +56,7 @@ export default (props) => {
         </div>
       </div>
       <div className={styles['element']}>
-        <p>Patterns</p>
+        <h4>Patterns</h4>
         <div className={styles['card-deck']}>
           {methodChunk.patterns && methodChunk.patterns.map(pattern => (
             <Card className={styles['card']} key={pattern.nameId} link={`${match.url}/pattern/${pattern.nameId}`}>
@@ -68,7 +67,7 @@ export default (props) => {
         </div>
       </div>
       <div className={styles['element']}>
-        <p>Characteristics</p>
+        <h4>Characteristics</h4>
         <table>
           <thead>
             <tr>
