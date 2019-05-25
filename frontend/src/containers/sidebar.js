@@ -5,23 +5,28 @@ import styled from 'styled-components';
 import TreeView from '../components/treeview';
 
 export default (props) => {
-  const { methodChunk } = props;
+  const { methodChunk, type, nameId: elementNameId } = props;
+  console.log(type, elementNameId)
   if (!methodChunk) return null;
 
-  const nodeLabel = (name) => (
-    <span className="node">{name}</span>
+  // return leaf node in treee view.
+  // element is object essence with atleast name and nameId
+  const nodeLabel = (element) => (
+    <span className={(element.nameId === elementNameId) ? 'chosen' : ''}>{element.name}</span>
   )
   
   const renderPattern = (pattern) => {
     if (!pattern.subpatterns.length) {
       return (
         <Link key={pattern.nameId} to={`${link}/pattern/${pattern.nameId}`}>
-          <div className="info">{pattern.name}</div>
+          <div className={(pattern.nameId === elementNameId) ? 'chosen' : ''}>
+            {pattern.name}
+          </div>
         </Link>
       )
     }
     return (
-      <TreeView key={pattern.nameId} nodeLabel={nodeLabel(pattern.name)}  link={`${link}/pattern/${pattern.nameId}`}>
+      <TreeView key={pattern.nameId} nodeLabel={nodeLabel(pattern)} link={`${link}/pattern/${pattern.nameId}`}>
         { pattern.subpatterns.map((subpattern, i) => (
           renderPattern(subpattern)
         ))}
@@ -33,12 +38,14 @@ export default (props) => {
     if (!alpha.subalphas.length) {
       return (
         <Link key={alpha.nameId} to={`${link}/alpha/${alpha.nameId}`}>
-          <div className="info">{alpha.name}</div> 
+          <div className={(alpha.nameId === elementNameId) ? 'chosen' : ''}>
+            {alpha.name}
+          </div> 
         </Link>
       )
     }
     return (
-      <TreeView key={alpha.nameId} nodeLabel={nodeLabel(alpha.name)} link={`${link}/alpha/${alpha.nameId}`}>
+      <TreeView key={alpha.nameId} nodeLabel={nodeLabel(alpha)} link={`${link}/alpha/${alpha.nameId}`}>
         { alpha.subalphas.map((subalpha, i) => (
           renderAlpha(subalpha)
         ))}
@@ -50,11 +57,11 @@ export default (props) => {
 
   return (
     <Styles>
-      <TreeView nodeLabel={nodeLabel(methodChunk.name)} link={link}>
-        <TreeView key='alpha' nodeLabel={nodeLabel('Alphas')} >
+      <TreeView nodeLabel={nodeLabel(methodChunk)} link={link}>
+        <TreeView key='alpha' nodeLabel={nodeLabel({ name: 'Alphas' })} >
           { methodChunk.alphas.map(a => renderAlpha(a)) }
         </TreeView>
-        <TreeView key='activity-space' nodeLabel={nodeLabel('Activity Spaces')}>
+        <TreeView key='activity-space' nodeLabel={nodeLabel({ name: 'Activity Spaces' })}>
           {methodChunk.activitySpaces.map(activitySpace => {
             const activitySpaceLabel = <span className="node">{activitySpace.name}</span>;
             return (
@@ -62,7 +69,9 @@ export default (props) => {
                 {activitySpace.activities.map(activity => {
                   return (
                     <Link key={activity.nameId} to={`${link}/activity/${activity.nameId}`}>
-                      <div className="info">{activity.name}</div>  
+                      <div className={(activity.nameId === elementNameId) ? 'chosen' : ''}>
+                        {activity.name}
+                      </div>  
                     </Link>
                   )
                 })}
@@ -70,14 +79,16 @@ export default (props) => {
             );
           })}
         </TreeView>
-        <TreeView key='competency' nodeLabel={nodeLabel('Competencies')} >
+        <TreeView key='competency' nodeLabel={nodeLabel({ name: 'Competencies' })} >
           {methodChunk.competencies.map(competency => (
             <Link key={competency.nameId} to={`${link}/competency/${competency.nameId}`}>
-              <div className="info">{competency.name}</div>
+              <div className={(competency.nameId === elementNameId) ? 'chosen' : ''}>
+                {competency.name}
+              </div>
             </Link>
           ))}
         </TreeView>
-        <TreeView key='pattern' nodeLabel={nodeLabel('Pattern')} >
+        <TreeView key='pattern' nodeLabel={nodeLabel({ name: 'Pattern' })} >
           { methodChunk.patterns.map(p => renderPattern(p)) }
         </TreeView>
       </TreeView>
@@ -101,5 +112,8 @@ const Styles = styled.div`
     border-radius: 5px;
     background-color: rgba(0,0,0,.5);
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+  }
+  .chosen {
+    color: red;
   }
 `

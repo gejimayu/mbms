@@ -38,7 +38,7 @@ const alphaToTree = (listOfAlpha, alpha) => {
 
 export default (props) => {
   const { match } = props;
-  const nameId = match.params.name_id;
+  const nameId = match.params.name_id; // method chunk name ID
   const [methodChunk, setMethodChunk] = useState(null);
 
   useEffect(() => {
@@ -62,35 +62,64 @@ export default (props) => {
     patternToTree(methodChunkTree.patterns, p)
   ));
 
+  const renderController = (type, props) => {
+    const { params: { name_id: nameId } } = props.match; // element name ID
+    let element;
+    switch(type) {
+      case 'alpha':
+        element = <Alpha {...props} methodChunk={methodChunk} />;
+        break;
+      case 'activity':
+        element = <Activity {...props} methodChunk={methodChunk} />;
+        break;
+      case 'competency':
+        element = <Competency {...props} methodChunk={methodChunk} />;
+        break;
+      case 'pattern':
+        element = <Pattern {...props} methodChunk={methodChunk} />;
+        break;
+      case 'methodChunk':
+        element = <MethodChunk {...props} methodChunk={methodChunk} />;
+        break;
+      default:
+        element = null;
+    }
+    return (
+      <React.Fragment>
+        <Sidebar className={styles['sidebar']} methodChunk={methodChunkTree} type={type} nameId={nameId} />
+        {element}
+      </React.Fragment>
+    )
+  }
+
   return (
     <div className={styles['main']}>
-      <Sidebar className={styles['sidebar']} methodChunk={methodChunkTree} match={match}/>
       <React.Suspense fallback={<p>Please Wait</p>}>
         <Switch>
           <Route
             key={1}
             path={`${match.path}/alpha/:name_id`}
-            render={props => <Alpha {...props} methodChunk={methodChunk} />}
+            render={props => renderController('alpha', props)}
           />
           <Route
             key={2}
             path={`${match.path}/activity/:name_id`}
-            render={props => <Activity {...props} methodChunk={methodChunk} />}
+            render={props => renderController('activity', props)}
           />
           <Route
             key={3}
             path={`${match.path}/competency/:name_id`}
-            render={props => <Competency {...props} methodChunk={methodChunk} />}
+            render={props => renderController('competency', props)}
           />
           <Route
             key={4}
             path={`${match.path}/pattern/:name_id`}
-            render={props => <Pattern {...props} methodChunk={methodChunk} />}
+            render={props => renderController('pattern', props)}
           />
           <Route
             key={5}
             path={`${match.path}`}
-            render={props => <MethodChunk {...props} methodChunk={methodChunk} />}
+            render={props => renderController('methodChunk', props)}
           />
         </Switch>
       </React.Suspense>
