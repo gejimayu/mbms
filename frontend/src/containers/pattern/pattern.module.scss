@@ -29,14 +29,10 @@
           grid-template-columns: repeat(auto-fit, 187px);
           grid-gap: 20px;
           .card {
-            flex: 0 0 28%;
-            height: 100%;
-            margin: 4px;
-            padding: 10px;
             display: flex;
             flex-direction: column;
-            text-align: center;
             font-size: 0.9em;
+            max-height: 400px;
             img {
               margin: 5px auto;
             }

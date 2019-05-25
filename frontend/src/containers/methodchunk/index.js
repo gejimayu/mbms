@@ -25,12 +25,10 @@ export default (props) => {
         <p>Alphas</p>
         <div className={styles['card-deck']}>
           {methodChunk.alphas.map(alpha => (
-            <Link key={alpha.nameId} to={`${match.url}/alpha/${alpha.nameId}`}>
-              <Card className={styles['card']}>
-                <img alt='alpha logo' src={alphaImg} />
-                <p>{alpha.name}</p>
-              </Card>
-            </Link>
+            <Card className={styles['card']} key={alpha.nameId} link={`${match.url}/alpha/${alpha.nameId}`}>
+              <img alt='alpha logo' src={alphaImg} />
+              <p>{alpha.name}</p>
+            </Card>
           ))}
         </div>
       </div>
@@ -39,12 +37,10 @@ export default (props) => {
         <div className={styles['card-deck']}>
           {methodChunk.activitySpaces.map(activitySpace => (
             activitySpace.activities && activitySpace.activities.map(activity => (
-              <Link key={activity.nameId} to={`${match.url}/activity/${activity.nameId}`}>
-                <Card className={styles['card']}>
-                  <img alt='activity logo' src={activityImg} />
-                  <p>{activity.name}</p>
-                </Card>
-              </Link>
+              <Card className={styles['card']} key={activity.nameId} link={`${match.url}/activity/${activity.nameId}`}>
+                <img alt='activity logo' src={activityImg} />
+                <p>{activity.name}</p>
+              </Card>
             )) 
           ))}
         </div>
@@ -53,12 +49,10 @@ export default (props) => {
         <p>Competencies</p>
         <div className={styles['card-deck']}>
           {methodChunk.competencies && methodChunk.competencies.map(competency => (
-            <Link key={competency.nameId} to={`${match.url}/competency/${competency.nameId}`}>
-              <Card className={styles['card']}>
-                <img alt='competency logo' src={competencyImg} />
-                <p>{competency.name}</p>
-              </Card>
-            </Link>
+            <Card className={styles['card']} key={competency.nameId} link={`${match.url}/competency/${competency.nameId}`}>
+              <img alt='competency logo' src={competencyImg} />
+              <p>{competency.name}</p>
+            </Card>
           ))}
         </div>
       </div>
@@ -66,12 +60,10 @@ export default (props) => {
         <p>Patterns</p>
         <div className={styles['card-deck']}>
           {methodChunk.patterns && methodChunk.patterns.map(pattern => (
-            <Link key={pattern.nameId} to={`${match.url}/pattern/${pattern.nameId}`}>
-              <Card className={styles['card']}>
-                <img alt='pattern logo' src={patternImg} />
-                <p>{pattern.name}</p>
-              </Card>
-            </Link>
+            <Card className={styles['card']} key={pattern.nameId} link={`${match.url}/pattern/${pattern.nameId}`}>
+              <img alt='pattern logo' src={patternImg} />
+              <p>{pattern.name}</p>
+            </Card>
           ))}
         </div>
       </div>

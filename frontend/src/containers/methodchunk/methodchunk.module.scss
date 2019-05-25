@@ -37,23 +37,19 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, 150px);
       grid-gap: 20px;
-      a {
-        .card {
-          min-height: 90%;
-          margin: 4px;
-          padding: 10px;
-          display: flex;
-          flex-direction: column;
-          img {
-            width: 120px;
-            height: 100px;
-            margin: 5px auto;
-          }
-          p {
-            text-align: center;
-            height: 40%;
-            font-size: 0.9em;
-          }
+      .card {
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        img {
+          width: 120px;
+          height: 100px;
+          margin: 5px auto;
+        }
+        p {
+          text-align: center;
+          height: 40%;
+          font-size: 0.9em;
         }
       }
     }
