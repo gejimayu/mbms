@@ -1,0 +1,375 @@
+{
+   "nameId" : "PairProgramming",
+   "name": "Pair Programming",
+   "description": "Agile software development technique in which two programmers work together at one workstation. One, the driver, writes code while the other, the observer or navigator,reviews each line of code as it is typed in. The two programmers switch roles frequently. While reviewing, the observer also considers the strategic direction of the work, coming up with ideas for improvements and likely future problems to address. This is intended to free the driver to focus all of their attention on the tactical aspects of completing the current task, using the observer as a safety net and guide. Pair programming increases the man-hours required to deliver code compared to programmers working individually. Experiments yielded diverse results, suggesting increases of between 15% and 100%. However, the resulting code has about 15% fewer defects. Along with code development time, other factors like field support costs and quality assurance also figure in to the return on investment.",
+   "characteristics": [
+      {
+         "characteristic": "ResistanceAndConflict",
+         "value": "high"
+      },
+      {
+         "characteristic": "Expertise",
+         "value": "low"
+      },
+      {
+         "characteristic": "TracingProject",
+         "value": "strong"
+      },
+      {
+         "characteristic": "Complexity",
+         "value": "normal"
+      },
+      {
+         "characteristic": "Impact",
+         "value": "high"
+      }
+   ],
+   "activitySpaces" : [
+      {
+         "nameId": "ImplementTheSystem",
+         "name": "Implement The System",
+         "description": "Build a system by implementing, testing, and integrating one or more system elements. This includes bug fixing and unit testing",
+         "activities": [
+            {
+               "nameId" : "Coding",
+               "name" : "Coding",
+               "description" : "Typing code in front of a computer machine. The code should produce something meaningful to the software that's been built.",
+               "entryCriterions": {
+                  "alphas": ["Work.Initiated"],
+                  "workProducts": []
+               },
+               "completionCriterions": {
+                  "alphas": ["Work.Closed"],
+                  "workProducts": []
+               },
+               "competencies": ["Development.2"]
+            },
+            {
+               "nameId" : "ObserveAndGiveAdvice",
+               "name" : "Observe and Give Advice",
+               "description" : "Observing another member that's doing some work and giving helpful advice when necessary.",
+               "entryCriterions": {
+                  "alphas": ["Work.Initiated"],
+                  "workProducts": []
+               },
+               "completionCriterions": {
+                  "alphas": ["Work.UnderControl"],
+                  "workProducts": []
+               },
+               "competencies": ["Development.4", "Management.3"]
+            }
+         ]
+      },
+      {
+         "nameId": "CoordinateActivity",
+         "name": "Coordinate Activity",
+         "description": "Co-ordinate and direct the team’s work. This includes all on-going planning and re-planning of the work, and re-shaping of the team.",
+         "activities": [
+            {
+               "nameId" : "SwitchRoles",
+               "name" : "Switch Roles",
+               "description" : "Switch roles or works between pair of members. This is done to reduce boredom and transfer knowledge between each members, not just one person.",
+               "entryCriterions": {
+                  "alphas": ["Pair.Formed"],
+                  "workProducts": []
+               },
+               "completionCriterions": {
+                  "alphas": ["Pair.Reshaped", "Team.Collaborating"],
+                  "workProducts": []
+               },
+               "competencies": ["Management.2"]
+            }
+         ]
+      }
+   ],
+   "alphas" : [
+      {
+         "nameId" : "Work",
+         "name" : "Work",
+         "description": "Activity involving mental or physical effort done in order to achieve a result. In the context of software engineering, work is everything that the team does to meet the goals of producing a software system matching the requirements and addressing the opportunity presented by the stakeholders. The work is guided by the practices that make up the team’s way-of-working.",
+         "workProducts" : [],
+         "states" : [
+            {
+               "nameId" : "Initiated",
+               "name" : "Initiated",
+               "description": "The work has been requested.",
+               "checklists" : [
+                  "Required result clear",
+                  "Constraints clear",
+                  "Funding stakeholders known",
+                  "Initiator identified",
+                  "Accepting stakeholders known",
+                  "Source of funding clear",
+                  "Priority clear"
+               ] 
+            },
+            {
+               "nameId" : "Prepared",
+               "name" : "Prepared",
+               "description": "All pre-conditions for starting the work have been met.",
+               "checklists" : [
+                  "Commitment made",
+                  "Cost and effort estimated",
+                  "Resource availability understood",
+                  "Risk exposure understood",
+                  "Acceptance criteria established",
+                  "Sufficiently broken down to start",
+                  "Tasks identified and prioritized",
+                  "Credible plan in place",
+                  "Funding in place",
+                  "At least one team member ready",
+                  "Integration points defined"
+               ] 
+            },
+            {
+               "nameId" : "Started",
+               "name" : "Started",
+               "description": "The work is proceeding.",
+               "checklists" : [
+                  "Development started",
+                  "Progress monitored",
+                  "Definition of done in place",
+                  "Tasks being progressed"
+               ] 
+            },
+            {
+               "nameId" : "UnderControl",
+               "name" : "Under Control",
+               "description": "The work is going well, risks are under control, and productivity levels are sufficient to achieve a satisfactory result.",
+               "checklists" : [
+                  "Tasks being completed",
+                  "Unplanned work under control",
+                  "Risks under control",
+                  "Estimates revised to reflect performance",
+                  "Progress measured",
+                  "Re-work under control",
+                  "Commitments consistently met"
+               ] 
+            },
+            {
+               "nameId" : "Concluded",
+               "name" : "Concluded",
+               "description": "The work to produce the results has been concluded.",
+               "checklists" : [
+                  "Only admin tasks left",
+                  "Results achieved",
+                  "Resulting system accepted"
+               ] 
+            },
+            {
+               "nameId" : "Closed",
+               "name" : "Closed",
+               "description": "All remaining housekeeping tasks have been completed and the work has been officially closed.",
+               "checklists" : [
+                  "Lessons learned",
+                  "Metrics available",
+                  "Everything archived",
+                  "Budget reconciled & closed",
+                  "Team released",
+                  "No outstanding, uncompleted tasks"
+               ] 
+            }
+         ],
+         "subalphaIds" : []
+      },
+      {
+         "nameId" : "Team",
+         "name" : "Team",
+         "description": "A group of people actively engaged in the development, maintenance, delivery or support of a specific software system. One or more teams plan and perform the work needed to create, update and/or change the software system.",
+         "workProducts" : [
+            {
+               "nameId" : "TeamMembership",
+               "name" : "Team Membership",
+               "description": "Shows who is on the team and what percentage of their time is committed to the team. The people on the team are the one true source of all value, so absolute clarity regarding who is and is not dedicated to the team is crucial.",
+               "levelOfDetails" : [
+                  "MembersIdentified",
+                  "CapacityEstablished",
+                  "ResponsibilitiesDefined"
+               ]
+            }
+         ],
+         "states" : [
+            {
+               "nameId" : "Seeded",
+               "name" : "Seeded",
+               "description": "The team’s mission is clear and the know-how needed to grow the team is in place.",
+               "checklists" : [
+                  "Mission defined",
+                  "Constraints known and defined",
+                  "Growth mechanisms in place",
+                  "Composition defined",
+                  "Responsibilities outlined",
+                  "Required commitment level clear",
+                  "Required competencies identified",
+                  "Size determined",
+                  "Governance rules defined",
+                  "Leadership model selected"
+               ] 
+            },
+            {
+               "nameId" : "Formed",
+               "name" : "Formed",
+               "description": "The team has been populated with enough committed people to start the mission.",
+               "checklists" : [
+                  "Enough members recruited",
+                  "Roles understood",
+                  "How to work understood",
+                  "Members introduced",
+                  "Individual responsibilities accepted and aligned to competencies",
+                  "Members accepting work",
+                  "External collaborators identified",
+                  "Communication mechanisms defined",
+                  "Members commit to team"
+               ] 
+            },
+            {
+               "nameId" : "Collaborating",
+               "name" : "Collaborating",
+               "description": "The team members are working together as one unit.",
+               "checklists" : [
+                  "Works as one unit",
+                  "Communication open and honest",
+                  "Focused on mission",
+                  "Members know each other"
+               ] 
+            },
+            {
+               "nameId" : "Performing",
+               "name" : "Performing",
+               "description": "The team is working effectively and efficiently.",
+               "checklists" : [
+                  "Consistently meeting commitments",
+                  "Continuously adapting to change",
+                  "Addresses problems",
+                  "Rework and backtracking minimized",
+                  "Waste continuously eliminated"
+               ] 
+            },
+            {
+               "nameId" : "Adjourned",
+               "name" : "Adjourned",
+               "description": "The team is no longer accountable for carrying out its mission.",
+               "checklists" : [
+                  "Responsibilities fulfilled",
+                  "Members available to other teams",
+                  "Mission concluded"
+               ] 
+            }
+         ],
+         "subalphaIds" : ["Pair"]
+      },
+      {
+         "nameId" : "Pair",
+         "name" : "Pair",
+         "description": "Two people that collaborate together in a same work.",
+         "workProducts" : [],
+         "states" : [
+            {
+               "nameId" : "Formed",
+               "name" : "Formed",
+               "description": "The team has been populated with enough committed people to start the mission.",
+               "checklists" : [
+               		"Roles understood",
+               		"Members introduced"
+               ] 
+            },
+            {
+               "nameId" : "Reshaped",
+               "name" : "Reshaped",
+               "description": "Team is reshapped in some ways. For example, the role of the team is reshaped so that members have different work than before.",
+               "checklists" : [
+               		"Members changed",
+               		"Works changed",
+               		"Roles changed"
+               ] 
+            }
+         ],
+         "subalphaIds" : []
+      }
+   ],
+   "competencies" : [
+       {
+         "nameId": "Development",
+         "name" : "Development",
+         "description": " This competency encapsulates the ability to design and program effective software systems following the standards and norms agreed by the team.",
+         "levels" : [
+            {
+               "name": "Assists",
+               "description": "Demonstrates a basic understanding of the concepts and can follow instructions."
+            },
+            {
+               "name": "Applies",
+               "description": "Able to apply the concepts in simple contexts by routinely applying the experience gained so far."
+            },
+            {
+               "name": "Masters",
+               "description": "Able to apply the concepts in most contexts and has the experience to work without supervision."
+            },
+            {
+               "name": "Adapts",
+               "description": "Able to apply judgment on when and how to apply the concepts to more complex contexts. Can enable others to apply the concepts."
+            },
+            {
+               "name": "Innovates",
+               "description": "A recognized expert, able to extend the concepts to new contexts and inspire others."
+            }
+         ]
+      },
+      {
+         "nameId": "Management",
+         "name" : "Management",
+         "description": "The ability to coordinate, plan and track the work done by a team. The management competency is the administrative and organizational ability that enables the right things to be done at the right time to maximize a team’s chances of success.",
+         "levels" : [
+            {
+               "name": "Assists",
+               "description": "Demonstrates a basic understanding of the concepts and can follow instructions."
+            },
+            {
+               "name": "Applies",
+               "description": "Able to apply the concepts in simple contexts by routinely applying the experience gained so far."
+            },
+            {
+               "name": "Masters",
+               "description": "Able to apply the concepts in most contexts and has the experience to work without supervision."
+            },
+            {
+               "name": "Adapts",
+               "description": "Able to apply judgment on when and how to apply the concepts to more complex contexts. Can enable others to apply the concepts."
+            },
+            {
+               "name": "Innovates",
+               "description": "A recognized expert, able to extend the concepts to new contexts and inspire others."
+            }
+         ]
+      }
+   ],
+   "patterns" : [
+      {
+         "name" : "Roles",
+         "nameId": "Roles",
+         "description": "The function assumed or part played by a person or thing in a particular situation.",
+         "alphas" : ["Pair"],
+         "activities" : ["SwitchRoles"],
+         "competencies" : [],
+         "subpatternIds" : []
+      },
+      {
+         "name" : "Driver",
+         "nameId": "Driver",
+         "description": "The driver in the process is responsible for diligently drafting code.",
+         "alphas" : ["Pair"],
+         "activities" : ["SwitchRoles"],
+         "competencies" : [],
+         "subpatternIds" : []
+      },
+      {
+         "name" : "Navigator",
+         "nameId": "Navigator",
+         "description": "The navigator reviews each line of code as it is typed in. While reviewing, the observer also considers the startegic direction of the work, coming up with ideas for improvements and likely future problems to address.",
+         "alphas" : ["Pair"],
+         "activities" : ["SwitchRoles"],
+         "competencies" : [],
+         "subpatternIds" : []
+      }
+   ]
+}

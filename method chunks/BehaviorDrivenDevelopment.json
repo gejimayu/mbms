@@ -1,0 +1,203 @@
+{
+   "nameId" : "BehaviorDrivenDevelopment",
+   "name": "Behavior Driven Development",
+   "description": "In software engineering, behavior-driven development (BDD) is an Agile software development process that encourages collaboration between developers, QA and non-technical or business participants in a software project. It encourages teams to use conversation and concrete examples to formalize a shared understanding of how the application should behave. Although BDD is principally an idea about how software development should be managed by both business interests and technical insight, the practice of BDD does assume the use of specialized software tools to support the development process. BDD is largely facilitated through the use of a simple domain-specific language (DSL) using natural language constructs (e.g., English-like sentences) that can express the behavior and the expected outcomes. BDD helps to focus on the user’s needs and the system’s expected behavior rather than focusing too much on testing the implementation.",
+   "characteristics": [
+      {
+         "characteristic": "ManagementCommitment",
+         "value": "high"
+      },
+      {
+         "characteristic": "Importance",
+         "value": "high"
+      },
+      {
+         "characteristic": "ClarityAndStability",
+         "value": "strong"
+      },
+      {
+         "characteristic": "UserInvolvement",
+         "value": "real"
+      },
+      {
+         "characteristic": "Impact",
+         "value": "high"
+      }
+   ],
+   "activitySpaces" : [
+      {
+         "nameId": "UnderstandTheRequirements",
+         "name": "Understand the Requirements",
+         "description": "Establish a shared understanding of what the system to be produced must do.",
+         "activities": [
+            {
+               "nameId" : "ExplainChangesToAllStakeholders",
+               "name" : "Explain Changes To All Stakeholders",
+               "description" : "Educate them on what the changes are going to be, and how to read and interpret the new method of documentation. Plan how you will incorporate this into your code and test case documentation. It’s best to start with a single project and single release, to pilot the process first. Establish some metrics before you start. Were the requirements included faster or slower to document? What about the code? Testing? Were the defects reduced? Explore your existing metrics and set up some measurable ones to make sure that these changes work for you.",
+               "entryCriterions": {
+                  "alphas": ["Requirements.Conceived"],
+                  "workProducts": ["BehaviorSpecification.Identified"]
+               },
+               "completionCriterions": {
+                  "alphas": ["Requirements.Coherent"],
+                  "workProducts": ["BehaviorSpecification.Communicated"]
+               },
+               "competencies": ["StakeholderRepresentation.2"]
+            },
+            {
+               "nameId" : "DefineBehavioralSpecification",
+               "name" : "Define Behavioral Specification",
+               "description" : "Define behavioral specification of what the feature is like using DSL",
+               "entryCriterions": {
+                  "alphas": ["Requirements.Conceived"],
+                  "workProducts": ["BehaviorSpecification.Identified"]
+               },
+               "completionCriterions": {
+                  "alphas": ["Requirements.Coherent"],
+                  "workProducts": ["BehaviorSpecification.Defined"]
+               },
+               "competencies": ["StakeholderRepresentation.2"]
+            }
+         ]
+      }
+   ],
+   "alphas" : [
+      {
+         "nameId" : "Requirements",
+         "name" : "Requirements",
+         "description": "What the software system must do to address the opportunity and satisfy the stakeholders.",
+         "workProducts" : [
+            {
+               "nameId" : "BehaviorSpecification",
+               "name" : "Behavior Specification",
+               "description": "BDD specifies that business analysts and developers should collaborate in this area and should specify behavior in terms of user stories, which are each explicitly written down in a dedicated document. What the software system must do to address the opportunity and satisfy the stakeholders. Each user story should, in some way, follow the following structure: Title, Narative (A short, introductory section that specifies who what why), and Acceptance criteria or scenarios.",
+               "levelOfDetails" : [
+                  "Identified",
+                  "Defined",
+                  "Communicated"
+               ]
+            }
+         ],
+         "states" : [
+            {
+               "nameId" : "Conceived",
+               "name" : "Conceived",
+               "description": "The need for a new system has been agreed.",
+               "checklists" : [
+                  "Stakeholders agree system is to be produced",
+                  "Users identified",
+                  "Funding stakeholders identified",
+                  "Opportunity clear"
+               ]
+            },
+            {
+               "nameId" : "Bounded",
+               "name" : "Bounded",
+               "description": "The purpose and theme of the new system are clear.",
+               "checklists" : [
+                  "Development stakeholders identified",
+                  "System purpose agreed",
+                  "System success clear",
+                  "Shared solution understanding exists",
+                  "Requirement's format agreed",
+                  "Requirements management in place",
+                  "Prioritization scheme clear",
+                  "Constraints identified & considered",
+                  "Assumptions clear"
+               ]
+            },
+            {
+               "nameId" : "Coherent",
+               "name" : "Coherent",
+               "description": "The requirements provide a coherent description of the essential characteristics of the new system.",
+               "checklists" : [
+                  "Requirements shared",
+                  "Requirements' origin clear",
+                  "Rationale clear",
+                  "Conflicts addressed",
+                  "Essential characteristics clear",
+                  "Requirements management in place",
+                  "Key usage scenarios explained",
+                  "Priorities clear",
+                  "Impact understood",
+                  "Team knows & agrees on what to deliver"
+               ]
+            },
+            {
+               "nameId" : "Acceptable",
+               "name" : "Acceptable",
+               "description": "The requirements describe a system that is acceptable to the stakeholders.",
+               "checklists" : [
+                  "Acceptable solution described",
+                  "Change under control",
+                  "Value to be realized clear",
+                  "Clear how opportunity addressed",
+                  "Testable"
+               ]
+            },
+            {
+               "nameId" : "Addressed",
+               "name" : "Addressed",
+               "description": "Enough of the requirements have been addressed to satisfy the need for a new system in a way that is acceptable to the stakeholders.",
+               "checklists" : [
+                  "Enough addressed to be acceptable",
+                  "Requirements and system match",
+                  "Value realized clear",
+                  "System worth making operational"
+               ]
+            },
+            {
+               "nameId" : "Fulfilled",
+               "name" : "Fulfilled",
+               "description": "The requirements that have been addressed fully satisfy the need for a new system.",
+               "checklists" : [
+                  "Stakeholders accept requirements",
+                  "No hindering requirements",
+                  "Requirements fully satisfied"
+               ]
+            }
+         ],
+         "subalphaIds" : []
+      }
+   ],
+   "competencies" : [
+      {
+         "nameId": "StakeholderRepresentation",
+         "name" : "Stakeholder Representation",
+         "description": " This competency encapsulates the ability to gather, communicate, and balance the needs of other stakeholders, and accurately represent their views",
+         "levels" : [
+            {
+               "name": "Assists",
+               "description": "Demonstrates a basic understanding of the concepts and can follow instructions."
+            },
+            {
+               "name": "Applies",
+               "description": "Able to apply the concepts in simple contexts by routinely applying the experience gained so far."
+            },
+            {
+               "name": "Masters",
+               "description": "Able to apply the concepts in most contexts and has the experience to work without supervision."
+            },
+            {
+               "name": "Adapts",
+               "description": "Able to apply judgment on when and how to apply the concepts to more complex contexts. Can enable others to apply the concepts."
+            },
+            {
+               "name": "Innovates",
+               "description": "A recognized expert, able to extend the concepts to new contexts and inspire others."
+            }
+         ]
+      }
+   ],
+   "patterns" : [
+      {
+         "name" : "Use Tool",
+         "nameId": "UseTool",
+         "description": "In principle a BDD support tool is a testing framework for software, much like the tools that support TDD. However, where TDD tools tend to be quite free-format in what is allowed for specifying tests, BDD tools are linked to the definition of the ubiquitous language discussed earlier. There are several different examples of BDD software tools in use in projects today, for different platforms and programming languages. Possibly the most well-known is JBehave, which was developed by Dan North, Elizabeth Keogh and several others.",
+         "alphas" : ["Requirements"],
+         "activities" : ["DefineBehavioralSpecification"],
+         "competencies" : ["StakeholderRepresentation"],
+         "subpatternIds" : []
+      }
+   ]
+}

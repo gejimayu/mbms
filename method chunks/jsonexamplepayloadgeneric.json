@@ -1,0 +1,82 @@
+{
+   "nameId" : "",
+   "name": "",
+   "description": "",
+   "characteristics": [
+      {
+         "characteristic": "",
+         "value": ""
+      }
+   ],
+   "activitySpaces" : [
+      {
+         "nameId": "",
+         "name": "",
+         "description": "",
+         "activities": [
+            {
+               "nameId" : "",
+               "name" : "",
+               "description" : "",
+               "entryCriterions": {
+                  "alphas": [],
+                  "workProducts": []
+               },
+               "completionCriterions": {
+                  "alphas": [],
+                  "workProducts": []
+               },
+               "competencies": []
+            }
+         ]
+      }
+   ],
+   "alphas" : [
+      {
+         "nameId" : "",
+         "name" : "",
+         "description": "",
+         "workProducts" : [
+            {
+               "nameId" : "",
+               "name" : "",
+               "description": "",
+               "levelOfDetails" : []
+            }
+         ],
+         "states" : [
+            {
+               "nameId" : "",
+               "name" : "",
+               "description": "",
+               "checklists" : [] 
+            }
+         ],
+         "subalphaIds" : []
+      }
+   ],
+   "competencies" : [
+      {
+         "nameId": "",
+         "name" : "",
+         "description": "",
+         "levels" : [
+            {
+               "name": "",
+               "description": ""
+            }
+         ]
+      }
+   ],
+   "patterns" : [
+      {
+         "name" : "",
+         "nameId": "",
+         "description": "",
+         "alphas" : [],
+         "activities" : [],
+         "competencies" : [],
+         "subpatternIds" : []
+      }
+   ]
+}

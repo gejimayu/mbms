@@ -1,0 +1,276 @@
+{
+   "nameId" : "SpecificationByExample",
+   "name": "Specification By Example",
+   "description": "Specification by example (SBE) is a collaborative approach to defining requirements and business-oriented functional tests for software products based on capturing and illustrating requirements using realistic examples instead of abstract statements. It is applied in the context of agile software development methods, in particular behavior-driven development. This approach is particularly successful for managing requirements and functional tests on large-scale projects of significant domain and organisational complexity.",
+   "characteristics": [
+      {
+         "characteristic": "ManagementCommitment",
+         "value": "high"
+      },
+      {
+         "characteristic": "Importance",
+         "value": "high"
+      },
+      {
+         "characteristic": "ClarityAndStability",
+         "value": "strong"
+      },
+      {
+         "characteristic": "UserInvolvement",
+         "value": "real"
+      },
+      {
+         "characteristic": "Impact",
+         "value": "high"
+      }
+   ],
+   "activitySpaces" : [
+      {
+         "nameId": "UnderstandTheRequirements",
+         "name": "Understand the Requirements",
+         "description": "Establish a shared understanding of what the system to be produced must do.",
+         "activities": [
+            {
+               "nameId" : "DerivingScopeFromGoals",
+               "name" : "Deriving Scope From Goals",
+               "description" : "There are two main causes for the wrong software to be built: requirements are misunderstood or not communicated correctly, or the software has little business value or it is not the most effective way to achieve the expected business value. Companies that follow the 'deriving scope from goals' pattern address this second cause. Instead of presenting the development team with solutions to implement, business representatives introduce the business goals and the tangible and measurable expected outcomes of a project. This way, all stakeholders can work out together elegant and valuable solutions within the software constraints. When the delivery team knows the business goals behind a project or a feature, it is obviously more likely to be able to help reach them. This pattern overlaps with the following one: ‘Specifying collaboratively’.",
+               "entryCriterions": {
+                  "alphas": ["Requirements.Conceived"],
+                  "workProducts": ["BusinessGoal.Defined"]
+               },
+               "completionCriterions": {
+                  "alphas": ["Requirements.Acceptable"],
+                  "workProducts": ["BusinessGoal.Communicated"]
+               },
+               "competencies": ["StakeholderRepresentation.2"]
+            },
+            {
+               "nameId" : "IllustratingSpecificationsUsingExamples",
+               "name" : "Illustrating specifications using examples",
+               "description" : "We use examples every day in our life to clarify abstract matters. By definition, examples are concrete. They leave little room for little interpretation and are easily testable if well chosen. This makes them a great mean to communicate expected behaviours. ‘Illustrating specifications using examples’ allows exploring hedge cases, identifying functional gaps and crucially providing a clear definition of 'done'. All examples are welcome, the aim being to have the feature fully covered and understood. The attributes of a good example are to be self-explanatory, focus on one functionality only, expressed in domain language, measurable and not a script (a sequence of activities). These examples need next to be refined.",
+               "entryCriterions": {
+                  "alphas": ["Requirements.Acceptable"],
+                  "workProducts": ["Specification.Defined"]
+               },
+               "completionCriterions": {
+                  "alphas": ["Requirements.Addressed"],
+                  "workProducts": ["Specification.ExampleDefined"]
+               },
+               "competencies": ["StakeholderRepresentation.3"]
+            },
+            {
+               "nameId" : "RefiningTheSpecifications",
+               "name" : "Refining the specifications",
+               "description" : "‘Refining the specifications’ is done at the level of the examples and at the level of the set of examples. The examples must be self-explanatory and testable. The set of examples should describe the feature unambiguously but not necessarily cover all cases. Our key examples are in fact what is more commonly called acceptance criteria, acceptance tests or functional tests. Too many examples could compromise their use as live documentation and their automation.",
+               "entryCriterions": {
+                  "alphas": [],
+                  "workProducts": ["Specification.ExampleDefined"]
+               },
+               "completionCriterions": {
+                  "alphas": [],
+                  "workProducts": ["Specification.Testable"]
+               },
+               "competencies": ["StakeholderRepresentation.2"]
+            },
+            {
+               "nameId" : "AutomateValidationWithoutChangingTheSpecifications",
+               "name" : "Automate validation without changing the specifications",
+               "description" : "The set of key examples needs to be automated as tests so they can be run as often as needed and provide feedback as quickly as possible. It would not be realistic and effective to do these tests manually. However, they must not be modified while automated as we do not want to lose important information or introduce wrong information during the transcription. It is therefore not possible to use traditional test automation tools such as the xunit family. To ‘automate validation without changing the specifications’, other tools exist that allow describing behaviours in plain English. Cucumber, Concordion and Fitnesse are popular. Tool choice depends mainly on the programming language used in the project and the domain of the project.",
+               "entryCriterions": {
+                  "alphas": [],
+                  "workProducts": ["Specification.Testable"]
+               },
+               "completionCriterions": {
+                  "alphas": [],
+                  "workProducts": ["Specification.AutomatedlyValidated"]
+               },
+               "competencies": ["StakeholderRepresentation.2"]
+            },
+            {
+               "nameId" : "EvolvingLivingDocumentation",
+               "name" : "Evolving living documentation",
+               "description" : "Unlike tangible products, software keep evolving and changing even after its initial release, which makes them rather difficult to document. Typically, for software, especially enterprise software, the only source of truth is the code. This results in a consequent bottleneck in knowledge acquisition and difficulties in implementing changes. By 'evolving living documentation' teams practicing specification by example have a source of truth that evolves with the code and is readable and understandable by all team members.",
+               "entryCriterions": {
+                  "alphas": ["Documentation.Defined"],
+                  "workProducts": []
+               },
+               "completionCriterions": {
+                  "alphas": ["Documentation.Updated"],
+                  "workProducts": []
+               },
+               "competencies": ["StakeholderRepresentation.3"]
+            }
+         ]
+      }
+   ],
+   "alphas" : [
+      {
+         "nameId" : "Requirements",
+         "name" : "Requirements",
+         "description": "What the software system must do to address the opportunity and satisfy the stakeholders.",
+         "workProducts" : [
+            {
+               "nameId" : "BusinessGoal",
+               "name" : "Business Goal",
+               "description": "Business goals describe what a company expects to accomplish over a specific period of time.",
+               "levelOfDetails" : [
+                  "Identified",
+                  "Defined",
+                  "Communicated",
+                  "Achieved"
+               ]
+            },
+            {
+               "nameId" : "Specification",
+               "name" : "Specification",
+               "description": "A product specification (also referred to as “product specs”) is a document with a set of requirements that provides product teams the information they need to build out new features or functionality.",
+               "levelOfDetails" : [
+                  "Identified",
+                  "Defined",
+                  "ExampleDefined",
+                  "Testable",
+                  "AutomatedlyValidated"
+               ]
+            }
+         ],
+         "states" : [
+            {
+               "nameId" : "Conceived",
+               "name" : "Conceived",
+               "description": "The need for a new system has been agreed.",
+               "checklists" : [
+                  "Stakeholders agree system is to be produced",
+                  "Users identified",
+                  "Funding stakeholders identified",
+                  "Opportunity clear"
+               ]
+            },
+            {
+               "nameId" : "Bounded",
+               "name" : "Bounded",
+               "description": "The purpose and theme of the new system are clear.",
+               "checklists" : [
+                  "Development stakeholders identified",
+                  "System purpose agreed",
+                  "System success clear",
+                  "Shared solution understanding exists",
+                  "Requirement's format agreed",
+                  "Requirements management in place",
+                  "Prioritization scheme clear",
+                  "Constraints identified & considered",
+                  "Assumptions clear"
+               ]
+            },
+            {
+               "nameId" : "Coherent",
+               "name" : "Coherent",
+               "description": "The requirements provide a coherent description of the essential characteristics of the new system.",
+               "checklists" : [
+                  "Requirements shared",
+                  "Requirements' origin clear",
+                  "Rationale clear",
+                  "Conflicts addressed",
+                  "Essential characteristics clear",
+                  "Requirements management in place",
+                  "Key usage scenarios explained",
+                  "Priorities clear",
+                  "Impact understood",
+                  "Team knows & agrees on what to deliver"
+               ]
+            },
+            {
+               "nameId" : "Acceptable",
+               "name" : "Acceptable",
+               "description": "The requirements describe a system that is acceptable to the stakeholders.",
+               "checklists" : [
+                  "Acceptable solution described",
+                  "Change under control",
+                  "Value to be realized clear",
+                  "Clear how opportunity addressed",
+                  "Testable"
+               ]
+            },
+            {
+               "nameId" : "Addressed",
+               "name" : "Addressed",
+               "description": "Enough of the requirements have been addressed to satisfy the need for a new system in a way that is acceptable to the stakeholders.",
+               "checklists" : [
+                  "Enough addressed to be acceptable",
+                  "Requirements and system match",
+                  "Value realized clear",
+                  "System worth making operational"
+               ]
+            },
+            {
+               "nameId" : "Fulfilled",
+               "name" : "Fulfilled",
+               "description": "The requirements that have been addressed fully satisfy the need for a new system.",
+               "checklists" : [
+                  "Stakeholders accept requirements",
+                  "No hindering requirements",
+                  "Requirements fully satisfied"
+               ]
+            }
+         ],
+         "subalphaIds" : ["Documentation"]
+      },
+      {
+         "nameId" : "Documentation",
+         "name" : "Documentation",
+         "description": "Software documentation is written text or illustration that accompanies computer software or is embedded in the source code. The documentation either explains how the software operates or how to use it, and may mean different things to people in different roles.",
+         "workProducts" : [],
+         "states" : [
+            {
+               "nameId" : "Defined",
+               "name" : "Defined",
+               "description": "Documentation is planned and defined of what it will be comprised of.",
+               "checklists" : [
+                  "Documentation planned",
+                  "Documentation outlined",
+                  "Tools for documentation chosen"
+               ] 
+            },
+            {
+               "nameId" : "Updated",
+               "name" : "Updated",
+               "description": "Documentation is regularly updated and synchronized with the product. It is updated by many members of various divisions.",
+               "checklists" : [
+                  "Documentation updated regularly",
+                  "Documentation is in sync with the related product"
+               ] 
+            }
+         ],
+         "subalphaIds" : []
+      }
+   ],
+   "competencies" : [
+      {
+         "nameId": "StakeholderRepresentation",
+         "name" : "Stakeholder Representation",
+         "description": " This competency encapsulates the ability to gather, communicate, and balance the needs of other stakeholders, and accurately represent their views",
+         "levels" : [
+            {
+               "name": "Assists",
+               "description": "Demonstrates a basic understanding of the concepts and can follow instructions."
+            },
+            {
+               "name": "Applies",
+               "description": "Able to apply the concepts in simple contexts by routinely applying the experience gained so far."
+            },
+            {
+               "name": "Masters",
+               "description": "Able to apply the concepts in most contexts and has the experience to work without supervision."
+            },
+            {
+               "name": "Adapts",
+               "description": "Able to apply judgment on when and how to apply the concepts to more complex contexts. Can enable others to apply the concepts."
+            },
+            {
+               "name": "Innovates",
+               "description": "A recognized expert, able to extend the concepts to new contexts and inspire others."
+            }
+         ]
+      }
+   ],
+   "patterns" : []
+}

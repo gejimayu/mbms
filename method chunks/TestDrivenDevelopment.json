@@ -1,0 +1,318 @@
+{
+   "nameId" : "TestDrivenDevelopment",
+   "name": "Test Driven Development",
+   "description": "Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into very specific test cases, then the software is improved to pass the new tests, only. This is opposed to software development that allows software to be added that is not proven to meet requirements. Writing the tests first: The tests should be written before the functionality that is to be tested. This has been claimed to have many benefits. It helps ensure that the application is written for testability, as the developers must consider how to test the application from the outset rather than adding it later. It also ensures that tests for every feature get written. Additionally, writing the tests first leads to a deeper and earlier understanding of the product requirements, ensures the effectiveness of the test code, and maintains a continual focus on software quality.",
+   "characteristics": [
+      {
+         "characteristic": "Dependency",
+         "value": "high"
+      },
+      {
+         "characteristic": "Expertise",
+         "value": "high"
+      },
+      {
+         "characteristic": "TracingProject",
+         "value": "strong"
+      },
+      {
+         "characteristic": "Complexity",
+         "value": "high"
+      },
+      {
+         "characteristic": "Impact",
+         "value": "high"
+      }
+   ],
+   "activitySpaces" : [
+      {
+         "nameId": "TestTheSystem",
+         "name": "Test the System",
+         "description": "Verify that the system produced meets the stakeholders’ requirements.",
+         "activities": [
+            {
+               "nameId" : "BuildUnitTestFirst",
+               "name" : "Buildunit Test First",
+               "description" : "In test-driven development, each new feature begins with writing a test. Write a test that defines a function or improvements of a function, which should be very succinct. To write a test, the developer must clearly understand the feature's specification and requirements. The developer can accomplish this through use cases and user stories to cover the requirements and exception conditions, and can write the test in whatever testing framework is appropriate to the software environment. It could be a modified version of an existing test. This is a differentiating feature of test-driven development versus writing unit tests after the code is written: it makes the developer focus on the requirements before writing the code, a subtle but important difference.",
+               "entryCriterions": {
+                  "alphas": [],
+                  "workProducts": ["UnitTest.Initiated"]
+               },
+               "completionCriterions": {
+                  "alphas": ["UnitProgram.ReadyToDevelop"],
+                  "workProducts": ["UnitTest.Developed"]
+               },
+               "competencies": ["Testing.2", "Analysis.2"]
+            }
+         ]
+      },
+      {
+         "nameId": "ImplementTheSystem",
+         "name": "Implement The System",
+         "description": "Build a system by implementing, testing, and integrating one or more system elements. This includes bug fixing and unit testing",
+         "activities": [
+            {
+               "nameId" : "CodingUntilPassTheTests",
+               "name" : "Coding Until It Passes the Tests",
+               "description" : "At this point, the only purpose of the written code is to pass the test. The programmer must not write code that is beyond the functionality that the test checks.",
+               "entryCriterions": {
+                  "alphas": ["UnitProgram.ReadyToDevelop"],
+                  "workProducts": []
+               },
+               "completionCriterions": {
+                  "alphas": ["UnitProgram.Developed"],
+                  "workProducts": []
+               },
+               "competencies": ["Development.2"]
+            },
+            {
+               "nameId" : "RefactorCodeAfterFinished",
+               "name" : "Refactor Code After Finished",
+               "description" : "The growing code base must be cleaned up regularly during test-driven development. New code can be moved from where it was convenient for passing a test to where it more logically belongs. Duplication must be removed. Object, class, module, variable and method names should clearly represent their current purpose and use, as extra functionality is added. As features are added, method bodies can get longer and other objects larger. They benefit from being split and their parts carefully named to improve readability and maintainability, which will be increasingly valuable later in the software lifecycle. Inheritance hierarchies may be rearranged to be more logical and helpful, and perhaps to benefit from recognized design patterns. There are specific and general guidelines for refactoring and for creating clean code.",
+               "entryCriterions": {
+                  "alphas": ["UnitProgram.Developed"],
+                  "workProducts": []
+               },
+               "completionCriterions": {
+                  "alphas": ["UnitProgram.Finished"],
+                  "workProducts": []
+               },
+               "competencies": ["Development.3"]
+            }
+         ]
+      }
+   ],
+   "alphas" : [
+      {
+         "nameId" : "SoftwareSystem",
+         "name" : "Software System",
+         "description": "A system made up of software, hardware, and data that provides its primary value by the execution of the software.",
+         "workProducts" : [],
+         "states" : [
+            {
+               "nameId" : "ArchitectureSelected",
+               "name" : "Architecture Selected",
+               "description": "An architecture has been selected that addresses the key technical risks and any applicable organizational constraints.",
+               "checklists" : [
+                  "Architecture selection criteria agreed",
+                  "HW platforms identified",
+                  "Technologies selected",
+                  "System boundary known",
+                  "Decisions on system organization made",
+                  "Buy, build, reuse decisions made",
+                  "Key technical risks agreed to"
+               ] 
+            },
+            {
+               "nameId" : "Demonstrable",
+               "name" : "Demonstrable",
+               "description": "An executable version of the system is available that demonstrates the architecture is fit for purpose and supports functional and non-functional testing.",
+               "checklists" : [
+                  "Key architectural characteristics demonstrated",
+                  "System exercised & performance measured",
+                  "Critical HW configurations demonstrated",
+                  "Critical interfaces demonstrated",
+                  "Integration with environment demonstrated",
+                  "Architecture accepted as fit-for-purpose"
+               ] 
+            },
+            {
+               "nameId" : "Usable",
+               "name" : "Usable",
+               "description": "The system is usable and demonstrates all of the quality characteristics of an operational system.",
+               "checklists" : [
+                  "System can be operated",
+                  "System functionality tested",
+                  "System performance acceptable",
+                  "Defect levels acceptable",
+                  "System fully documented",
+                  "Release content known",
+                  "Added value clear"
+               ] 
+            },
+            {
+               "nameId" : "Ready",
+               "name" : "Ready",
+               "description": "The system (as a whole) has been accepted for deployment in a live environment.",
+               "checklists" : [
+                  "User documentation available",
+                  "System accepted as fit-for-purpose",
+                  "Stakeholders want the system",
+                  "Operational support in place"
+               ] 
+            },
+            {
+               "nameId" : "Operational",
+               "name" : "Operational",
+               "description": "The system is in use in an operational environment.",
+               "checklists" : [
+                  "System available for use  ",
+                  "System live",
+                  "Agreed service levels supported"
+               ] 
+            },
+            {
+               "nameId" : "Retired",
+               "name" : "Retired",
+               "description": "The system is no longer supported.",
+               "checklists" : [
+                  "Replaced or discontinued",
+                  "No longer supported",
+                  "No authorized users",
+                  "Updates stopped"
+               ] 
+            }
+         ],
+         "subalphaIds" : ["UnitProgram"]
+      },
+      {
+         "nameId" : "UnitProgram",
+         "name" : "Unit Program",
+         "description": "Small subset of a whole software system. Usually it is independent and acts as a separated module or function.",
+         "workProducts" : [
+            {
+               "nameId" : "UnitTest",
+               "name" : "Unit Test",
+               "description": "Unit testing is a software testing method by which individual units of source code, sets of one or more computer program modules together with associated control data, usage procedures, and operating procedures, are tested to determine whether they are fit for use.",
+               "levelOfDetails" : [
+                  "Initiated",
+                  "TestCasesDefined",
+                  "Developed"
+               ]
+            }
+         ],
+         "states" : [
+            {
+               "nameId" : "RequirementDefined",
+               "name" : "Requirement Defined",
+               "description": "Requirement or goal of the function/module has been defined.",
+               "checklists" : [
+                  "Requirement defined",
+                  "Goals defined"
+               ] 
+            },
+            {
+               "nameId" : "ReadyToDevelop",
+               "name" : "ReadyToDevelop",
+               "description": "Function or module is ready to develop.",
+               "checklists" : [
+                  "Unit test has been developed"
+               ] 
+            },
+            {
+               "nameId" : "Developed",
+               "name" : "Developed",
+               "description": "Program has been functional and passed all the unit tests.",
+               "checklists" : [
+                  "Unit program is functional",
+                  "Unit program passed all the tests"
+               ] 
+            },
+            {
+               "nameId" : "Finished",
+               "name" : "Finished",
+               "description": "Program has been refactored and clean, with existing best practices.",
+               "checklists" : [
+                  "Program has clean design",
+                  "Program has incorporated best practices"
+               ] 
+            }
+         ],
+         "subalphaIds" : []
+      }
+   ],
+   "competencies" : [
+      {
+         "nameId": "Analysis",
+         "name" : "Analysis",
+         "description": "The ability to understand opportunities and their related stakeholder needs, and transform them into an agreed and consistent set of requirements. The analysis competency is the deductive ability to understand the situation, context, concepts and problems, identify appropriate high-level solutions, and evaluate and draw conclusions by applying logical thinking.",
+         "levels" : [
+            {
+               "name": "Assists",
+               "description": "Demonstrates a basic understanding of the concepts and can follow instructions."
+            },
+            {
+               "name": "Applies",
+               "description": "Able to apply the concepts in simple contexts by routinely applying the experience gained so far."
+            },
+            {
+               "name": "Masters",
+               "description": "Able to apply the concepts in most contexts and has the experience to work without supervision."
+            },
+            {
+               "name": "Adapts",
+               "description": "Able to apply judgment on when and how to apply the concepts to more complex contexts. Can enable others to apply the concepts."
+            },
+            {
+               "name": "Innovates",
+               "description": "A recognized expert, able to extend the concepts to new contexts and inspire others."
+            }
+         ]
+      },
+      {
+         "nameId": "Development",
+         "name" : "Development",
+         "description": "The ability to design and program effective software systems following the standards and norms agreed by the team. The development competency is the mental ability to conceive and produce a software system, or one of its elements, for a specific function or end. It enables a team to produce software systems that meet the requirements.",
+         "levels" : [
+            {
+               "name": "Assists",
+               "description": "Demonstrates a basic understanding of the concepts and can follow instructions."
+            },
+            {
+               "name": "Applies",
+               "description": "Able to apply the concepts in simple contexts by routinely applying the experience gained so far."
+            },
+            {
+               "name": "Masters",
+               "description": "Able to apply the concepts in most contexts and has the experience to work without supervision."
+            },
+            {
+               "name": "Adapts",
+               "description": "Able to apply judgment on when and how to apply the concepts to more complex contexts. Can enable others to apply the concepts."
+            },
+            {
+               "name": "Innovates",
+               "description": "A recognized expert, able to extend the concepts to new contexts and inspire others."
+            }
+         ]
+      },
+      {
+         "nameId": "Testing",
+         "name" : "Testing",
+         "description": "The ability to test a system, verifying that it is usable and that it meets the requirements. The testing competency is an observational, comparative, detective and destructive ability that enables the system to be tested.",
+         "levels" : [
+            {
+               "name": "Assists",
+               "description": "Demonstrates a basic understanding of the concepts and can follow instructions."
+            },
+            {
+               "name": "Applies",
+               "description": "Able to apply the concepts in simple contexts by routinely applying the experience gained so far."
+            },
+            {
+               "name": "Masters",
+               "description": "Able to apply the concepts in most contexts and has the experience to work without supervision."
+            },
+            {
+               "name": "Adapts",
+               "description": "Able to apply judgment on when and how to apply the concepts to more complex contexts. Can enable others to apply the concepts."
+            },
+            {
+               "name": "Innovates",
+               "description": "A recognized expert, able to extend the concepts to new contexts and inspire others."
+            }
+         ]
+      }
+   ],
+   "patterns" : [
+      {
+         "name" : "KeepUnitSmall",
+         "nameId": "Keep Unit Small",
+         "description": "For TDD, a unit is most commonly defined as a class, or a group of related functions often called a module. Keeping units relatively small is claimed to provide critical benefits, including: Reduced debugging effort – When test failures are detected, having smaller units aids in tracking down errors, Self-documenting tests – Small test cases are easier to read and to understand.",
+         "alphas" : ["UnitProgram"],
+         "activities" : ["CodingUntilPassTheTests", "RefactorCodeAfterFinished"],
+         "competencies" : ["Development"],
+         "subpatternIds" : []
+      }
+   ]
+}

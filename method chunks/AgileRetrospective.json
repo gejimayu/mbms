@@ -1,0 +1,431 @@
+   {
+      "nameId" : "AgileRetrospective",
+      "name": "Agile Retrospective",
+      "description": "Make incremental improvements to the way of working through regular, repeated retrospectives.",
+      "characteristics": [
+         {
+            "characteristic": "Impact",
+            "value": "high"
+         },
+         {
+            "characteristic": "ResistanceAndConflict",
+            "value": "high"
+         },
+         {
+            "characteristic": "Formality",
+            "value": "low" 
+         },
+         {
+            "characteristic": "Variability",
+            "value": "high"
+         },
+         {
+            "characteristic": "TracingProject",
+            "value": "strong"
+         }
+      ],
+      "activitySpaces" : [
+         {
+            "nameId": "SupportTheTeam",
+            "name": "Support the Team",
+            "description": "Help the team members to help themselves, collaborate and improve their way of working. Support the team to: Improve team working, Overcome any obstacles, Improve ways of working.",
+            "activities": [
+               {
+                  "nameId" : "HoldARetrospective",
+                  "name" : "Hold a Retrospective",
+                  "description" : "The whole team meets regularly to reflect on its way of working. Improvements are identified and prioritized, and actions agreed. At the next retrospective, the results are evaluated.",
+                  "entryCriterions": {
+                     "alphas": ["Improvement.Identified"],
+                     "workProducts": []
+                  },
+                  "completionCriterions": {
+                     "alphas": ["WayOfWorking.WorkingWell", "Improvement.ActionAgreed"],
+                     "workProducts": []
+                  },
+                  "competencies": ["Leadership.2", "Management.2"]
+               }
+            ]
+         }
+      ],
+      "alphas" : [
+         {
+            "nameId" : "Team",
+            "name" : "Team",
+            "description": "A group of people actively engaged in the development, maintenance, delivery or support of a specific software system. One or more teams plan and perform the work needed to create, update and/or change the software system.",
+            "workProducts" : [],
+            "states" : [
+               {
+                  "nameId" : "Seeded",
+                  "name" : "Seeded",
+                  "description": "The team’s mission is clear and the know-how needed to grow the team is in place.",
+                  "checklists" : [
+                     "Mission defined",
+                     "Constraints known and defined",
+                     "Growth mechanisms in place",
+                     "Composition defined",
+                     "Responsibilities outlined",
+                     "Required commitment level clear",
+                     "Required competencies identified",
+                     "Size determined",
+                     "Governance rules defined",
+                     "Leadership model selected"
+                  ] 
+               },
+               {
+                  "nameId" : "Formed",
+                  "name" : "Formed",
+                  "description": "The team has been populated with enough committed people to start the mission.",
+                  "checklists" : [
+                     "Enough members recruited",
+                     "Roles understood",
+                     "How to work understood",
+                     "Members introduced",
+                     "Individual responsibilities accepted and aligned to competencies",
+                     "Members accepting work",
+                     "External collaborators identified",
+                     "Communication mechanisms defined",
+                     "Members commit to team"
+                  ] 
+               },
+               {
+                  "nameId" : "Collaborating",
+                  "name" : "Collaborating",
+                  "description": "The team members are working together as one unit.",
+                  "checklists" : [
+                     "Works as one unit",
+                     "Communication open and honest",
+                     "Focused on mission",
+                     "Members know each other"
+                  ] 
+               },
+               {
+                  "nameId" : "Performing",
+                  "name" : "Performing",
+                  "description": "The team is working effectively and efficiently.",
+                  "checklists" : [
+                     "Consistently meeting commitments",
+                     "Continuously adapting to change",
+                     "Addresses problems",
+                     "Rework and backtracking minimized",
+                     "Waste continuously eliminated"
+                  ] 
+               },
+               {
+                  "nameId" : "Adjourned",
+                  "name" : "Adjourned",
+                  "description": "The team is no longer accountable for carrying out its mission.",
+                  "checklists" : [
+                     "Responsibilities fulfilled",
+                     "Members available to other teams",
+                     "Mission concluded"
+                  ] 
+               }
+            ],
+            "subalphaIds" : []
+         },
+         {
+            "nameId" : "Work",
+            "name" : "Work",
+            "description": "Activity involving mental or physical effort done in order to achieve a result. In the context of software engineering, work is everything that the team does to meet the goals of producing a software system matching the requirements and addressing the opportunity presented by the stakeholders. The work is guided by the practices that make up the team’s way-of-working.",
+            "workProducts" : [],
+            "states" : [
+               {
+                  "nameId" : "Initiated",
+                  "name" : "Initiated",
+                  "description": "The work has been requested.",
+                  "checklists" : [
+                     "Required result clear",
+                     "Constraints clear",
+                     "Funding stakeholders known",
+                     "Initiator identified",
+                     "Accepting stakeholders known",
+                     "Source of funding clear",
+                     "Priority clear"
+                  ] 
+               },
+               {
+                  "nameId" : "Prepared",
+                  "name" : "Prepared",
+                  "description": "All pre-conditions for starting the work have been met.",
+                  "checklists" : [
+                     "Commitment made",
+                     "Cost and effort estimated",
+                     "Resource availability understood",
+                     "Risk exposure understood",
+                     "Acceptance criteria established",
+                     "Sufficiently broken down to start",
+                     "Tasks identified and prioritized",
+                     "Credible plan in place",
+                     "Funding in place",
+                     "At least one team member ready",
+                     "Integration points defined"
+                  ] 
+               },
+               {
+                  "nameId" : "Started",
+                  "name" : "Started",
+                  "description": "The work is proceeding.",
+                  "checklists" : [
+                     "Development started",
+                     "Progress monitored",
+                     "Definition of done in place",
+                     "Tasks being progressed"
+                  ] 
+               },
+               {
+                  "nameId" : "UnderControl",
+                  "name" : "Under Control",
+                  "description": "The work is going well, risks are under control, and productivity levels are sufficient to achieve a satisfactory result.",
+                  "checklists" : [
+                     "Tasks being completed",
+                     "Unplanned work under control",
+                     "Risks under control",
+                     "Estimates revised to reflect performance",
+                     "Progress measured",
+                     "Re-work under control",
+                     "Commitments consistently met"
+                  ] 
+               },
+               {
+                  "nameId" : "Concluded",
+                  "name" : "Concluded",
+                  "description": "The work to produce the results has been concluded.",
+                  "checklists" : [
+                     "Only admin tasks left",
+                     "Results achieved",
+                     "Resulting system accepted"
+                  ] 
+               },
+               {
+                  "nameId" : "Closed",
+                  "name" : "Closed",
+                  "description": "All remaining housekeeping tasks have been completed and the work has been officially closed.",
+                  "checklists" : [
+                     "Lessons learned",
+                     "Metrics available",
+                     "Everything archived",
+                     "Budget reconciled & closed",
+                     "Team released",
+                     "No outstanding, uncompleted tasks"
+                  ] 
+               }
+            ],
+            "subalphaIds" : []
+         },
+         {
+            "nameId" : "WayOfWorking",
+            "name" : "Way of Working",
+            "description": "The tailored set of practices and tools used by a team to guide and support their work. The team evolves their way of working alongside their understanding of their mission and their working environment. As their work proceeds they continually reflect on their way of working and adapt it to their current context, if necessary.",
+            "workProducts" : [],
+            "states" : [
+               {
+                  "nameId" : "PrinciplesEstablished",
+                  "name" : "Principles Established",
+                  "description": "The principles, and constraints, that shape the way-of-working are established.",
+                  "checklists" : [
+                     "Team actively support principles",
+                     "Stakeholders agree with principles",
+                     "Tool needs agreed",
+                     "Approach recommended",
+                     "Operational context understood",
+                     "Practice & tool constraints known"
+                  ] 
+               },
+               {
+                  "nameId" : "FoundationEstablished",
+                  "name" : "Foundation Established",
+                  "description": "The key practices, and tools, that form the foundation of the way of working are selected and ready for use.",
+                  "checklists" : [
+                     "Key practices & tools selected",
+                     "Practices needed to start work agreed",
+                     "Non-negotiable practices & tools identified",
+                     "Gaps between available and needed way of working understood",
+                     "Gaps in capability understood",
+                     "Integrated way of working available"
+                  ] 
+               },
+               {
+                  "nameId" : "InUse",
+                  "name" : "In Use",
+                  "description": "Some members of the team are using, and adapting, the way-of-working.",
+                  "checklists" : [
+                     "Practices & tools in use",
+                     "Regularly inspected",
+                     "Adapted to context",
+                     "Supported by team",
+                     "Feedback mechanisms in place",
+                     "Practices & tools support collaboration"
+                  ] 
+               },
+               {
+                  "nameId" : "InPlace",
+                  "name" : "In Place",
+                  "description": "All team members are using the way of working to accomplish their work.",
+                  "checklists" : [
+                     "Used by whole team",
+                     "Accessible to whole team",
+                     "Inspected and adapted by whole team"
+                  ] 
+               },
+               {
+                  "nameId" : "WorkingWell",
+                  "name" : "Working Well",
+                  "description": "The team’s way of working is working well for the team.",
+                  "checklists" : [
+                     "Predictable progress being made",
+                     "Practices naturally applied",
+                     "Tools naturally support way-of-working",
+                     "Continually tuned"
+                  ] 
+               },
+               {
+                  "nameId" : "Retired",
+                  "name" : "Retired",
+                  "description": "The way of working is no longer in use by the team.",
+                  "checklists" : [
+                     "No longer in use",
+                     "Lessons learned shared"
+                  ] 
+               }
+            ],
+            "subalphaIds" : ["Improvement"]
+         },
+         {
+            "nameId" : "Improvement",
+            "name" : "Improvement",
+            "description": "A possible adaptation to improve a Team’s Way of Working.",
+            "workProducts" : [],
+            "states" : [
+               {
+                  "nameId" : "Identified",
+                  "name" : "Identified",
+                  "description": "A possible adaptation to improve a team’s way of working has been identified.",
+                  "checklists" : [
+                     "A possible adaptation to improve a team’s way of working has been identified"
+                  ] 
+               },
+               {
+                  "nameId" : "Prioritized",
+                  "name" : "Prioritized",
+                  "description": "A possible adaptation to improve a team’s way of working has been prioritized so support decisions on what to focus on improving and when.A possible adaptation to a team’s way of working has been prioritized to support decisions on what to focus on improving and when. Action Agreed",
+                  "checklists" : [
+                     "A possible adaptation to a team’s way of working has been prioritized to support decisions on what to focus on improving and when. Action Agreed"
+                  ] 
+               },
+               {
+                  "nameId" : "ActionAgreed",
+                  "name" : "Action Agreed",
+                  "description": "It has been agreed what action to take to enact or otherwise respond to an improvement.",
+                  "checklists" : [
+                     "It has been agreed what action to take to enact or otherwise respond to an improvement",
+                     "It is clear when the action will be taken",
+                     "It is clear who is responsible for the action",
+                     "It is agreed how the results of the actions will be measured to prove whether or not an improvement has been achieved"
+                  ] 
+               },
+               {
+                  "nameId" : "Trialed",
+                  "name" : "Trialed",
+                  "description": "The improvement has been enacted in such a way that the team is able to assess its success and decide whether to continue with the enactment, reverse out of it, or adapt it in some way.",
+                  "checklists" : [
+                     "The improvement has been enacted in such a way that the team is able to assess its success and decide whether to continue with the enactment, reverse out of it, or adapt it"
+                  ] 
+               },
+               {
+                  "nameId" : "ResultsEvaluated",
+                  "name" : "Results Evaluated",
+                  "description": "The team has assessed the success or otherwise of the improvement.",
+                  "checklists" : [
+                     "The team has assessed the success or otherwise of the improvement",
+                     "The team has agreed what changes to make to their future way of working as a result, if any"
+                  ] 
+               },
+               {
+                  "nameId" : "InUse",
+                  "name" : "In Use",
+                  "description": "The improvement is in use and now a fully embedded part of the team’s way of working.",
+                  "checklists" : [
+                     "The improvement is now a fully embedded part of the team's agreed way of working"
+                  ] 
+               }
+            ],
+            "subalphaIds" : []
+         }
+      ],
+      "competencies" : [
+         {
+            "nameId": "Leadership",
+            "name" : "Leadership",
+            "description": "The ability to inspire and motivate a group of people to achieve a successful conclusion to their work and to meet their objectives.",
+            "levels" : [
+               {
+                  "name": "Assists",
+                  "description": "Demonstrates a basic understanding of the concepts and can follow instructions."
+               },
+               {
+                  "name": "Applies",
+                  "description": "Able to apply the concepts in simple contexts by routinely applying the experience gained so far."
+               },
+               {
+                  "name": "Masters",
+                  "description": "Able to apply the concepts in most contexts and has the experience to work without supervision."
+               },
+               {
+                  "name": "Adapts",
+                  "description": "Able to apply judgment on when and how to apply the concepts to more complex contexts. Can enable others to apply the concepts."
+               },
+               {
+                  "name": "Innovates",
+                  "description": "A recognized expert, able to extend the concepts to new contexts and inspire others."
+               }
+            ]
+         },
+         {
+            "nameId": "Management",
+            "name" : "Management",
+            "description": "The ability to coordinate, plan and track the work done by a team. The management competency is the administrative and organizational ability that enables the right things to be done at the right time to maximize a team’s chances of success.",
+            "levels" : [
+               {
+                  "name": "Assists",
+                  "description": "Demonstrates a basic understanding of the concepts and can follow instructions."
+               },
+               {
+                  "name": "Applies",
+                  "description": "Able to apply the concepts in simple contexts by routinely applying the experience gained so far."
+               },
+               {
+                  "name": "Masters",
+                  "description": "Able to apply the concepts in most contexts and has the experience to work without supervision."
+               },
+               {
+                  "name": "Adapts",
+                  "description": "Able to apply judgment on when and how to apply the concepts to more complex contexts. Can enable others to apply the concepts."
+               },
+               {
+                  "name": "Innovates",
+                  "description": "A recognized expert, able to extend the concepts to new contexts and inspire others."
+               }
+            ]
+         }
+      ],
+      "patterns" : [
+         {
+            "name" : "Feedback",
+            "nameId": "Feedback",
+            "description": "Feedback patterns establish mechanisms for assessing performance and adjusting the approach based on these assessments. Apply feedback patterns to: Assess performance and results, Seek input from stakeholders, Analyze reasons for underperformance, Ensure assessments are open and honest, Enable lessons to be learnt, Enable approaches to be adjusted.",
+            "alphas" : [],
+            "activities" : [],
+            "competencies" : [],
+            "subpatternIds" : ["MadSadGlad"]
+         },
+         {
+            "name" : "Mad, Sad, Glad",
+            "nameId": "MadSadGlad",
+            "description": "A popular approach to team brainstorming to identify potential improvements. Team members write on sticky notes what has made them: Mad – frustrations, Sad – disappointments, Glad – things that went well. Part of its power is that it taps into people’s emotions, and results in an unfettered flow of ideas that the team can then analyze, prioritize and action.",
+            "alphas" : [],
+            "activities" : ["HoldARetrospective"],
+            "competencies" : [],
+            "subpatternIds" : []
+         }
+      ]
+   }

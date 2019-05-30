@@ -1,0 +1,788 @@
+{
+   "nameId" : "ProductBacklog",
+   "name": "Product Backlog",
+   "description": "Capture what the users of a system want it to do as a priority-ranked list of independently buildable items.",
+   "characteristics": [
+      {
+         "characteristic": "Importance",
+         "value": "high"
+      },
+      {
+         "characteristic": "UserInvolvement",
+         "value": "real"
+      },
+      {
+         "characteristic": "ClarityAndStability",
+         "value": "high"
+      },
+      {
+         "characteristic": "Dependency",
+         "value": "low"
+      },
+      {
+         "characteristic": "RealizationStrategy",
+         "value": "incremental"
+      }
+   ],
+   "activitySpaces" : [
+      {
+         "nameId": "UnderstandTheRequirements",
+         "name": "Understand the Requirements",
+         "description": "Establish a shared understanding of what the system to be produced must do. Understand the requirements to: Scope the system, Understand how the system will generate value, Agree on what the system will do, Identify specific ways of using and testing the system, Drive the development of the system.",
+         "activities": [
+            {
+               "nameId" : "RefineProductBacklog",
+               "name" : "Refine Product Backlog",
+               "description" : "Get and keep the Product Backlog visible, up-to-date and in good working order, with high priority items well understood.",
+               "entryCriterions": {
+                  "alphas": [],
+                  "workProducts": ["ProductBacklog.ItemsGathered"]
+               },
+               "completionCriterions": {
+                  "alphas": ["Requirements.Coherent", "ProductBacklogItem.Identified"],
+                  "workProducts": ["ProductBacklog.ItemsPrioritized"]
+               },
+               "competencies": ["StakeholderRepresentation.3", "Analysis.2", "Development.2", "Testing.2"]
+            },
+            {
+               "nameId" : "AgreeDefinitionOfDone",
+               "name" : "Agree Definition of Done",
+               "description" : "Agree the quality criteria that will be used to determine whether any change to the product is fully and correctly implemented.",
+               "entryCriterions": {
+                  "alphas": [],
+                  "workProducts": []
+               },
+               "completionCriterions": {
+                  "alphas": ["Requirements.Coherent"],
+                  "workProducts": ["DefinitionOfDone.CompletionConditionsListed"]
+               },
+               "competencies": ["StakeholderRepresentation.2", "Analysis.2", "Development.3", "Testing.3"]
+            },
+            {
+               "nameId" : "PrepareAProductBacklogItem",
+               "name" : "Prepare a Product Backlog Item",
+               "description" : "Ensure that the Product Backlog Item is ready for development and that it is clear how it will be tested.",
+               "entryCriterions": {
+                  "alphas": ["Requirements.Conceived", "ProductBacklogItem.Identified"],
+                  "workProducts": ["ProductBacklog.ItemsPrioritized"]
+               },
+               "completionCriterions": {
+                  "alphas": ["Requirements.Coherent", "ProductBacklogItem.ReadyForDevelopment"],
+                  "workProducts": ["TestCase.TestIdeasCaptured"]
+               },
+               "competencies": ["StakeholderRepresentation.3", "Analysis.2", "Development.2", "Testing.2"]
+            }
+         ]
+      }
+   ],
+   "alphas" : [
+      {
+         "nameId" : "Stakeholders",
+         "name" : "Stakeholders",
+         "description": "The people, groups, or organizations who affect or are affected by a software system. The stakeholders provide the opportunity, and are the source of the requirements for the software system. They are involved throughout the software engineering endeavor to support the team and ensure that an acceptable software system is produced.",
+         "workProducts" : [],
+         "states" : [
+            {
+               "nameId": "Recognized",
+               "name": "Recognized",
+               "description": "Stakeholders have been identified.",
+               "checklists": [
+                  "Stakeholder groups identified",
+                  "Key stakeholder groups represented",
+                  "Responsibilities defined"
+               ]
+            },
+            {
+               "nameId": "Represented",
+               "name": "Represented",
+               "description": "The mechanisms for involving the stakeholders are agreed and the stakeholder representatives have been appointed.",
+               "checklists": [
+                  "Responsibilities agreed",
+                  "Representatives authorized",
+                  "Collaboration approach agreed",
+                  "Way of working supported & respected"
+               ]
+            },
+            {
+               "nameId": "Involved",
+               "name": "Involved",
+               "description": "The stakeholder representatives are actively involved in the work and fulfilling their responsibilities.",
+               "checklists": [
+                  "Representatives assist the team",
+                  "Timely feedback and decisions provided",
+                  "Changes promptly communicated"
+               ]
+            },
+            {
+               "nameId": "InAgreement",
+               "name": "In Agreement",
+               "description": "The stakeholder representatives are in agreement.",
+               "checklists": [
+                  "Minimal expectations agreed",
+                  "Rep's happy with their involvement",
+                  "Rep's input valued",
+                  "Team's input valued",
+                  "Priorities clear & perspectives balanced"
+               ]
+            },
+            {
+               "nameId": "SatisfiedForDeployment",
+               "name": "Satisfied for Deployment",
+               "description": "The minimal expectations of the stakeholder representatives have been achieved.",
+               "checklists": [
+                  "Stakeholder feedback provided",
+                  "System ready for deployment"
+               ]
+            },
+            {
+               "nameId": "SatisfiedInUse",
+               "name": "Satisfied in Use",
+               "description": "The system has met or exceeds the minimal stakeholder expectations.",
+               "checklists": [
+                  "Feedback on system use available",
+                  "System meets expectations"
+               ]
+            }
+         ],
+         "subalphaIds" : []
+      },
+      {
+         "nameId" : "Opportunity",
+         "name" : "Opportunity",
+         "description": "The set of circumstances that makes it appropriate to develop or change a software system. The opportunity articulates the reason for the creation of the new, or changed, software system. It represents the team’s shared understanding of the stakeholders’ needs, and helps shape the requirements for the new software system by providing justification for its development.",
+         "workProducts" : [],
+         "states" : [
+            {
+               "nameId": "Identified",
+               "name": "Identified",
+               "description": "A commercial, social or business opportunity has been identified that could be addressed by a software-based solution.",
+               "checklists": [
+                  "Idea behind opportunity identified",
+                  "At least one investing stakeholder interested",
+                  "Other stakeholders identified"
+               ]
+            },
+            {
+               "nameId": "SolutionNeeded",
+               "name": "Solution Needed",
+               "description": "The need for a software-based solution has been confirmed.",
+               "checklists": [
+                  "Solution identified",
+                  "Stakeholders' needs established",
+                  "Problems and root causes identified",
+                  "Need for a solution confirmed",
+                  "At least one solution proposed"
+               ]
+            },
+            {
+               "nameId": "ValueEstablished",
+               "name": "Value Established",
+               "description": "The value of a successful solution has been established.",
+               "checklists": [
+                  "Opportunity value quantified",
+                  "Solution impact understood",
+                  "System value understood",
+                  "Success criteria clear",
+                  "Outcomes clear and quantified"
+               ]
+            },
+            {
+               "nameId": "Viable",
+               "name": "Viable",
+               "description": "It is agreed that a solution can be produced quickly and cheaply enough to successfully address the opportunity.",
+               "checklists": [
+                  "Solution outlined",
+                  "Solution possible within constraints",
+                  "Risks acceptable & manageable",
+                  "Solution profitable",
+                  "Reasons to develop solution understood",
+                  "Pursuit viable"
+               ]
+            },
+            {
+               "nameId": "Addressed",
+               "name": "Addressed",
+               "description": "A solution has been produced that demonstrably addresses the opportunity.",
+               "checklists": [
+                  "Opportunity addressed",
+                  "Solution worth deploying",
+                  "Stakeholders satisfied"
+               ]
+            },
+            {
+               "nameId": "BenefitAccrued",
+               "name": "Benefit Accrued",
+               "description": "The operational use or sale of the solution is creating tangible benefits.",
+               "checklists": [
+                  "Solution accrues benefits",
+                  "ROI acceptable"
+               ]
+            }
+         ],
+         "subalphaIds" : []
+      },
+      {
+         "nameId" : "Requirements",
+         "name" : "Requirements",
+         "description": "What the software system must do to address the opportunity and satisfy the stakeholders.",
+         "workProducts" : [
+            {
+               "nameId" : "ProductBacklog",
+               "name" : "Product Backlog",
+               "description": "An ordered list of things to build into the product to enhance its value.",
+               "levelOfDetails" : [
+                  "ItemsGathered",
+                  "ItemsPrioritized",
+                  "CostBenefitQuantified"
+               ]
+            },
+            {
+               "nameId" : "DefinitionOfDone",
+               "name" : "Definition of Done",
+               "description": "The quality criteria that will be used to determine whether the product is of acceptable / releasable quality.",
+               "levelOfDetails" : [
+                  "CompletionConditionsListed",
+                  "QualityCriteriaAndEvidenceDescribed"
+               ]
+            },
+            {
+               "nameId" : "TestCase",
+               "name" : "Test Case",
+               "description": "Defines test inputs and expected results to help evaluate whether a specific aspect of the system works correctly.",
+               "levelOfDetails" : [
+                  "TestIdeasCaptured",
+                  "Scripted",
+                  "Automated"
+               ]
+            }
+         ],
+         "states" : [
+            {
+               "nameId" : "Conceived",
+               "name" : "Conceived",
+               "description": "The need for a new system has been agreed.",
+               "checklists" : [
+                  "Stakeholders agree system is to be produced",
+                  "Users identified",
+                  "Funding stakeholders identified",
+                  "Opportunity clear"
+               ]
+            },
+            {
+               "nameId" : "Bounded",
+               "name" : "Bounded",
+               "description": "The purpose and theme of the new system are clear.",
+               "checklists" : [
+                  "Development stakeholders identified",
+                  "System purpose agreed",
+                  "System success clear",
+                  "Shared solution understanding exists",
+                  "Requirement's format agreed",
+                  "Requirements management in place",
+                  "Prioritization scheme clear",
+                  "Constraints identified & considered",
+                  "Assumptions clear"
+               ]
+            },
+            {
+               "nameId" : "Coherent",
+               "name" : "Coherent",
+               "description": "The requirements provide a coherent description of the essential characteristics of the new system.",
+               "checklists" : [
+                  "Requirements shared",
+                  "Requirements' origin clear",
+                  "Rationale clear",
+                  "Conflicts addressed",
+                  "Essential characteristics clear",
+                  "Requirements management in place",
+                  "Key usage scenarios explained",
+                  "Priorities clear",
+                  "Impact understood",
+                  "Team knows & agrees on what to deliver"
+               ]
+            },
+            {
+               "nameId" : "Acceptable",
+               "name" : "Acceptable",
+               "description": "The requirements describe a system that is acceptable to the stakeholders.",
+               "checklists" : [
+                  "Acceptable solution described",
+                  "Change under control",
+                  "Value to be realized clear",
+                  "Clear how opportunity addressed",
+                  "Testable"
+               ]
+            },
+            {
+               "nameId" : "Addressed",
+               "name" : "Addressed",
+               "description": "Enough of the requirements have been addressed to satisfy the need for a new system in a way that is acceptable to the stakeholders.",
+               "checklists" : [
+                  "Enough addressed to be acceptable",
+                  "Requirements and system match",
+                  "Value realized clear",
+                  "System worth making operational"
+               ]
+            },
+            {
+               "nameId" : "Fulfilled",
+               "name" : "Fulfilled",
+               "description": "The requirements that have been addressed fully satisfy the need for a new system.",
+               "checklists" : [
+                  "Stakeholders accept requirements",
+                  "No hindering requirements",
+                  "Requirements fully satisfied"
+               ]
+            }
+         ],
+         "subalphaIds" : ["ProductBacklogItem"]
+      },
+      {
+         "nameId" : "ProductBacklogItem",
+         "name" : "Product Backlog Item",
+         "description": "Something to build into the product to enhance its value.",
+         "workProducts" : [],
+         "states" : [
+            {
+               "nameId": "Identified",
+               "name": "Identified",
+               "description": "A way to enhance the value of a product has been found.",
+               "checklists": [
+                  "A way to enhance the value of a product has been found ",
+                  "The item has an agreed name that is unique and meaningful ",
+                  "There is a shared high-level understanding of what the item is and why it is needed "
+               ]
+            },
+            {
+               "nameId": "ReadyForDevelopment",
+               "name": "Ready for Development",
+               "description": "The item is sufficiently well understood that the team responsible for adding it to the product can plan and start the work to get this done.",
+               "checklists": [
+                  "The item is well-enough understood by the stakeholders and the team for it to be prioritized for development ",
+                  "The value is understood enough to proceed ",
+                  "The size of the item is understood enough to proceed ",
+                  "The relative priority of the item is agreed "
+               ]
+            },
+            {
+               "nameId": "Done",
+               "name": "Done",
+               "description": "The item has been implemented in the product and has been demonstrated to be of adequate quality.",
+               "checklists": [
+                  "The item has been included in the product ",
+                  "The stakeholders are happy that the value associated with the item has been realized ",
+                  "The item has been verified as meeting all relevant quality criteria ",
+                  "The item has been validated as being usable and fit-for-purpose "
+               ]
+            }
+         ],
+         "subalphaIds" : []
+      },
+      {
+         "nameId" : "SoftwareSystem",
+         "name" : "Software System",
+         "description": "A system made up of software, hardware, and data that provides its primary value by the execution of the software.",
+         "workProducts" : [],
+         "states" : [
+            {
+               "nameId" : "ArchitectureSelected",
+               "name" : "Architecture Selected",
+               "description": "An architecture has been selected that addresses the key technical risks and any applicable organizational constraints.",
+               "checklists" : [
+                  "Architecture selection criteria agreed",
+                  "HW platforms identified",
+                  "Technologies selected",
+                  "System boundary known",
+                  "Decisions on system organization made",
+                  "Buy, build, reuse decisions made",
+                  "Key technical risks agreed to"
+               ] 
+            },
+            {
+               "nameId" : "Demonstrable",
+               "name" : "Demonstrable",
+               "description": "An executable version of the system is available that demonstrates the architecture is fit for purpose and supports functional and non-functional testing.",
+               "checklists" : [
+                  "Key architectural characteristics demonstrated",
+                  "System exercised & performance measured",
+                  "Critical HW configurations demonstrated",
+                  "Critical interfaces demonstrated",
+                  "Integration with environment demonstrated",
+                  "Architecture accepted as fit-for-purpose"
+               ] 
+            },
+            {
+               "nameId" : "Usable",
+               "name" : "Usable",
+               "description": "The system is usable and demonstrates all of the quality characteristics of an operational system.",
+               "checklists" : [
+                  "System can be operated",
+                  "System functionality tested",
+                  "System performance acceptable",
+                  "Defect levels acceptable",
+                  "System fully documented",
+                  "Release content known",
+                  "Added value clear"
+               ] 
+            },
+            {
+               "nameId" : "Ready",
+               "name" : "Ready",
+               "description": "The system (as a whole) has been accepted for deployment in a live environment.",
+               "checklists" : [
+                  "User documentation available",
+                  "System accepted as fit-for-purpose",
+                  "Stakeholders want the system",
+                  "Operational support in place"
+               ] 
+            },
+            {
+               "nameId" : "Operational",
+               "name" : "Operational",
+               "description": "The system is in use in an operational environment.",
+               "checklists" : [
+                  "System available for use  ",
+                  "System live",
+                  "Agreed service levels supported"
+               ] 
+            },
+            {
+               "nameId" : "Retired",
+               "name" : "Retired",
+               "description": "The system is no longer supported.",
+               "checklists" : [
+                  "Replaced or discontinued",
+                  "No longer supported",
+                  "No authorized users",
+                  "Updates stopped"
+               ] 
+            }
+         ],
+         "subalphaIds" : []
+      },
+      {
+         "nameId" : "Work",
+         "name" : "Work",
+         "description": "Activity involving mental or physical effort done in order to achieve a result. In the context of software engineering, work is everything that the team does to meet the goals of producing a software system matching the requirements and addressing the opportunity presented by the stakeholders. The work is guided by the practices that make up the team’s way-of-working.",
+         "workProducts" : [],
+         "states" : [
+            {
+               "nameId" : "Initiated",
+               "name" : "Initiated",
+               "description": "The work has been requested.",
+               "checklists" : [
+                  "Required result clear",
+                  "Constraints clear",
+                  "Funding stakeholders known",
+                  "Initiator identified",
+                  "Accepting stakeholders known",
+                  "Source of funding clear",
+                  "Priority clear"
+               ] 
+            },
+            {
+               "nameId" : "Prepared",
+               "name" : "Prepared",
+               "description": "All pre-conditions for starting the work have been met.",
+               "checklists" : [
+                  "Commitment made",
+                  "Cost and effort estimated",
+                  "Resource availability understood",
+                  "Risk exposure understood",
+                  "Acceptance criteria established",
+                  "Sufficiently broken down to start",
+                  "Tasks identified and prioritized",
+                  "Credible plan in place",
+                  "Funding in place",
+                  "At least one team member ready",
+                  "Integration points defined"
+               ] 
+            },
+            {
+               "nameId" : "Started",
+               "name" : "Started",
+               "description": "The work is proceeding.",
+               "checklists" : [
+                  "Development started",
+                  "Progress monitored",
+                  "Definition of done in place",
+                  "Tasks being progressed"
+               ] 
+            },
+            {
+               "nameId" : "UnderControl",
+               "name" : "Under Control",
+               "description": "The work is going well, risks are under control, and productivity levels are sufficient to achieve a satisfactory result.",
+               "checklists" : [
+                  "Tasks being completed",
+                  "Unplanned work under control",
+                  "Risks under control",
+                  "Estimates revised to reflect performance",
+                  "Progress measured",
+                  "Re-work under control",
+                  "Commitments consistently met"
+               ] 
+            },
+            {
+               "nameId" : "Concluded",
+               "name" : "Concluded",
+               "description": "The work to produce the results has been concluded.",
+               "checklists" : [
+                  "Only admin tasks left",
+                  "Results achieved",
+                  "Resulting system accepted"
+               ] 
+            },
+            {
+               "nameId" : "Closed",
+               "name" : "Closed",
+               "description": "All remaining housekeeping tasks have been completed and the work has been officially closed.",
+               "checklists" : [
+                  "Lessons learned",
+                  "Metrics available",
+                  "Everything archived",
+                  "Budget reconciled & closed",
+                  "Team released",
+                  "No outstanding, uncompleted tasks"
+               ] 
+            }
+         ],
+         "subalphaIds" : []
+      },
+      {
+         "nameId" : "WayOfWorking",
+         "name" : "Way of Working",
+         "description": "The tailored set of practices and tools used by a team to guide and support their work. The team evolves their way of working alongside their understanding of their mission and their working environment. As their work proceeds they continually reflect on their way of working and adapt it to their current context, if necessary.",
+         "workProducts" : [],
+         "states" : [
+            {
+               "nameId" : "PrinciplesEstablished",
+               "name" : "Principles Established",
+               "description": "The principles, and constraints, that shape the way-of-working are established.",
+               "checklists" : [
+                  "Team actively support principles",
+                  "Stakeholders agree with principles",
+                  "Tool needs agreed",
+                  "Approach recommended",
+                  "Operational context understood",
+                  "Practice & tool constraints known"
+               ] 
+            },
+            {
+               "nameId" : "FoundationEstablished",
+               "name" : "Foundation Established",
+               "description": "The key practices, and tools, that form the foundation of the way of working are selected and ready for use.",
+               "checklists" : [
+                  "Key practices & tools selected",
+                  "Practices needed to start work agreed",
+                  "Non-negotiable practices & tools identified",
+                  "Gaps between available and needed way of working understood",
+                  "Gaps in capability understood",
+                  "Integrated way of working available"
+               ] 
+            },
+            {
+               "nameId" : "InUse",
+               "name" : "In Use",
+               "description": "Some members of the team are using, and adapting, the way-of-working.",
+               "checklists" : [
+                  "Practices & tools in use",
+                  "Regularly inspected",
+                  "Adapted to context",
+                  "Supported by team",
+                  "Feedback mechanisms in place",
+                  "Practices & tools support collaboration"
+               ] 
+            },
+            {
+               "nameId" : "InPlace",
+               "name" : "In Place",
+               "description": "All team members are using the way of working to accomplish their work.",
+               "checklists" : [
+                  "Used by whole team",
+                  "Accessible to whole team",
+                  "Inspected and adapted by whole team"
+               ] 
+            },
+            {
+               "nameId" : "WorkingWell",
+               "name" : "Working Well",
+               "description": "The team’s way of working is working well for the team.",
+               "checklists" : [
+                  "Predictable progress being made",
+                  "Practices naturally applied",
+                  "Tools naturally support way-of-working",
+                  "Continually tuned"
+               ] 
+            },
+            {
+               "nameId" : "Retired",
+               "name" : "Retired",
+               "description": "The way of working is no longer in use by the team.",
+               "checklists" : [
+                  "No longer in use",
+                  "Lessons learned shared"
+               ] 
+            }
+         ],
+         "subalphaIds" : []
+      }
+   ],
+   "competencies" : [
+      {
+         "nameId": "StakeholderRepresentation",
+         "name" : "Stakeholder Representation",
+         "description": "The ability to gather, communicate and balance the needs of other stakeholders, and accurately represent their views. The stakeholder representation competency is the empathic ability to stand in for and accurately reflect the opinions, rights and obligations of other stakeholders.",
+         "levels" : [
+            {
+               "name": "Assists",
+               "description": "Demonstrates a basic understanding of the concepts and can follow instructions."
+            },
+            {
+               "name": "Applies",
+               "description": "Able to apply the concepts in simple contexts by routinely applying the experience gained so far."
+            },
+            {
+               "name": "Masters",
+               "description": "Able to apply the concepts in most contexts and has the experience to work without supervision."
+            },
+            {
+               "name": "Adapts",
+               "description": "Able to apply judgment on when and how to apply the concepts to more complex contexts. Can enable others to apply the concepts."
+            },
+            {
+               "name": "Innovates",
+               "description": "A recognized expert, able to extend the concepts to new contexts and inspire others."
+            }
+         ]
+      },
+      {
+         "nameId": "Analysis",
+         "name" : "Analysis",
+         "description": "The ability to understand opportunities and their related stakeholder needs, and transform them into an agreed and consistent set of requirements. The analysis competency is the deductive ability to understand the situation, context, concepts and problems, identify appropriate high-level solutions, and evaluate and draw conclusions by applying logical thinking.",
+         "levels" : [
+            {
+               "name": "Assists",
+               "description": "Demonstrates a basic understanding of the concepts and can follow instructions."
+            },
+            {
+               "name": "Applies",
+               "description": "Able to apply the concepts in simple contexts by routinely applying the experience gained so far."
+            },
+            {
+               "name": "Masters",
+               "description": "Able to apply the concepts in most contexts and has the experience to work without supervision."
+            },
+            {
+               "name": "Adapts",
+               "description": "Able to apply judgment on when and how to apply the concepts to more complex contexts. Can enable others to apply the concepts."
+            },
+            {
+               "name": "Innovates",
+               "description": "A recognized expert, able to extend the concepts to new contexts and inspire others."
+            }
+         ]
+      },
+      {
+         "nameId": "Development",
+         "name" : "Development",
+         "description": "The ability to design and program effective software systems following the standards and norms agreed by the team. The development competency is the mental ability to conceive and produce a software system, or one of its elements, for a specific function or end. It enables a team to produce software systems that meet the requirements.",
+         "levels" : [
+            {
+               "name": "Assists",
+               "description": "Demonstrates a basic understanding of the concepts and can follow instructions."
+            },
+            {
+               "name": "Applies",
+               "description": "Able to apply the concepts in simple contexts by routinely applying the experience gained so far."
+            },
+            {
+               "name": "Masters",
+               "description": "Able to apply the concepts in most contexts and has the experience to work without supervision."
+            },
+            {
+               "name": "Adapts",
+               "description": "Able to apply judgment on when and how to apply the concepts to more complex contexts. Can enable others to apply the concepts."
+            },
+            {
+               "name": "Innovates",
+               "description": "A recognized expert, able to extend the concepts to new contexts and inspire others."
+            }
+         ]
+      },
+      {
+         "nameId": "Testing",
+         "name" : "Testing",
+         "description": "The ability to test a system, verifying that it is usable and that it meets the requirements. The testing competency is an observational, comparative, detective and destructive ability that enables the system to be tested.",
+         "levels" : [
+            {
+               "name": "Assists",
+               "description": "Demonstrates a basic understanding of the concepts and can follow instructions."
+            },
+            {
+               "name": "Applies",
+               "description": "Able to apply the concepts in simple contexts by routinely applying the experience gained so far."
+            },
+            {
+               "name": "Masters",
+               "description": "Able to apply the concepts in most contexts and has the experience to work without supervision."
+            },
+            {
+               "name": "Adapts",
+               "description": "Able to apply judgment on when and how to apply the concepts to more complex contexts. Can enable others to apply the concepts."
+            },
+            {
+               "name": "Innovates",
+               "description": "A recognized expert, able to extend the concepts to new contexts and inspire others."
+            }
+         ]
+      }
+   ],
+   "patterns" : [
+      {
+         "name" : "Estimating",
+         "nameId": "Estimating",
+         "description": "Estimating patterns provide guidance on how to maintain work progress measures and forecasting capability. Apply estimating patterns to ensure: Estimates come from the people that will do the work, The disruption to productive work is minimized, Estimates are as accurate as they need to be to support reasonable predictability of progress and accuracy of forecasting.",
+         "alphas" : [],
+         "activities" : [],
+         "competencies" : [],
+         "subpatternIds" : ["RelativeEstimating"]
+      },
+      {
+         "name" : "Relative Estimating",
+         "nameId": "RelativeEstimating",
+         "description": "Effort to get Product Backlog Items done is estimated not in absolute units of time, but relative to each other. This allows progress to be predicted based on performance. The unit is often called a “Point”, e.g. a “Story Point” when sizing User Stories. Teams track the Points they earn per time period by getting Items done. This is used to forecast progress, with confidence levels based on the number of data points and stability of conditions.",
+         "alphas" : ["ProductBacklogItem"],
+         "activities" : [],
+         "competencies" : [],
+         "subpatternIds" : []
+      },
+      {
+         "name" : "Product Value",
+         "nameId": "ProductValue",
+         "description": "Product Value patterns provide guidance on how to define and prioritize the value to build into the solution. Apply product value patterns to ensure that: Value return on investment is maximized over time, High value does not wait unnecessarily for low value, Effective communication and collaboration is maximized, Process overheads and delays are minimized.",
+         "alphas" : [],
+         "activities" : [],
+         "competencies" : [],
+         "subpatternIds" : ["INVEST", "SplittingProductBacklogItems"]
+      },
+      {
+         "name" : "INVEST",
+         "nameId": "INVEST",
+         "description": "An acronym of the quality criteria for a Product Backlog Item to be ready for development: Independent – can be independently built / tested, Negotiable – e.g. in its detail or even into or out of scope, Valuable, Estimable – can be sized, Small – enough e.g. to be implemented rapidly, e.g. in a week or less, Testable.",
+         "alphas" : ["ProductBacklogItem"],
+         "activities" : [],
+         "competencies" : [],
+         "subpatternIds" : []
+      },
+      {
+         "name" : "Splitting Product Backlog Items",
+         "nameId": "SplittingProductBacklogItems",
+         "description": "Small things get done faster. In agile development there is a continuous and relentless drive to reduce the size of backlog items by splitting bigger items into smaller ones. The key is to ensure that each item delivers value: Splits should support meaningful user interactions, no matter how small or “specialized” (think “thin end-to-end journey / slice”) not technical architecture “dice” (e.g. front-end without back-end), Remember: each and every Test Case is a potential backlog item.",
+         "alphas" : ["ProductBacklogItem"],
+         "activities" : [],
+         "competencies" : [],
+         "subpatternIds" : []
+      }
+   ]
+}
