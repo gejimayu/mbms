@@ -37,7 +37,7 @@
 				"mongoose-bcrypt": "^1.6.0",
 				"mongoose-timestamp": "^0.6.0",
 				"node-fetch": "^2.3.0",
-				"validator": "^10.11.0"
+				"validator": "^13.7.0"
 		},
 		"devDependencies": {
 				"@babel/cli": "^7.4.3",
