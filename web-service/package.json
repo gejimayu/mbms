@@ -32,7 +32,7 @@
 				"dotenv": "^7.0.0",
 				"express": "^4.16.4",
 				"express-jwt": "^5.3.1",
-				"jsonwebtoken": "^8.5.1",
+				"jsonwebtoken": "^9.0.0",
 				"mongoose": "^5.4.21",
 				"mongoose-bcrypt": "^1.6.0",
 				"mongoose-timestamp": "^0.6.0",
